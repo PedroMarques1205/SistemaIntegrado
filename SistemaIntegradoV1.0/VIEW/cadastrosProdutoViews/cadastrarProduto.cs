@@ -1,0 +1,125 @@
+﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using Syncfusion.WinForms.DataGrid;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace SistemaIntegradoV1._0
+{
+    public partial class cadastrarProduto : Form
+    {
+        public cadastrarProduto()
+        {
+            InitializeComponent();
+        }
+
+        private void cadastrarProduto_Load(object sender, EventArgs e)
+        {
+            using (ConnectionString context = new ConnectionString())
+            {
+                List<MateriaPrima> listaMP = context.MateriaPrima.ToList();
+                List<materiasQuantidade> ListaMateriaQuantidade = new List<materiasQuantidade>();
+                //ListaMateriaQuantidade.Add(new materiasQuantidade { materia = "Aço", quantidade=10 });
+
+                //materiasDataGrid.AutoGenerateColumns = false;
+                materiasDataGrid.Columns.Add(new GridComboBoxColumn() { MappingName = "materia", HeaderText = "MP", Visible = true, AllowEditing = true, DataSource = listaMP, ValueMember = "Nome", DisplayMember = "Nome", Width = 250 });
+                materiasDataGrid.Columns.Add(new GridNumericColumn() { MappingName = "quantidade", HeaderText = "QTDE", Visible = true, AllowEditing = true });
+
+                MateriasUsadasBindingSource = new BindingSource();
+                MateriasUsadasBindingSource.DataSource = ListaMateriaQuantidade;
+                materiasDataGrid.DataSource = MateriasUsadasBindingSource;
+
+            }
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCadastrarProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (ConnectionString context = new ConnectionString())
+                {
+                    Produto produto = new Produto();
+                    MateriaPrima mp = new MateriaPrima();
+                    EstoqueProdutoAcabado estoque = new EstoqueProdutoAcabado();
+                    MateriasUsadasNoProduto mpUsadas = new MateriasUsadasNoProduto();
+
+                    produto.Nome = txtNomeProduto.Text;
+                    produto.PrecoUnitario = Convert.ToDouble(txtPreco.Text);
+
+                    context.Produto.Add(produto);
+                    context.SaveChanges();
+
+                    produto = context.Produto.Where(p => p.Nome.Equals(produto.Nome)).FirstOrDefault();
+                    estoque.NomeProduto = produto.Nome;
+                    estoque.IdProduto = produto.IdProduto;
+                    estoque.Quantidade = 0;
+                    mpUsadas.idProduto = produto.IdProduto;
+                    mpUsadas.NomeProduto = produto.Nome;
+                    context.EstoqueProdutoAcabado.Add(estoque);
+                    context.SaveChanges();
+
+                    List<materiasQuantidade> lista = new List<materiasQuantidade>();
+
+                    for (int i = 0; i < materiasDataGrid.View.Records.Count; i++)
+                    {
+                        if (materiasDataGrid.View.Records[i].Data is materiasQuantidade item && item != null)
+                        {
+                            lista.Add(item);
+                        }
+
+                    }
+
+                    foreach (materiasQuantidade item in lista)
+                    {
+                        MateriaPrima newMp = context.MateriaPrima.FirstOrDefault(m => m.Nome.Equals(item.materia));
+                        MateriasUsadasNoProduto newMpUsadas = new MateriasUsadasNoProduto();
+                        materiasQuantidade newMpQuantidade = new materiasQuantidade();
+                        newMpQuantidade.materia = item.materia;
+                        newMpQuantidade.quantidade = item.quantidade;
+                        newMpUsadas.idProduto = produto.IdProduto;
+                        newMpUsadas.NomeProduto = produto.Nome;
+                        newMpUsadas.idMateriaPrima = newMp.idMateriaPrima;
+                        newMpUsadas.NomeMp = newMp.Nome;
+                        newMpUsadas.Quantidade = newMpQuantidade.quantidade;
+                        context.MateriasUsadasNoProduto.Add(newMpUsadas);
+                        context.SaveChanges();
+                    }
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result = MessageBox.Show("Cadastrado com sucesso!", ":)", buttons, MessageBoxIcon.Information);
+                    lista.Clear();
+                }
+            }
+            catch (Exception r)
+            {
+                var x = r;
+            }
+        }
+
+        private void mpDropDown_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtPreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+    }
+}

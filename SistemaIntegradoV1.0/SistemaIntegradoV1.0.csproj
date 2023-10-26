@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65290DDB-C68D-4076-90A0-F84DD0524819}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SistemaIntegradoV1._0</RootNamespace>
+    <AssemblyName>SistemaIntegradoV1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Core.WinForms.23.1.41\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Data.WinForms.23.1.41\lib\net46\Syncfusion.Data.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DataSource.WinForms.23.1.41\lib\net46\Syncfusion.DataSource.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Base.23.1.41\lib\net46\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Windows.23.1.41\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.GridCommon.WinForms.23.1.41\lib\net46\Syncfusion.GridCommon.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.23.1.41\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfDataGrid.WinForms.23.1.41\lib\net46\Syncfusion.SfDataGrid.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfInput.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WinForms.23.1.41\lib\net46\Syncfusion.SfInput.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfListView.WinForms.23.1.41\lib\net46\Syncfusion.SfListView.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.23.1.41\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Windows.23.1.41\lib\net46\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SpellChecker.Base.23.1.41\lib\net46\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Base.23.1.41\lib\net46\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Windows.23.1.41\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MODEL\materiasQuantidade.cs" />
+    <Compile Include="VIEW\estoquesViews\estoques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\estoquesViews\estoques.Designer.cs">
+      <DependentUpon>estoques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Transacoes\Faturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Transacoes\Faturas.Designer.cs">
+      <DependentUpon>Faturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\cadastrarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\cadastrarPedido.Designer.cs">
+      <DependentUpon>cadastrarPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.Designer.cs">
+      <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.Designer.cs">
+      <DependentUpon>cadastroMateriaP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\cadastrarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\cadastrarProduto.Designer.cs">
+      <DependentUpon>cadastrarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\cadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\cadastroProduto.Designer.cs">
+      <DependentUpon>cadastroProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastrosClienteViews\cadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastrosClienteViews\cadastroCliente.Designer.cs">
+      <DependentUpon>cadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\entregasAfazer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\entregasAfazer.Designer.cs">
+      <DependentUpon>entregasAfazer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\entrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\entrega.Designer.cs">
+      <DependentUpon>entrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\cadastrosClienteViews\cadastrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastrosClienteViews\cadastrarCliente.Designer.cs">
+      <DependentUpon>cadastrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\eviarEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\EntregaViews\eviarEntrega.Designer.cs">
+      <DependentUpon>eviarEntrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\ordemCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\ordemCompra.Designer.cs">
+      <DependentUpon>ordemCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\ordemsEmAprovacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\ordemsEmAprovacao.Designer.cs">
+      <DependentUpon>ordemsEmAprovacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\realizarPedidoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\realizarPedidoCompra.Designer.cs">
+      <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\suprimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\suprimentosViews\suprimentos.Designer.cs">
+      <DependentUpon>suprimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\enviarProducao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\enviarProducao.Designer.cs">
+      <DependentUpon>enviarProducao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\producao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\ProducaoViewes\producao.Designer.cs">
+      <DependentUpon>producao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\Transacoes\Recibos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Transacoes\Recibos.Designer.cs">
+      <DependentUpon>Recibos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\pedidoVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\pedidoVendas.Designer.cs">
+      <DependentUpon>pedidoVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\realizarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\VendasViews\realizarPedido.Designer.cs">
+      <DependentUpon>realizarPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\telaPrincipal\TelaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\telaPrincipal\TelaPrincipal.Designer.cs">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="VIEW\estoquesViews\estoques.resx">
+      <DependentUpon>estoques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\suprimentosViews\cadastrarPedido.resx">
+      <DependentUpon>cadastrarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.resx">
+      <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.resx">
+      <DependentUpon>cadastroMateriaP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\cadastrarProduto.resx">
+      <DependentUpon>cadastrarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\cadastroProduto.resx">
+      <DependentUpon>cadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastrosClienteViews\cadastrarCliente.resx">
+      <DependentUpon>cadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastrosClienteViews\cadastroCliente.resx">
+      <DependentUpon>cadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\EntregaViews\entregasAfazer.resx">
+      <DependentUpon>entregasAfazer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\EntregaViews\entrega.resx">
+      <DependentUpon>entrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\EntregaViews\eviarEntrega.resx">
+      <DependentUpon>eviarEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\suprimentosViews\ordemCompra.resx">
+      <DependentUpon>ordemCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\ProducaoViewes\ordemsEmAprovacao.resx">
+      <DependentUpon>ordemsEmAprovacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\ProducaoViewes\realizarPedidoCompra.resx">
+      <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\suprimentosViews\suprimentos.resx">
+      <DependentUpon>suprimentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Transacoes\Faturas.resx">
+      <DependentUpon>Faturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\VendasViews\enviarProducao.resx">
+      <DependentUpon>enviarProducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\ProducaoViewes\producao.resx">
+      <DependentUpon>producao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Transacoes\Recibos.resx">
+      <DependentUpon>Recibos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\VendasViews\pedidoVendas.resx">
+      <DependentUpon>pedidoVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\VendasViews\realizarPedido.resx">
+      <DependentUpon>realizarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\telaPrincipal\TelaPrincipal.resx">
+      <DependentUpon>TelaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SISTEMA.INTEGRADO.V1.0.DAO\SISTEMA.INTEGRADO.V1.0.DAO.csproj">
+      <Project>{a2045a5a-9a60-4e50-9ab4-eaa4f43e5a3c}</Project>
+      <Name>SISTEMA.INTEGRADO.V1.0.DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

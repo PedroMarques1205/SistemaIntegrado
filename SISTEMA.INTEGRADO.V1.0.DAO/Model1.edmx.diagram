@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ec5256a81684211b4ff8b5b8430200f" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" Width="1.5" PointX="3.75" PointY="8" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" Width="1.5" PointX="8.25" PointY="9.625" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Width="1.5" PointX="3.75" PointY="1.375" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" Width="1.5" PointX="6" PointY="13" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Produto" Width="1.5" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" Width="1.5" PointX="8.25" PointY="6.125" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Transacao_idPedidoPagar" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

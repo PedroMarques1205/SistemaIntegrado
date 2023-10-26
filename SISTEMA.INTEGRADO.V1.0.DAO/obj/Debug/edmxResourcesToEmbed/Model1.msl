@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_SISTEMA_INTEGRADOModelStoreContainer" CdmEntityContainer="ConnectionString">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CpfCliente" ColumnName="CpfCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrega">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Entrega">
+        <MappingFragment StoreEntitySet="Entrega">
+          <ScalarProperty Name="tipoEntrega" ColumnName="tipoEntrega" />
+          <ScalarProperty Name="IdEntrega" ColumnName="IdEntrega" />
+          <ScalarProperty Name="IsEntregue" ColumnName="IsEntregue" />
+          <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+          <ScalarProperty Name="IdOrcamento" ColumnName="IdOrcamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstoqueMateriaPrima">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima">
+        <MappingFragment StoreEntitySet="EstoqueMateriaPrima">
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="NomeMp" ColumnName="NomeMp" />
+          <ScalarProperty Name="IdMateriaPrima" ColumnName="IdMateriaPrima" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstoqueProdutoAcabado">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado">
+        <MappingFragment StoreEntitySet="EstoqueProdutoAcabado">
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+          <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MateriaPrima">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriaPrima">
+        <MappingFragment StoreEntitySet="MateriaPrima">
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CodigoMp" ColumnName="CodigoMp" />
+          <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MateriasUsadasNoProduto">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto">
+        <MappingFragment StoreEntitySet="MateriasUsadasNoProduto">
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+          <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+          <ScalarProperty Name="NomeMp" ColumnName="NomeMp" />
+          <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orcamento">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Orcamento">
+        <MappingFragment StoreEntitySet="Orcamento">
+          <ScalarProperty Name="formaPagamento" ColumnName="formaPagamento" />
+          <ScalarProperty Name="statusEntrega" ColumnName="statusEntrega" />
+          <ScalarProperty Name="statusCliente" ColumnName="statusCliente" />
+          <ScalarProperty Name="idOrcamento" ColumnName="idOrcamento" />
+          <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+          <ScalarProperty Name="QuantProduto" ColumnName="QuantProduto" />
+          <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+          <ScalarProperty Name="CpfCliente" ColumnName="CpfCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdemProducao">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.OrdemProducao">
+        <MappingFragment StoreEntitySet="OrdemProducao">
+          <ScalarProperty Name="FaseAtual" ColumnName="FaseAtual" />
+          <ScalarProperty Name="QtdAproduzir" ColumnName="QtdAproduzir" />
+          <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+          <ScalarProperty Name="IdOrdem" ColumnName="IdOrdem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidoCompraSuprimento">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento">
+        <MappingFragment StoreEntitySet="PedidoCompraSuprimento">
+          <ScalarProperty Name="IsEntregue" ColumnName="IsEntregue" />
+          <ScalarProperty Name="IsPedidoAceito" ColumnName="IsPedidoAceito" />
+          <ScalarProperty Name="CondicaoPagamento" ColumnName="CondicaoPagamento" />
+          <ScalarProperty Name="PrazoEntrega" ColumnName="PrazoEntrega" />
+          <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
+          <ScalarProperty Name="PrecoUnit" ColumnName="PrecoUnit" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="Fornecedor" ColumnName="Fornecedor" />
+          <ScalarProperty Name="IdMateriaPrima" ColumnName="IdMateriaPrima" />
+          <ScalarProperty Name="IdPedidoCompra" ColumnName="IdPedidoCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produto">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Produto">
+        <MappingFragment StoreEntitySet="Produto">
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transacao">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Transacao">
+        <MappingFragment StoreEntitySet="Transacao">
+          <ScalarProperty Name="idPedidoPagar" ColumnName="idPedidoPagar" />
+          <ScalarProperty Name="IdTransacao" ColumnName="IdTransacao" />
+          <ScalarProperty Name="ValorPago" ColumnName="ValorPago" />
+          <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+          <ScalarProperty Name="ValorReceber" ColumnName="ValorReceber" />
+          <ScalarProperty Name="IdPedidoReceber" ColumnName="IdPedidoReceber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

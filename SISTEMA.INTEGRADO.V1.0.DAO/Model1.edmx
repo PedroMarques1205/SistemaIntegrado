@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_SISTEMA_INTEGRADOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="CpfCliente" />
+          </Key>
+          <Property Name="CpfCliente" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="150" />
+          <Property Name="Rua" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Bairro" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Num" Type="int" Nullable="false" />
+          <Property Name="Complemento" Type="varchar" MaxLength="20" />
+          <Property Name="Estado" Type="varchar" MaxLength="40" />
+          <Property Name="Municipio" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Entrega">
+          <Key>
+            <PropertyRef Name="IdEntrega" />
+          </Key>
+          <Property Name="IdOrcamento" Type="int" Nullable="false" />
+          <Property Name="DataEntrega" Type="date" />
+          <Property Name="IsEntregue" Type="bit" />
+          <Property Name="IdEntrega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoEntrega" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EstoqueMateriaPrima">
+          <Key>
+            <PropertyRef Name="IdMateriaPrima" />
+          </Key>
+          <Property Name="IdMateriaPrima" Type="int" Nullable="false" />
+          <Property Name="NomeMp" Type="varchar" MaxLength="30" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstoqueProdutoAcabado">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+          </Key>
+          <Property Name="IdProduto" Type="int" Nullable="false" />
+          <Property Name="NomeProduto" Type="varchar" MaxLength="30" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MateriaPrima">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoMp" Type="varchar" MaxLength="15" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MateriasUsadasNoProduto">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="int" Nullable="false" />
+          <Property Name="NomeMp" Type="varchar" MaxLength="30" />
+          <Property Name="idProduto" Type="int" Nullable="false" />
+          <Property Name="NomeProduto" Type="varchar" MaxLength="30" />
+          <Property Name="Quantidade" Type="int" />
+        </EntityType>
+        <EntityType Name="Orcamento">
+          <Key>
+            <PropertyRef Name="idOrcamento" />
+          </Key>
+          <Property Name="CpfCliente" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="idProduto" Type="int" Nullable="false" />
+          <Property Name="QuantProduto" Type="int" />
+          <Property Name="ValorTotal" Type="float" />
+          <Property Name="idOrcamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusCliente" Type="varchar" MaxLength="20" />
+          <Property Name="statusEntrega" Type="varchar" MaxLength="20" />
+          <Property Name="formaPagamento" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="OrdemProducao">
+          <Key>
+            <PropertyRef Name="IdOrdem" />
+          </Key>
+          <Property Name="IdOrdem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProduto" Type="int" Nullable="false" />
+          <Property Name="QtdAproduzir" Type="int" />
+          <Property Name="FaseAtual" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PedidoCompraSuprimento">
+          <Key>
+            <PropertyRef Name="IdPedidoCompra" />
+          </Key>
+          <Property Name="IdPedidoCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMateriaPrima" Type="int" Nullable="false" />
+          <Property Name="Fornecedor" Type="varchar" MaxLength="100" />
+          <Property Name="Quantidade" Type="int" />
+          <Property Name="PrecoUnit" Type="float" />
+          <Property Name="PrecoTotal" Type="float" />
+          <Property Name="PrazoEntrega" Type="date" />
+          <Property Name="CondicaoPagamento" Type="varchar" MaxLength="30" />
+          <Property Name="IsPedidoAceito" Type="bit" />
+          <Property Name="IsEntregue" Type="bit" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+          </Key>
+          <Property Name="IdProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="30" />
+          <Property Name="PrecoUnitario" Type="float" />
+        </EntityType>
+        <EntityType Name="Transacao">
+          <Key>
+            <PropertyRef Name="IdTransacao" />
+          </Key>
+          <Property Name="IdPedidoReceber" Type="int" />
+          <Property Name="ValorReceber" Type="float" />
+          <Property Name="Situacao" Type="varchar" MaxLength="15" />
+          <Property Name="ValorPago" Type="float" />
+          <Property Name="IdTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPedidoPagar" Type="int" />
+        </EntityType>
+        <Association Name="FK_Entrega_IdOrcamento">
+          <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="1" />
+          <End Role="Entrega" Type="Self.Entrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orcamento">
+              <PropertyRef Name="idOrcamento" />
+            </Principal>
+            <Dependent Role="Entrega">
+              <PropertyRef Name="IdOrcamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstoqueMateriaPrima_IdMateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="EstoqueMateriaPrima" Type="Self.EstoqueMateriaPrima" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="EstoqueMateriaPrima">
+              <PropertyRef Name="IdMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstoqueProdutoAcabado_IdProduto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="EstoqueProdutoAcabado" Type="Self.EstoqueProdutoAcabado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="EstoqueProdutoAcabado">
+              <PropertyRef Name="IdProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriaPrimaUsadas_idMateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="MateriasUsadasNoProduto" Type="Self.MateriasUsadasNoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriasUsadasNoProduto">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orcamento_CpfCliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="CpfCliente" />
+            </Principal>
+            <Dependent Role="Orcamento">
+              <PropertyRef Name="CpfCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orcamento_idProduto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="Orcamento">
+              <PropertyRef Name="idProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdemProducao_IdProduto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="OrdemProducao" Type="Self.OrdemProducao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="OrdemProducao">
+              <PropertyRef Name="IdProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoCompraSuprimento_IdMateriaPrima">
+          <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="1" />
+          <End Role="PedidoCompraSuprimento" Type="Self.PedidoCompraSuprimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="PedidoCompraSuprimento">
+              <PropertyRef Name="IdMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_idPedidoPagar">
+          <End Role="PedidoCompraSuprimento" Type="Self.PedidoCompraSuprimento" Multiplicity="0..1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PedidoCompraSuprimento">
+              <PropertyRef Name="IdPedidoCompra" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idPedidoPagar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_IdPedidoReceber">
+          <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="0..1" />
+          <End Role="Transacao" Type="Self.Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orcamento">
+              <PropertyRef Name="idOrcamento" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="IdPedidoReceber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_SISTEMA_INTEGRADOModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstoqueMateriaPrima" EntityType="Self.EstoqueMateriaPrima" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstoqueProdutoAcabado" EntityType="Self.EstoqueProdutoAcabado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriaPrima" EntityType="Self.MateriaPrima" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MateriasUsadasNoProduto" EntityType="Self.MateriasUsadasNoProduto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orcamento" EntityType="Self.Orcamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdemProducao" EntityType="Self.OrdemProducao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PedidoCompraSuprimento" EntityType="Self.PedidoCompraSuprimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transacao" EntityType="Self.Transacao" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Entrega_IdOrcamento" Association="Self.FK_Entrega_IdOrcamento">
+            <End Role="Orcamento" EntitySet="Orcamento" />
+            <End Role="Entrega" EntitySet="Entrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstoqueMateriaPrima_IdMateriaPrima" Association="Self.FK_EstoqueMateriaPrima_IdMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="EstoqueMateriaPrima" EntitySet="EstoqueMateriaPrima" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstoqueProdutoAcabado_IdProduto" Association="Self.FK_EstoqueProdutoAcabado_IdProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="EstoqueProdutoAcabado" EntitySet="EstoqueProdutoAcabado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriaPrimaUsadas_idMateriaPrima" Association="Self.FK_MateriaPrimaUsadas_idMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriasUsadasNoProduto" EntitySet="MateriasUsadasNoProduto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orcamento_CpfCliente" Association="Self.FK_Orcamento_CpfCliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Orcamento" EntitySet="Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orcamento_idProduto" Association="Self.FK_Orcamento_idProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Orcamento" EntitySet="Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdemProducao_IdProduto" Association="Self.FK_OrdemProducao_IdProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="OrdemProducao" EntitySet="OrdemProducao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoCompraSuprimento_IdMateriaPrima" Association="Self.FK_PedidoCompraSuprimento_IdMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="PedidoCompraSuprimento" EntitySet="PedidoCompraSuprimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_idPedidoPagar" Association="Self.FK_Transacao_idPedidoPagar">
+            <End Role="PedidoCompraSuprimento" EntitySet="PedidoCompraSuprimento" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_IdPedidoReceber" Association="Self.FK_Transacao_IdPedidoReceber">
+            <End Role="Orcamento" EntitySet="Orcamento" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_SISTEMA_INTEGRADOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" />
+          <EntitySet Name="Entrega" EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" />
+          <EntitySet Name="EstoqueMateriaPrima" EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima" />
+          <EntitySet Name="EstoqueProdutoAcabado" EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" />
+          <EntitySet Name="MateriaPrima" EntityType="DB_SISTEMA_INTEGRADOModel.MateriaPrima" />
+          <EntitySet Name="MateriasUsadasNoProduto" EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" />
+          <EntitySet Name="Orcamento" EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" />
+          <EntitySet Name="OrdemProducao" EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" />
+          <EntitySet Name="PedidoCompraSuprimento" EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" />
+          <EntitySet Name="Produto" EntityType="DB_SISTEMA_INTEGRADOModel.Produto" />
+          <EntitySet Name="Transacao" EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" />
+          <AssociationSet Name="FK_Orcamento_CpfCliente" Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Orcamento" EntitySet="Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Entrega_IdOrcamento" Association="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento">
+            <End Role="Orcamento" EntitySet="Orcamento" />
+            <End Role="Entrega" EntitySet="Entrega" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstoqueMateriaPrima_IdMateriaPrima" Association="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="EstoqueMateriaPrima" EntitySet="EstoqueMateriaPrima" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstoqueProdutoAcabado_IdProduto" Association="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="EstoqueProdutoAcabado" EntitySet="EstoqueProdutoAcabado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MateriaPrimaUsadas_idMateriaPrima" Association="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="MateriasUsadasNoProduto" EntitySet="MateriasUsadasNoProduto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoCompraSuprimento_IdMateriaPrima" Association="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima">
+            <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+            <End Role="PedidoCompraSuprimento" EntitySet="PedidoCompraSuprimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orcamento_idProduto" Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="Orcamento" EntitySet="Orcamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_IdPedidoReceber" Association="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber">
+            <End Role="Orcamento" EntitySet="Orcamento" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrdemProducao_IdProduto" Association="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="OrdemProducao" EntitySet="OrdemProducao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transacao_idPedidoPagar" Association="DB_SISTEMA_INTEGRADOModel.FK_Transacao_idPedidoPagar">
+            <End Role="PedidoCompraSuprimento" EntitySet="PedidoCompraSuprimento" />
+            <End Role="Transacao" EntitySet="Transacao" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="CpfCliente" />
+          </Key>
+          <Property Name="CpfCliente" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Rua" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Municipio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Cliente" ToRole="Orcamento" />
+        </EntityType>
+        <EntityType Name="Entrega">
+          <Key>
+            <PropertyRef Name="IdEntrega" />
+          </Key>
+          <Property Name="IdOrcamento" Type="Int32" Nullable="false" />
+          <Property Name="DataEntrega" Type="DateTime" Precision="0" />
+          <Property Name="IsEntregue" Type="Boolean" />
+          <Property Name="IdEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" FromRole="Entrega" ToRole="Orcamento" />
+        </EntityType>
+        <EntityType Name="EstoqueMateriaPrima">
+          <Key>
+            <PropertyRef Name="IdMateriaPrima" />
+          </Key>
+          <Property Name="IdMateriaPrima" Type="Int32" Nullable="false" />
+          <Property Name="NomeMp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" FromRole="EstoqueMateriaPrima" ToRole="MateriaPrima" />
+        </EntityType>
+        <EntityType Name="EstoqueProdutoAcabado">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+          </Key>
+          <Property Name="IdProduto" Type="Int32" Nullable="false" />
+          <Property Name="NomeProduto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto" FromRole="EstoqueProdutoAcabado" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="MateriaPrima">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoMp" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EstoqueMateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" FromRole="MateriaPrima" ToRole="EstoqueMateriaPrima" />
+          <NavigationProperty Name="MateriasUsadasNoProduto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" FromRole="MateriaPrima" ToRole="MateriasUsadasNoProduto" />
+          <NavigationProperty Name="PedidoCompraSuprimento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" FromRole="MateriaPrima" ToRole="PedidoCompraSuprimento" />
+        </EntityType>
+        <EntityType Name="MateriasUsadasNoProduto">
+          <Key>
+            <PropertyRef Name="idMateriaPrima" />
+            <PropertyRef Name="idProduto" />
+          </Key>
+          <Property Name="idMateriaPrima" Type="Int32" Nullable="false" />
+          <Property Name="NomeMp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idProduto" Type="Int32" Nullable="false" />
+          <Property Name="NomeProduto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Quantidade" Type="Int32" />
+          <NavigationProperty Name="MateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" FromRole="MateriasUsadasNoProduto" ToRole="MateriaPrima" />
+        </EntityType>
+        <EntityType Name="Orcamento">
+          <Key>
+            <PropertyRef Name="idOrcamento" />
+          </Key>
+          <Property Name="CpfCliente" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="idProduto" Type="Int32" Nullable="false" />
+          <Property Name="QuantProduto" Type="Int32" />
+          <Property Name="ValorTotal" Type="Double" />
+          <Property Name="idOrcamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="statusEntrega" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="formaPagamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Orcamento" ToRole="Cliente" />
+          <NavigationProperty Name="Entrega" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" FromRole="Orcamento" ToRole="Entrega" />
+          <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Orcamento" ToRole="Produto" />
+          <NavigationProperty Name="Transacao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber" FromRole="Orcamento" ToRole="Transacao" />
+        </EntityType>
+        <EntityType Name="OrdemProducao">
+          <Key>
+            <PropertyRef Name="IdOrdem" />
+          </Key>
+          <Property Name="IdOrdem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProduto" Type="Int32" Nullable="false" />
+          <Property Name="QtdAproduzir" Type="Int32" />
+          <Property Name="FaseAtual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="OrdemProducao" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="PedidoCompraSuprimento">
+          <Key>
+            <PropertyRef Name="IdPedidoCompra" />
+          </Key>
+          <Property Name="IdPedidoCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMateriaPrima" Type="Int32" Nullable="false" />
+          <Property Name="Fornecedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Quantidade" Type="Int32" />
+          <Property Name="PrecoUnit" Type="Double" />
+          <Property Name="PrecoTotal" Type="Double" />
+          <Property Name="PrazoEntrega" Type="DateTime" Precision="0" />
+          <Property Name="CondicaoPagamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsPedidoAceito" Type="Boolean" />
+          <Property Name="IsEntregue" Type="Boolean" />
+          <NavigationProperty Name="MateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" FromRole="PedidoCompraSuprimento" ToRole="MateriaPrima" />
+          <NavigationProperty Name="Transacao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_idPedidoPagar" FromRole="PedidoCompraSuprimento" ToRole="Transacao" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+          </Key>
+          <Property Name="IdProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PrecoUnitario" Type="Double" />
+          <NavigationProperty Name="EstoqueProdutoAcabado" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto" FromRole="Produto" ToRole="EstoqueProdutoAcabado" />
+          <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Produto" ToRole="Orcamento" />
+          <NavigationProperty Name="OrdemProducao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="Produto" ToRole="OrdemProducao" />
+        </EntityType>
+        <EntityType Name="Transacao">
+          <Key>
+            <PropertyRef Name="IdTransacao" />
+          </Key>
+          <Property Name="IdPedidoReceber" Type="Int32" />
+          <Property Name="ValorReceber" Type="Double" />
+          <Property Name="Situacao" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ValorPago" Type="Double" />
+          <Property Name="IdTransacao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPedidoPagar" Type="Int32" />
+          <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber" FromRole="Transacao" ToRole="Orcamento" />
+          <NavigationProperty Name="PedidoCompraSuprimento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_idPedidoPagar" FromRole="Transacao" ToRole="PedidoCompraSuprimento" />
+        </EntityType>
+        <Association Name="FK_Orcamento_CpfCliente">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="CpfCliente" />
+            </Principal>
+            <Dependent Role="Orcamento">
+              <PropertyRef Name="CpfCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Entrega_IdOrcamento">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Entrega" Role="Entrega" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orcamento">
+              <PropertyRef Name="idOrcamento" />
+            </Principal>
+            <Dependent Role="Entrega">
+              <PropertyRef Name="IdOrcamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstoqueMateriaPrima_IdMateriaPrima">
+          <End Type="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Role="MateriaPrima" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima" Role="EstoqueMateriaPrima" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="EstoqueMateriaPrima">
+              <PropertyRef Name="IdMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstoqueProdutoAcabado_IdProduto">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" Role="EstoqueProdutoAcabado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="EstoqueProdutoAcabado">
+              <PropertyRef Name="IdProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MateriaPrimaUsadas_idMateriaPrima">
+          <End Type="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Role="MateriaPrima" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" Role="MateriasUsadasNoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="MateriasUsadasNoProduto">
+              <PropertyRef Name="idMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoCompraSuprimento_IdMateriaPrima">
+          <End Type="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Role="MateriaPrima" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" Role="PedidoCompraSuprimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MateriaPrima">
+              <PropertyRef Name="idMateriaPrima" />
+            </Principal>
+            <Dependent Role="PedidoCompraSuprimento">
+              <PropertyRef Name="IdMateriaPrima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orcamento_idProduto">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="Orcamento">
+              <PropertyRef Name="idProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_IdPedidoReceber">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="0..1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Transacao" Role="Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orcamento">
+              <PropertyRef Name="idOrcamento" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="IdPedidoReceber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrdemProducao_IdProduto">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.OrdemProducao" Role="OrdemProducao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="OrdemProducao">
+              <PropertyRef Name="IdProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transacao_idPedidoPagar">
+          <End Type="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" Role="PedidoCompraSuprimento" Multiplicity="0..1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Transacao" Role="Transacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PedidoCompraSuprimento">
+              <PropertyRef Name="IdPedidoCompra" />
+            </Principal>
+            <Dependent Role="Transacao">
+              <PropertyRef Name="idPedidoPagar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_SISTEMA_INTEGRADOModelStoreContainer" CdmEntityContainer="ConnectionString">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Rua" ColumnName="Rua" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CpfCliente" ColumnName="CpfCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entrega">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Entrega">
+              <MappingFragment StoreEntitySet="Entrega">
+                <ScalarProperty Name="tipoEntrega" ColumnName="tipoEntrega" />
+                <ScalarProperty Name="IdEntrega" ColumnName="IdEntrega" />
+                <ScalarProperty Name="IsEntregue" ColumnName="IsEntregue" />
+                <ScalarProperty Name="DataEntrega" ColumnName="DataEntrega" />
+                <ScalarProperty Name="IdOrcamento" ColumnName="IdOrcamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstoqueMateriaPrima">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima">
+              <MappingFragment StoreEntitySet="EstoqueMateriaPrima">
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="NomeMp" ColumnName="NomeMp" />
+                <ScalarProperty Name="IdMateriaPrima" ColumnName="IdMateriaPrima" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstoqueProdutoAcabado">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado">
+              <MappingFragment StoreEntitySet="EstoqueProdutoAcabado">
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+                <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriaPrima">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriaPrima">
+              <MappingFragment StoreEntitySet="MateriaPrima">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodigoMp" ColumnName="CodigoMp" />
+                <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MateriasUsadasNoProduto">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto">
+              <MappingFragment StoreEntitySet="MateriasUsadasNoProduto">
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="NomeProduto" ColumnName="NomeProduto" />
+                <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+                <ScalarProperty Name="NomeMp" ColumnName="NomeMp" />
+                <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orcamento">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Orcamento">
+              <MappingFragment StoreEntitySet="Orcamento">
+                <ScalarProperty Name="formaPagamento" ColumnName="formaPagamento" />
+                <ScalarProperty Name="statusEntrega" ColumnName="statusEntrega" />
+                <ScalarProperty Name="statusCliente" ColumnName="statusCliente" />
+                <ScalarProperty Name="idOrcamento" ColumnName="idOrcamento" />
+                <ScalarProperty Name="ValorTotal" ColumnName="ValorTotal" />
+                <ScalarProperty Name="QuantProduto" ColumnName="QuantProduto" />
+                <ScalarProperty Name="idProduto" ColumnName="idProduto" />
+                <ScalarProperty Name="CpfCliente" ColumnName="CpfCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdemProducao">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.OrdemProducao">
+              <MappingFragment StoreEntitySet="OrdemProducao">
+                <ScalarProperty Name="FaseAtual" ColumnName="FaseAtual" />
+                <ScalarProperty Name="QtdAproduzir" ColumnName="QtdAproduzir" />
+                <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+                <ScalarProperty Name="IdOrdem" ColumnName="IdOrdem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PedidoCompraSuprimento">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento">
+              <MappingFragment StoreEntitySet="PedidoCompraSuprimento">
+                <ScalarProperty Name="IsEntregue" ColumnName="IsEntregue" />
+                <ScalarProperty Name="IsPedidoAceito" ColumnName="IsPedidoAceito" />
+                <ScalarProperty Name="CondicaoPagamento" ColumnName="CondicaoPagamento" />
+                <ScalarProperty Name="PrazoEntrega" ColumnName="PrazoEntrega" />
+                <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
+                <ScalarProperty Name="PrecoUnit" ColumnName="PrecoUnit" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Fornecedor" ColumnName="Fornecedor" />
+                <ScalarProperty Name="IdMateriaPrima" ColumnName="IdMateriaPrima" />
+                <ScalarProperty Name="IdPedidoCompra" ColumnName="IdPedidoCompra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transacao">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Transacao">
+              <MappingFragment StoreEntitySet="Transacao">
+                <ScalarProperty Name="idPedidoPagar" ColumnName="idPedidoPagar" />
+                <ScalarProperty Name="IdTransacao" ColumnName="IdTransacao" />
+                <ScalarProperty Name="ValorPago" ColumnName="ValorPago" />
+                <ScalarProperty Name="Situacao" ColumnName="Situacao" />
+                <ScalarProperty Name="ValorReceber" ColumnName="ValorReceber" />
+                <ScalarProperty Name="IdPedidoReceber" ColumnName="IdPedidoReceber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
