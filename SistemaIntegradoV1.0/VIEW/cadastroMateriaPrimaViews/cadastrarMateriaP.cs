@@ -98,6 +98,7 @@ namespace SistemaIntegradoV1._0
                         string formato = codeMP + numCodigo.ToString("D4");
                         mp.Nome = txtNomeMP.Text;
                         mp.CodigoMp = formato;
+                        mp.isAtivo = true;
 
                         context.MateriaPrima.Add(mp);
                         context.SaveChanges();
@@ -122,6 +123,16 @@ namespace SistemaIntegradoV1._0
         }
 
         private void cadastrarMateriaP_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeMP_TextChanged(object sender, EventArgs e)
         {
 
         }

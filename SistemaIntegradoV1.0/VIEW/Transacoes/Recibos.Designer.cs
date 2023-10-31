@@ -34,6 +34,7 @@
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsbDarBaixaRecibo = new System.Windows.Forms.ToolStrip();
             this.tbsCadastroProdruto = new System.Windows.Forms.ToolStripButton();
+            this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.RecibosDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tsbDarBaixaRecibo.SuspendLayout();
@@ -78,8 +79,8 @@
             this.tsbDarBaixaRecibo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.tsbDarBaixaRecibo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tsbDarBaixaRecibo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbsCadastroProdruto});
-            this.tsbDarBaixaRecibo.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tbsCadastroProdruto,
+            this.tdbRefresh});
             this.tsbDarBaixaRecibo.Location = new System.Drawing.Point(0, 0);
             this.tsbDarBaixaRecibo.Name = "tsbDarBaixaRecibo";
             this.tsbDarBaixaRecibo.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -99,6 +100,20 @@
             this.tbsCadastroProdruto.Text = "Dar Baixa No Recibo";
             this.tbsCadastroProdruto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsCadastroProdruto.Click += new System.EventHandler(this.tsbDarBaixaRecibo_Click);
+            // 
+            // tdbRefresh
+            // 
+            this.tdbRefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tdbRefresh.ForeColor = System.Drawing.Color.White;
+            this.tdbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tdbRefresh.Image")));
+            this.tdbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tdbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tdbRefresh.Name = "tdbRefresh";
+            this.tdbRefresh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tdbRefresh.Size = new System.Drawing.Size(77, 66);
+            this.tdbRefresh.Text = "Atualizar";
+            this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
             // Recibos
             // 
@@ -130,5 +145,6 @@
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip tsbDarBaixaRecibo;
         private System.Windows.Forms.ToolStripButton tbsCadastroProdruto;
+        private System.Windows.Forms.ToolStripButton tdbRefresh;
     }
 }

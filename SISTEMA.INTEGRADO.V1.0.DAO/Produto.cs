@@ -24,6 +24,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public int IdProduto { get; set; }
         public string Nome { get; set; }
         public Nullable<double> PrecoUnitario { get; set; }
+        public Nullable<bool> isAtivo { get; set; }
     
         public virtual EstoqueProdutoAcabado EstoqueProdutoAcabado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

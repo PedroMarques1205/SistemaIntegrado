@@ -162,5 +162,17 @@ namespace SistemaIntegradoV1._0
                 }
             }
         }
+
+        private void tdbRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            carregaGrid();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void toolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

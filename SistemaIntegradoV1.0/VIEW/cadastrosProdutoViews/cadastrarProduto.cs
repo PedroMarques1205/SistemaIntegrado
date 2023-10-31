@@ -26,11 +26,9 @@ namespace SistemaIntegradoV1._0
         {
             using (ConnectionString context = new ConnectionString())
             {
-                List<MateriaPrima> listaMP = context.MateriaPrima.ToList();
+                List<MateriaPrima> listaMP = context.MateriaPrima.Where(x => x.isAtivo == true).ToList();
                 List<materiasQuantidade> ListaMateriaQuantidade = new List<materiasQuantidade>();
-                //ListaMateriaQuantidade.Add(new materiasQuantidade { materia = "Aço", quantidade=10 });
 
-                //materiasDataGrid.AutoGenerateColumns = false;
                 materiasDataGrid.Columns.Add(new GridComboBoxColumn() { MappingName = "materia", HeaderText = "MP", Visible = true, AllowEditing = true, DataSource = listaMP, ValueMember = "Nome", DisplayMember = "Nome", Width = 250 });
                 materiasDataGrid.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "QTDE", Visible = true, AllowEditing = true });
 

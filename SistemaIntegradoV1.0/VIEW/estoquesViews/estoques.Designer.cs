@@ -43,12 +43,12 @@
             // produtosDataGridView
             // 
             this.produtosDataGridView.AccessibleName = "Table";
-            this.produtosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.produtosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.produtosDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.produtosDataGridView.Location = new System.Drawing.Point(12, 61);
             this.produtosDataGridView.Name = "produtosDataGridView";
-            this.produtosDataGridView.Size = new System.Drawing.Size(540, 411);
+            this.produtosDataGridView.Size = new System.Drawing.Size(1087, 367);
             this.produtosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.produtosDataGridView.TabIndex = 13;
             this.produtosDataGridView.Text = "sfDataGrid1";
@@ -57,12 +57,12 @@
             // materiaDataGridViewe
             // 
             this.materiaDataGridViewe.AccessibleName = "Table";
-            this.materiaDataGridViewe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.materiaDataGridViewe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materiaDataGridViewe.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.materiaDataGridViewe.Location = new System.Drawing.Point(558, 61);
+            this.materiaDataGridViewe.Location = new System.Drawing.Point(12, 513);
             this.materiaDataGridViewe.Name = "materiaDataGridViewe";
-            this.materiaDataGridViewe.Size = new System.Drawing.Size(541, 411);
+            this.materiaDataGridViewe.Size = new System.Drawing.Size(1087, 365);
             this.materiaDataGridViewe.Style.HeaderStyle.Font.Size = 11F;
             this.materiaDataGridViewe.TabIndex = 14;
             this.materiaDataGridViewe.Text = "sfDataGrid1";
@@ -71,10 +71,10 @@
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(550, 9);
+            this.label2.Location = new System.Drawing.Point(12, 454);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(410, 47);
             this.label2.TabIndex = 17;
@@ -95,7 +95,7 @@
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrosLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 475);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 900);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1111, 22);
             this.statusStrip1.TabIndex = 21;
@@ -114,7 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1111, 497);
+            this.ClientSize = new System.Drawing.Size(1111, 922);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

@@ -104,6 +104,7 @@
     <Property Name="idMateriaPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CodigoMp" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isAtivo" Type="Boolean" />
     <NavigationProperty Name="EstoqueMateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" FromRole="MateriaPrima" ToRole="EstoqueMateriaPrima" />
     <NavigationProperty Name="MateriasUsadasNoProduto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" FromRole="MateriaPrima" ToRole="MateriasUsadasNoProduto" />
     <NavigationProperty Name="PedidoCompraSuprimento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" FromRole="MateriaPrima" ToRole="PedidoCompraSuprimento" />
@@ -171,6 +172,7 @@
     <Property Name="IdProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PrecoUnitario" Type="Double" />
+    <Property Name="isAtivo" Type="Boolean" />
     <NavigationProperty Name="EstoqueProdutoAcabado" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto" FromRole="Produto" ToRole="EstoqueProdutoAcabado" />
     <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Produto" ToRole="Orcamento" />
     <NavigationProperty Name="OrdemProducao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="Produto" ToRole="OrdemProducao" />

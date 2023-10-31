@@ -1,9 +1,11 @@
 ﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using SistemaIntegradoV1._0.VIEW.cadastrosClienteViews;
 using Syncfusion.WinForms.DataGrid;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,6 +34,7 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from mp in context.MateriaPrima
+                             where mp.isAtivo == true
                              select new
                              {
                                  Nome = mp.Nome,
@@ -50,6 +53,7 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from mp in context.MateriaPrima
+                             where mp.isAtivo == true
                              select new
                              {
                                  Nome = mp.Nome,
@@ -65,6 +69,63 @@ namespace SistemaIntegradoV1._0
             constroiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
+        }
+
+        private void tdbRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            carregaGrid();
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void tsbDesativarMp_Click(object sender, EventArgs e)
+        {
+            if (MpDataGridView.SelectedItems.Count > 0)
+            {
+                var linhaSelecionada = MpDataGridView.SelectedItem;
+
+                var poggers = new MateriaPrima();
+
+                string codigo = Convert.ToString(linhaSelecionada.GetType().GetProperty("codigo").GetValue(linhaSelecionada, null));
+
+                using (ConnectionString context = new ConnectionString())
+                {
+                    MateriaPrima MateriaParaExcluir = context.MateriaPrima.FirstOrDefault(v => v.CodigoMp.Equals(codigo));
+                    if (MateriaParaExcluir != null)
+                    {
+                        poggers = MateriaParaExcluir;
+                    }
+                }
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Tem Certeza que deseja inativar " + poggers.Nome + "?", "Atenção", buttons, MessageBoxIcon.Exclamation);
+                if (result == DialogResult.Yes)
+                {
+                    if (MpDataGridView.SelectedItems.Count > 0)
+                    {
+                        linhaSelecionada = MpDataGridView.SelectedItem;
+
+                        codigo = Convert.ToString(linhaSelecionada.GetType().GetProperty("codigo").GetValue(linhaSelecionada, null));
+
+                        using (ConnectionString context = new ConnectionString())
+                        {
+                            MateriaPrima MateriaParaExcluir = context.MateriaPrima.FirstOrDefault(v => v.CodigoMp.Equals(codigo));
+                            if (MateriaParaExcluir != null)
+                            {
+                                MateriaParaExcluir.isAtivo = false;
+                                context.Entry<MateriaPrima>(MateriaParaExcluir).State = EntityState.Modified;
+                                context.SaveChanges();
+
+                                carregaGrid();
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show("Selecione a matéria que deseja inativar", "Nenhum cliente selecionado", buttons, MessageBoxIcon.Asterisk);
+            }
         }
     }
 }

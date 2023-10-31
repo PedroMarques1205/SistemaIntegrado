@@ -52,6 +52,7 @@
           <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodigoMp" Type="varchar" MaxLength="15" />
           <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="isAtivo" Type="bit" />
         </EntityType>
         <EntityType Name="MateriasUsadasNoProduto">
           <Key>
@@ -108,6 +109,7 @@
           <Property Name="IdProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="30" />
           <Property Name="PrecoUnitario" Type="float" />
+          <Property Name="isAtivo" Type="bit" />
         </EntityType>
         <EntityType Name="Transacao">
           <Key>
@@ -401,6 +403,7 @@
           <Property Name="idMateriaPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CodigoMp" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isAtivo" Type="Boolean" />
           <NavigationProperty Name="EstoqueMateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" FromRole="MateriaPrima" ToRole="EstoqueMateriaPrima" />
           <NavigationProperty Name="MateriasUsadasNoProduto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" FromRole="MateriaPrima" ToRole="MateriasUsadasNoProduto" />
           <NavigationProperty Name="PedidoCompraSuprimento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" FromRole="MateriaPrima" ToRole="PedidoCompraSuprimento" />
@@ -468,6 +471,7 @@
           <Property Name="IdProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="PrecoUnitario" Type="Double" />
+          <Property Name="isAtivo" Type="Boolean" />
           <NavigationProperty Name="EstoqueProdutoAcabado" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueProdutoAcabado_IdProduto" FromRole="Produto" ToRole="EstoqueProdutoAcabado" />
           <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Produto" ToRole="Orcamento" />
           <NavigationProperty Name="OrdemProducao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="Produto" ToRole="OrdemProducao" />
@@ -658,6 +662,7 @@
           <EntitySetMapping Name="MateriaPrima">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriaPrima">
               <MappingFragment StoreEntitySet="MateriaPrima">
+                <ScalarProperty Name="isAtivo" ColumnName="isAtivo" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="CodigoMp" ColumnName="CodigoMp" />
                 <ScalarProperty Name="idMateriaPrima" ColumnName="idMateriaPrima" />
@@ -718,6 +723,7 @@
           <EntitySetMapping Name="Produto">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Produto">
               <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="isAtivo" ColumnName="isAtivo" />
                 <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />

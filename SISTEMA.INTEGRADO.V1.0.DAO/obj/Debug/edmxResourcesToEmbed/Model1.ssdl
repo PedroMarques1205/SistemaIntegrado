@@ -47,6 +47,7 @@
     <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CodigoMp" Type="varchar" MaxLength="15" />
     <Property Name="Nome" Type="varchar" MaxLength="50" />
+    <Property Name="isAtivo" Type="bit" />
   </EntityType>
   <EntityType Name="MateriasUsadasNoProduto">
     <Key>
@@ -103,6 +104,7 @@
     <Property Name="IdProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="30" />
     <Property Name="PrecoUnitario" Type="float" />
+    <Property Name="isAtivo" Type="bit" />
   </EntityType>
   <EntityType Name="Transacao">
     <Key>

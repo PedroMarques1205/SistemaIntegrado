@@ -46,6 +46,7 @@
             this.txtNomeMP.Name = "txtNomeMP";
             this.txtNomeMP.Size = new System.Drawing.Size(378, 25);
             this.txtNomeMP.TabIndex = 0;
+            this.txtNomeMP.TextChanged += new System.EventHandler(this.txtNomeMP_TextChanged);
             // 
             // label1
             // 
@@ -56,6 +57,7 @@
             this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome Matéria: *";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnCancela
             // 

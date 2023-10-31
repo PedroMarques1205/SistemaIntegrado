@@ -19,25 +19,27 @@ namespace SistemaIntegradoV1._0
             InitializeComponent();
         }
 
-        public void carregaGrids() 
+        public void carregaGrids()
         {
             using (ConnectionString context = new ConnectionString())
             {
                 var queryMP = (from estoque in context.EstoqueMateriaPrima
-                             select new
-                             {
-                                 materia = estoque.NomeMp,
-                                 quantidade = estoque.Quantidade,
-                             }).ToList();
+                               where estoque.MateriaPrima.isAtivo == true
+                               select new
+                               {
+                                   materia = estoque.NomeMp,
+                                   quantidade = estoque.Quantidade,
+                               }).ToList();
 
                 materiaDataGridViewe.DataSource = queryMP;
 
                 var queryProduto = (from estoque in context.EstoqueProdutoAcabado
-                             select new
-                             {
-                                 Produto = estoque.NomeProduto,
-                                 quantidade = estoque.Quantidade,
-                             }).ToList();
+                                    where estoque.Produto.isAtivo == true
+                                    select new
+                                    {
+                                        Produto = estoque.NomeProduto,
+                                        quantidade = estoque.Quantidade,
+                                    }).ToList();
 
                 produtosDataGridView.DataSource = queryProduto;
 
@@ -51,6 +53,7 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from estoque in context.EstoqueMateriaPrima
+                             where estoque.MateriaPrima.isAtivo == true
                              select new
                              {
                                  materia = estoque.NomeMp,
@@ -67,6 +70,7 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from estoque in context.EstoqueProdutoAcabado
+                             where estoque.Produto.isAtivo == true
                              select new
                              {
                                  Produto = estoque.NomeProduto,

@@ -257,8 +257,15 @@ namespace SistemaIntegradoV1._0
             else
             {
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show("Selecione o cliente que deseja cancelar", "Nenhum cliente selecionado", buttons, MessageBoxIcon.Asterisk);
+                DialogResult result = MessageBox.Show("Selecione o cliente que deseja reativar", "Nenhum cliente selecionado", buttons, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void tdbRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            carregaGrid();
+            Cursor.Current = Cursors.Default;
         }
     }
 }

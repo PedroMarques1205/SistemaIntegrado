@@ -33,7 +33,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btnEnviarProducao = new System.Windows.Forms.ToolStripButton();
+            this.btnCadastrarMateria = new System.Windows.Forms.ToolStripButton();
+            this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.tsbDesativarMp = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.MpDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,8 +80,9 @@
             this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.toolStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnEnviarProducao});
-            this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.btnCadastrarMateria,
+            this.tdbRefresh,
+            this.tsbDesativarMp});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -87,18 +90,45 @@
             this.toolStrip2.TabIndex = 23;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // btnEnviarProducao
+            // btnCadastrarMateria
             // 
-            this.btnEnviarProducao.ForeColor = System.Drawing.Color.White;
-            this.btnEnviarProducao.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarProducao.Image")));
-            this.btnEnviarProducao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnEnviarProducao.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEnviarProducao.Name = "btnEnviarProducao";
-            this.btnEnviarProducao.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.btnEnviarProducao.Size = new System.Drawing.Size(158, 66);
-            this.btnEnviarProducao.Text = "Cadastrar matéria prima";
-            this.btnEnviarProducao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEnviarProducao.Click += new System.EventHandler(this.tbsCadastroMateria_Click);
+            this.btnCadastrarMateria.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrarMateria.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrarMateria.Image")));
+            this.btnCadastrarMateria.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCadastrarMateria.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCadastrarMateria.Name = "btnCadastrarMateria";
+            this.btnCadastrarMateria.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.btnCadastrarMateria.Size = new System.Drawing.Size(158, 66);
+            this.btnCadastrarMateria.Text = "Cadastrar Matéria Prima";
+            this.btnCadastrarMateria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCadastrarMateria.Click += new System.EventHandler(this.tbsCadastroMateria_Click);
+            // 
+            // tdbRefresh
+            // 
+            this.tdbRefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tdbRefresh.ForeColor = System.Drawing.Color.White;
+            this.tdbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tdbRefresh.Image")));
+            this.tdbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tdbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tdbRefresh.Name = "tdbRefresh";
+            this.tdbRefresh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tdbRefresh.Size = new System.Drawing.Size(77, 66);
+            this.tdbRefresh.Text = "Atualizar";
+            this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
+            // 
+            // tsbDesativarMp
+            // 
+            this.tsbDesativarMp.ForeColor = System.Drawing.Color.White;
+            this.tsbDesativarMp.Image = ((System.Drawing.Image)(resources.GetObject("tsbDesativarMp.Image")));
+            this.tsbDesativarMp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbDesativarMp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDesativarMp.Name = "tsbDesativarMp";
+            this.tsbDesativarMp.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbDesativarMp.Size = new System.Drawing.Size(156, 66);
+            this.tsbDesativarMp.Text = "Desativar Matéria Prima";
+            this.tsbDesativarMp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbDesativarMp.Click += new System.EventHandler(this.tsbDesativarMp_Click);
             // 
             // cadastroMateriaP
             // 
@@ -128,6 +158,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton btnEnviarProducao;
+        private System.Windows.Forms.ToolStripButton btnCadastrarMateria;
+        private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private System.Windows.Forms.ToolStripButton tsbDesativarMp;
     }
 }

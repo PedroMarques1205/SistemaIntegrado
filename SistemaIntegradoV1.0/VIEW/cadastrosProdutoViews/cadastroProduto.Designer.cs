@@ -34,6 +34,8 @@
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tbsCadastroProdruto = new System.Windows.Forms.ToolStripButton();
+            this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ProdutosDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,8 +80,9 @@
             this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.toolStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbsCadastroProdruto});
-            this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tbsCadastroProdruto,
+            this.tdbRefresh,
+            this.toolStripButton1});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -99,6 +102,32 @@
             this.tbsCadastroProdruto.Text = "Cadastrar Produto";
             this.tbsCadastroProdruto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsCadastroProdruto.Click += new System.EventHandler(this.tbsCadastroProdruto_Click);
+            // 
+            // tdbRefresh
+            // 
+            this.tdbRefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tdbRefresh.ForeColor = System.Drawing.Color.White;
+            this.tdbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tdbRefresh.Image")));
+            this.tdbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tdbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tdbRefresh.Name = "tdbRefresh";
+            this.tdbRefresh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tdbRefresh.Size = new System.Drawing.Size(77, 66);
+            this.tdbRefresh.Text = "Atualizar";
+            this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.toolStripButton1.Size = new System.Drawing.Size(125, 66);
+            this.toolStripButton1.Text = "Desativar Produto";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // cadastroProduto
             // 
@@ -130,5 +159,7 @@
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton tbsCadastroProdruto;
+        private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

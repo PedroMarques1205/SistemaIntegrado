@@ -121,6 +121,12 @@
     <Compile Include="VIEW\cadastrosClienteViews\editarCliente.Designer.cs">
       <DependentUpon>editarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\editarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\cadastrosProdutoViews\editarProduto.Designer.cs">
+      <DependentUpon>editarProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\estoquesViews\estoques.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\cadastrosClienteViews\editarCliente.resx">
       <DependentUpon>editarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\editarProduto.resx">
+      <DependentUpon>editarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\estoquesViews\estoques.resx">
       <DependentUpon>estoques.cs</DependentUpon>

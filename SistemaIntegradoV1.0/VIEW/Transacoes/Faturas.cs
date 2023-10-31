@@ -23,8 +23,10 @@ namespace SistemaIntegradoV1._0
 
         private void Faturas_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             controiGrid();
             carregaGrid();
+            Cursor.Current = Cursors.Default;
         }
 
         public void carregaGrid()
@@ -119,6 +121,13 @@ namespace SistemaIntegradoV1._0
                         break;
                 }
             }
+        }
+
+        private void tdbRefresh_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            carregaGrid();
+            Cursor.Current = Cursors.Default;
         }
     }
 }

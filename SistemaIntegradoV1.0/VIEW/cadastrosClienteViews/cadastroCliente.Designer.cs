@@ -38,6 +38,7 @@
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbClientesDesativados = new System.Windows.Forms.ToolStripButton();
             this.tbsReativarCliente = new System.Windows.Forms.ToolStripButton();
+            this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -86,8 +87,8 @@
             this.tsbCancelaCadastro,
             this.tsbEditar,
             this.tsbClientesDesativados,
-            this.tbsReativarCliente});
-            this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.tbsReativarCliente,
+            this.tdbRefresh});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -160,6 +161,20 @@
             this.tbsReativarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsReativarCliente.Click += new System.EventHandler(this.tbsReativarCliente_Click);
             // 
+            // tdbRefresh
+            // 
+            this.tdbRefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tdbRefresh.ForeColor = System.Drawing.Color.White;
+            this.tdbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tdbRefresh.Image")));
+            this.tdbRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tdbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tdbRefresh.Name = "tdbRefresh";
+            this.tdbRefresh.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tdbRefresh.Size = new System.Drawing.Size(77, 66);
+            this.tdbRefresh.Text = "Atualizar";
+            this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
+            // 
             // cadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +208,6 @@
         private System.Windows.Forms.ToolStripButton tsbClientesDesativados;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tbsReativarCliente;
+        private System.Windows.Forms.ToolStripButton tdbRefresh;
     }
 }
