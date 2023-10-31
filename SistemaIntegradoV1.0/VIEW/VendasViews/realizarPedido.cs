@@ -25,7 +25,7 @@ namespace SistemaIntegradoV1._0
         }
 
         bool imageTransiction = false;
-       
+
         private void realizarPedido_Load(object sender, EventArgs e)
         {
             dpdPagamento.Items.Add("PIX");
@@ -48,23 +48,67 @@ namespace SistemaIntegradoV1._0
 
         }
 
+        public bool verificaCampos()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox textBox = c as TextBox;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        return true;
+                    }
+                }
+                else if (c is MaskedTextBox)
+                {
+                    MaskedTextBox textBox = c as MaskedTextBox;
+                    if (!textBox.MaskCompleted)
+                    {
+                        return true;
+                    }
+                }
+                else if (c is ComboBox)
+                {
+                    ComboBox textBox = c as ComboBox;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        return true;
+                    }
+                }
+                else if (c is NumericUpDown)
+                {
+                    NumericUpDown textBox = c as NumericUpDown;
+                    if (textBox.Value == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
                 using (ConnectionString context = new ConnectionString())
                 {
-                    Orcamento orcamento = new Orcamento();
-                    Produto produto = context.Produto.FirstOrDefault(p => p.Nome.Equals(produtosDropDown.Text));
-                    EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(q => q.IdProduto.Equals(produto.IdProduto));
-
-                    if (verificarEstoque(produto, estoque))
+                    if (verificaCampos())
                     {
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result = MessageBox.Show("Preencha todos os campos", "Error", buttons, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        Orcamento orcamento = new Orcamento();
+                        Produto produto = context.Produto.FirstOrDefault(p => p.Nome.Equals(produtosDropDown.Text));
+                        EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(q => q.IdProduto.Equals(produto.IdProduto));
                         if (produto != null)
                         {
                             Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
 
-                            if (cliente != null)
+                            if (cliente != null && cliente.isAtivo == true)
                             {
                                 orcamento.CpfCliente = cliente.CpfCliente;
                                 orcamento.idProduto = produto.IdProduto;
@@ -76,29 +120,66 @@ namespace SistemaIntegradoV1._0
                                 context.Orcamento.Add(orcamento);
                                 context.SaveChanges();
                                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                                DialogResult result = MessageBox.Show("Cadastrado com sucesso!", ":)", buttons, MessageBoxIcon.Information);
+                                DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
                             }
                             else
                             {
                                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                                DialogResult result = MessageBox.Show("Esse cliente não existe", ":(", buttons, MessageBoxIcon.Error);
+                                DialogResult result = MessageBox.Show("Esse cliente não existe", "Error", buttons, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
                             MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            DialogResult result = MessageBox.Show("Esse produto não existe", ":(", buttons, MessageBoxIcon.Error);
+                            DialogResult result = MessageBox.Show("Esse produto não existe", "Error", buttons, MessageBoxIcon.Error);
                         }
-                    }
-                    else
-                    {
-                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                        DialogResult result = MessageBox.Show("Não possuimos esse produto em estoque,\ndeseja solicitar produção?", ":(", buttons, MessageBoxIcon.Error);
-                        if (result == DialogResult.Yes)
+                        if (!verificarEstoque(produto, estoque))
                         {
-                            this.Close();
-                            enviarProducao tela = new enviarProducao();
-                            tela.ShowDialog();
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            DialogResult result = MessageBox.Show("Não possuimos esse produto em estoque\nenviando para produção", "Error", buttons, MessageBoxIcon.Error);
+
+                            OrdemProducao producao = new OrdemProducao();
+
+                            Produto produto1 = context.Produto.FirstOrDefault(
+                                p => p.Nome.Equals(produtosDropDown.Text));
+
+                            producao.IdProduto = produto1.IdProduto;
+                            producao.QtdAproduzir =  Convert.ToInt32(txtQuantidade.Text);
+                            producao.FaseAtual = "Em aprovação";
+                            int contador = 0;
+
+                            context.OrdemProducao.Add(producao);
+                            context.SaveChanges();
+                                        
+                            List<MateriasUsadasNoProduto> mpUsadas = context.MateriasUsadasNoProduto.Where(c => c.idProduto.Equals(producao.Produto.IdProduto)).ToList();
+                            List<MateriasUsadasNoProduto> newMpUsadas = new List<MateriasUsadasNoProduto>();
+                            foreach (MateriasUsadasNoProduto item in mpUsadas)
+                            {
+                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(item.idMateriaPrima));
+                                if (item.Quantidade * producao.QtdAproduzir > estoqueMateriaPrima.Quantidade)
+                                {
+                                    newMpUsadas.Add(item);
+                                }
+                            }
+                            for (int i = 0; i<newMpUsadas.Count; i++)
+                            {
+                                MateriasUsadasNoProduto newMp = newMpUsadas[i];
+                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
+                            }
+                            for (int i = 0; i<newMpUsadas.Count; i++)
+                            {
+                                PedidoCompraSuprimento pedido = new PedidoCompraSuprimento();
+                                MateriasUsadasNoProduto newMp = newMpUsadas[i];
+                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
+                                pedido.IdMateriaPrima = newMpUsadas[i].idMateriaPrima;
+                                pedido.Quantidade = (producao.QtdAproduzir*(newMpUsadas[i].Quantidade) - estoqueMateriaPrima.Quantidade);
+                                pedido.IsPedidoAceito= false;
+                                context.PedidoCompraSuprimento.Add(pedido);
+                                context.SaveChanges();
+                            }
                         }
                     }
                 }

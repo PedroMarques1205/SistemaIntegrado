@@ -28,6 +28,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public string Complemento { get; set; }
         public string Estado { get; set; }
         public string Municipio { get; set; }
+        public Nullable<bool> isAtivo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orcamento> Orcamento { get; set; }

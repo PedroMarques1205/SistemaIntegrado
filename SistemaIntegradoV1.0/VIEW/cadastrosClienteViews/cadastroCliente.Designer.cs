@@ -34,6 +34,10 @@
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnCadastrarCliente = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancelaCadastro = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbClientesDesativados = new System.Windows.Forms.ToolStripButton();
+            this.tbsReativarCliente = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,7 +82,11 @@
             this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.toolStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnCadastrarCliente});
+            this.btnCadastrarCliente,
+            this.tsbCancelaCadastro,
+            this.tsbEditar,
+            this.tsbClientesDesativados,
+            this.tbsReativarCliente});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -99,6 +107,58 @@
             this.btnCadastrarCliente.Text = "Cadastrar Cliente";
             this.btnCadastrarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCadastrarCliente.Click += new System.EventHandler(this.btnCadastrarCliente_Click);
+            // 
+            // tsbCancelaCadastro
+            // 
+            this.tsbCancelaCadastro.ForeColor = System.Drawing.Color.White;
+            this.tsbCancelaCadastro.Image = ((System.Drawing.Image)(resources.GetObject("tsbCancelaCadastro.Image")));
+            this.tsbCancelaCadastro.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbCancelaCadastro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancelaCadastro.Name = "tsbCancelaCadastro";
+            this.tsbCancelaCadastro.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbCancelaCadastro.Size = new System.Drawing.Size(127, 66);
+            this.tsbCancelaCadastro.Text = "Cancelar Cadastro";
+            this.tsbCancelaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbCancelaCadastro.Click += new System.EventHandler(this.tsbCancelaCadastro_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.ForeColor = System.Drawing.Color.White;
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbEditar.Size = new System.Drawing.Size(101, 66);
+            this.tsbEditar.Text = "Editar Cliente";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
+            // tsbClientesDesativados
+            // 
+            this.tsbClientesDesativados.ForeColor = System.Drawing.Color.White;
+            this.tsbClientesDesativados.Image = global::SistemaIntegradoV1._0.Properties.Resources.icons8_disabled_32;
+            this.tsbClientesDesativados.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbClientesDesativados.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClientesDesativados.Name = "tsbClientesDesativados";
+            this.tsbClientesDesativados.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbClientesDesativados.Size = new System.Drawing.Size(138, 66);
+            this.tsbClientesDesativados.Text = "Clientes desativados";
+            this.tsbClientesDesativados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbClientesDesativados.Click += new System.EventHandler(this.tsbClientesDesativados_Click);
+            // 
+            // tbsReativarCliente
+            // 
+            this.tbsReativarCliente.ForeColor = System.Drawing.Color.White;
+            this.tbsReativarCliente.Image = ((System.Drawing.Image)(resources.GetObject("tbsReativarCliente.Image")));
+            this.tbsReativarCliente.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsReativarCliente.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsReativarCliente.Name = "tbsReativarCliente";
+            this.tbsReativarCliente.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tbsReativarCliente.Size = new System.Drawing.Size(113, 66);
+            this.tbsReativarCliente.Text = "Reativar Cliente";
+            this.tbsReativarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tbsReativarCliente.Click += new System.EventHandler(this.tbsReativarCliente_Click);
             // 
             // cadastroCliente
             // 
@@ -129,5 +189,9 @@
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnCadastrarCliente;
+        private System.Windows.Forms.ToolStripButton tsbCancelaCadastro;
+        private System.Windows.Forms.ToolStripButton tsbClientesDesativados;
+        private System.Windows.Forms.ToolStripButton tsbEditar;
+        private System.Windows.Forms.ToolStripButton tbsReativarCliente;
     }
 }

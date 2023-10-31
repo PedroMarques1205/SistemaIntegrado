@@ -12,6 +12,7 @@
     <Property Name="Complemento" Type="varchar" MaxLength="20" />
     <Property Name="Estado" Type="varchar" MaxLength="40" />
     <Property Name="Municipio" Type="varchar" MaxLength="40" />
+    <Property Name="isAtivo" Type="bit" />
   </EntityType>
   <EntityType Name="Entrega">
     <Key>

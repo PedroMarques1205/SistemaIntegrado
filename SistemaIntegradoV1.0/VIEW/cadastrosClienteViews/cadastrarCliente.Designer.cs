@@ -57,9 +57,9 @@
             this.label1.Location = new System.Drawing.Point(9, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
+            this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "CPF:";
+            this.label1.Text = "CPF: *";
             // 
             // txtNomeCliente
             // 
@@ -88,9 +88,9 @@
             this.label2.Location = new System.Drawing.Point(139, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 17);
+            this.label2.Size = new System.Drawing.Size(121, 17);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Nome do cliente:";
+            this.label2.Text = "Nome do cliente: *";
             // 
             // label3
             // 
@@ -110,9 +110,9 @@
             this.label4.Location = new System.Drawing.Point(432, 124);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Bairro:";
+            this.label4.Text = "Bairro: *";
             // 
             // label5
             // 
@@ -121,9 +121,9 @@
             this.label5.Location = new System.Drawing.Point(9, 124);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 17);
+            this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Rua:";
+            this.label5.Text = "Rua: *";
             // 
             // label6
             // 
@@ -132,9 +132,9 @@
             this.label6.Location = new System.Drawing.Point(352, 124);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 17);
+            this.label6.Size = new System.Drawing.Size(51, 17);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Num:";
+            this.label6.Text = "Num: *";
             // 
             // txtBairro
             // 
@@ -171,9 +171,9 @@
             this.label7.Location = new System.Drawing.Point(482, 184);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 17);
+            this.label7.Size = new System.Drawing.Size(62, 17);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Estado:";
+            this.label7.Text = "Estado: *";
             // 
             // txtMunicipio
             // 
@@ -192,9 +192,9 @@
             this.label8.Location = new System.Drawing.Point(207, 184);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 17);
+            this.label8.Size = new System.Drawing.Size(80, 17);
             this.label8.TabIndex = 19;
-            this.label8.Text = "Municipio:";
+            this.label8.Text = "Municipio: *";
             // 
             // txtComplemento
             // 
@@ -213,9 +213,9 @@
             this.label9.Location = new System.Drawing.Point(9, 184);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 17);
+            this.label9.Size = new System.Drawing.Size(107, 17);
             this.label9.TabIndex = 19;
-            this.label9.Text = "Complemento:";
+            this.label9.Text = "Complemento: *";
             // 
             // cbEstado
             // 

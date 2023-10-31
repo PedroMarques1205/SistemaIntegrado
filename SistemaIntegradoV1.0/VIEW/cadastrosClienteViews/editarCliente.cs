@@ -3,19 +3,38 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaIntegradoV1._0
+namespace SistemaIntegradoV1._0.VIEW.cadastrosClienteViews
 {
-    public partial class cadastrarCliente : Form
+    public partial class editarCliente : Form
     {
-        public cadastrarCliente()
+        public editarCliente(string cpf,string nome,string rua, string bairro, string complemento,string municipio,string estado,int num)
         {
             InitializeComponent();
+            txtCpf.Text = cpf;
+            txtNomeCliente.Text = nome;
+            txtRua.Text = rua;
+            txtBairro.Text = bairro;
+            txtComplemento.Text = complemento;
+            txtMunicipio.Text = municipio;
+            cbEstado.Text = estado;
+            txtNum.Text = num.ToString();
+        }
+
+        private void btnCancela_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void editarCliente_Load(object sender, EventArgs e)
+        {
         }
 
         public bool verificaCampos()
@@ -44,22 +63,7 @@ namespace SistemaIntegradoV1._0
             return false;
         }
 
-        public bool verificaCpf()
-        {
-            using (ConnectionString context = new ConnectionString())
-            {
-                foreach (Cliente item in context.Cliente)
-                {
-                    if (item.CpfCliente.Equals(txtCpf.Text))
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-
-        private void btnCadastrarCliente_Click(object sender, EventArgs e)
+        private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -72,17 +76,10 @@ namespace SistemaIntegradoV1._0
                     }
                     else
                     {
-                        if (verificaCpf())
-                        {
-                            MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            DialogResult result = MessageBox.Show("Esse cliente já existe", "Error", buttons, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            Cliente cliente = new Cliente();
+                        
+                            Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpf.Text));
 
                             cliente.isAtivo = true;
-                            cliente.CpfCliente = txtCpf.Text;
                             cliente.Nome = txtNomeCliente.Text;
                             cliente.Rua = txtRua.Text;
                             cliente.Bairro = txtBairro.Text;
@@ -90,12 +87,12 @@ namespace SistemaIntegradoV1._0
                             cliente.Estado = cbEstado.Text;
                             cliente.Municipio = txtMunicipio.Text;
                             cliente.Complemento = txtComplemento.Text;
-                            context.Cliente.Add(cliente);
+                            context.Entry<Cliente>(cliente).State = EntityState.Modified;
                             context.SaveChanges();
                             MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                            DialogResult result = MessageBox.Show("Editado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
                             this.Close();
-                        }
+                        
                     }
                 }
             }
@@ -103,19 +100,7 @@ namespace SistemaIntegradoV1._0
             {
 
             }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
+            
         }
     }
 }

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="isAtivo" ColumnName="isAtivo" />
           <ScalarProperty Name="Municipio" ColumnName="Municipio" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Complemento" ColumnName="Complemento" />

@@ -32,7 +32,7 @@ namespace SistemaIntegradoV1._0
 
                 //materiasDataGrid.AutoGenerateColumns = false;
                 materiasDataGrid.Columns.Add(new GridComboBoxColumn() { MappingName = "materia", HeaderText = "MP", Visible = true, AllowEditing = true, DataSource = listaMP, ValueMember = "Nome", DisplayMember = "Nome", Width = 250 });
-                materiasDataGrid.Columns.Add(new GridNumericColumn() { MappingName = "quantidade", HeaderText = "QTDE", Visible = true, AllowEditing = true });
+                materiasDataGrid.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "QTDE", Visible = true, AllowEditing = true });
 
                 MateriasUsadasBindingSource = new BindingSource();
                 MateriasUsadasBindingSource.DataSource = ListaMateriaQuantidade;
@@ -45,62 +45,101 @@ namespace SistemaIntegradoV1._0
         {
             this.Close();
         }
+        public bool verificaCampos()
+        {
+            if (string.IsNullOrEmpty(txtPreco.Text) || string.IsNullOrEmpty(txtNomeProduto.Text))
+            {
+                return true;
+            }
+            return false;
+        }
 
+        public bool verificaProduto()
+        {
+            using (ConnectionString context = new ConnectionString())
+            {
+                foreach (Produto item in context.Produto)
+                {
+                    if (item.Nome.ToUpper().Equals(txtNomeProduto.Text.ToUpper()))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
             try
             {
                 using (ConnectionString context = new ConnectionString())
                 {
-                    Produto produto = new Produto();
-                    MateriaPrima mp = new MateriaPrima();
-                    EstoqueProdutoAcabado estoque = new EstoqueProdutoAcabado();
-                    MateriasUsadasNoProduto mpUsadas = new MateriasUsadasNoProduto();
-
-                    produto.Nome = txtNomeProduto.Text;
-                    produto.PrecoUnitario = Convert.ToDouble(txtPreco.Text);
-
-                    context.Produto.Add(produto);
-                    context.SaveChanges();
-
-                    produto = context.Produto.Where(p => p.Nome.Equals(produto.Nome)).FirstOrDefault();
-                    estoque.NomeProduto = produto.Nome;
-                    estoque.IdProduto = produto.IdProduto;
-                    estoque.Quantidade = 0;
-                    mpUsadas.idProduto = produto.IdProduto;
-                    mpUsadas.NomeProduto = produto.Nome;
-                    context.EstoqueProdutoAcabado.Add(estoque);
-                    context.SaveChanges();
-
-                    List<materiasQuantidade> lista = new List<materiasQuantidade>();
-
-                    for (int i = 0; i < materiasDataGrid.View.Records.Count; i++)
+                    if (verificaCampos())
                     {
-                        if (materiasDataGrid.View.Records[i].Data is materiasQuantidade item && item != null)
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result = MessageBox.Show("Preencha todos os campos", "Error", buttons, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (verificaProduto())
                         {
-                            lista.Add(item);
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            DialogResult result = MessageBox.Show("Produto já cadastrado", "Error", buttons, MessageBoxIcon.Error);
                         }
+                        else
+                        {
+                            Produto produto = new Produto();
+                            MateriaPrima mp = new MateriaPrima();
+                            EstoqueProdutoAcabado estoque = new EstoqueProdutoAcabado();
+                            MateriasUsadasNoProduto mpUsadas = new MateriasUsadasNoProduto();
 
-                    }
+                            produto.Nome = txtNomeProduto.Text;
+                            produto.PrecoUnitario = Convert.ToDouble(txtPreco.Text);
 
-                    foreach (materiasQuantidade item in lista)
-                    {
-                        MateriaPrima newMp = context.MateriaPrima.FirstOrDefault(m => m.Nome.Equals(item.materia));
-                        MateriasUsadasNoProduto newMpUsadas = new MateriasUsadasNoProduto();
-                        materiasQuantidade newMpQuantidade = new materiasQuantidade();
-                        newMpQuantidade.materia = item.materia;
-                        newMpQuantidade.quantidade = item.quantidade;
-                        newMpUsadas.idProduto = produto.IdProduto;
-                        newMpUsadas.NomeProduto = produto.Nome;
-                        newMpUsadas.idMateriaPrima = newMp.idMateriaPrima;
-                        newMpUsadas.NomeMp = newMp.Nome;
-                        newMpUsadas.Quantidade = newMpQuantidade.quantidade;
-                        context.MateriasUsadasNoProduto.Add(newMpUsadas);
-                        context.SaveChanges();
+                            context.Produto.Add(produto);
+                            context.SaveChanges();
+
+                            produto = context.Produto.Where(p => p.Nome.Equals(produto.Nome)).FirstOrDefault();
+                            estoque.NomeProduto = produto.Nome;
+                            estoque.IdProduto = produto.IdProduto;
+                            estoque.Quantidade = 0;
+                            mpUsadas.idProduto = produto.IdProduto;
+                            mpUsadas.NomeProduto = produto.Nome;
+                            context.EstoqueProdutoAcabado.Add(estoque);
+                            context.SaveChanges();
+
+                            List<materiasQuantidade> lista = new List<materiasQuantidade>();
+
+                            for (int i = 0; i < materiasDataGrid.View.Records.Count; i++)
+                            {
+                                if (materiasDataGrid.View.Records[i].Data is materiasQuantidade item && item != null)
+                                {
+                                    lista.Add(item);
+                                }
+
+                            }
+
+                            foreach (materiasQuantidade item in lista)
+                            {
+                                MateriaPrima newMp = context.MateriaPrima.FirstOrDefault(m => m.Nome.Equals(item.materia));
+                                MateriasUsadasNoProduto newMpUsadas = new MateriasUsadasNoProduto();
+                                materiasQuantidade newMpQuantidade = new materiasQuantidade();
+                                newMpQuantidade.materia = item.materia;
+                                newMpQuantidade.quantidade = item.quantidade;
+                                newMpUsadas.idProduto = produto.IdProduto;
+                                newMpUsadas.NomeProduto = produto.Nome;
+                                newMpUsadas.idMateriaPrima = newMp.idMateriaPrima;
+                                newMpUsadas.NomeMp = newMp.Nome;
+                                newMpUsadas.Quantidade = newMpQuantidade.quantidade;
+                                context.MateriasUsadasNoProduto.Add(newMpUsadas);
+                                context.SaveChanges();
+                            }
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                            lista.Clear();
+                            this.Close();
+                        }
                     }
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result = MessageBox.Show("Cadastrado com sucesso!", ":)", buttons, MessageBoxIcon.Information);
-                    lista.Clear();
                 }
             }
             catch (Exception r)

@@ -34,7 +34,6 @@ namespace SistemaIntegradoV1._0
                 var query = (from mp in context.MateriaPrima
                              select new
                              {
-                                 idMateria = mp.idMateriaPrima,
                                  Nome = mp.Nome,
                                  codigo = mp.CodigoMp,
                              }).ToList();
@@ -45,16 +44,14 @@ namespace SistemaIntegradoV1._0
         }
         public void constroiGrid()
         {
-            MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idMateria", HeaderText = "ID Matéria", Visible = true, Width = 100 });
+            MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "codigo", HeaderText = "Código", Visible = true, Width = 100 });
             MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Nome", HeaderText = "Matéria Prima", Visible = true });
-            MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "codigo", HeaderText = "Código", Visible = true });
 
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from mp in context.MateriaPrima
                              select new
                              {
-                                 idMateria = mp.idMateriaPrima,
                                  Nome = mp.Nome,
                                  codigo = mp.CodigoMp,
                              }).ToList();

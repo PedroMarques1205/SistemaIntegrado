@@ -17,6 +17,7 @@
           <Property Name="Complemento" Type="varchar" MaxLength="20" />
           <Property Name="Estado" Type="varchar" MaxLength="40" />
           <Property Name="Municipio" Type="varchar" MaxLength="40" />
+          <Property Name="isAtivo" Type="bit" />
         </EntityType>
         <EntityType Name="Entrega">
           <Key>
@@ -361,6 +362,7 @@
           <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Municipio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="isAtivo" Type="Boolean" />
           <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Cliente" ToRole="Orcamento" />
         </EntityType>
         <EntityType Name="Entrega">
@@ -612,6 +614,7 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="isAtivo" ColumnName="isAtivo" />
                 <ScalarProperty Name="Municipio" ColumnName="Municipio" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Complemento" ColumnName="Complemento" />

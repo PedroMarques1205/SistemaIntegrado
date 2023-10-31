@@ -118,26 +118,36 @@ namespace SistemaIntegradoV1._0
                             o =>
                                 o.idOrcamento.Equals(idOrcamento)
                         );
-                        orcamento.statusCliente = "Aceito";
 
                         EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(x => x.IdProduto.Equals(orcamento.idProduto));
-                        estoque.Quantidade -= Convert.ToInt32(orcamento.QuantProduto);
 
-                        context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
-                        context.Entry<EstoqueProdutoAcabado>(estoque).State = EntityState.Modified;
-                        context.SaveChanges();
+                        if (orcamento.QuantProduto > estoque.Quantidade)
+                        {
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            MessageBox.Show("Não é possível aceitar o pedido, pois não temos produto suficiente em estoque", "Atenção", buttons, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                        {
+                            orcamento.statusCliente = "Aceito";
 
-                        MessageBoxButtons buttons = MessageBoxButtons.OK;
-                        MessageBox.Show("Aceito pelo cliente!", ":)", buttons, MessageBoxIcon.Information);
-                        carregaGrid();
-                        Transacao recibo = new Transacao();
+                            estoque.Quantidade -= Convert.ToInt32(orcamento.QuantProduto);
 
-                        recibo.IdPedidoReceber = orcamento.idOrcamento;
-                        recibo.ValorReceber = orcamento.ValorTotal;
-                        recibo.Situacao = "Aberto";
+                            context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
+                            context.Entry<EstoqueProdutoAcabado>(estoque).State = EntityState.Modified;
+                            context.SaveChanges();
 
-                        context.Transacao.Add(recibo);
-                        context.SaveChanges();
+                            MessageBoxButtons buttons = MessageBoxButtons.OK;
+                            MessageBox.Show("Aceito pelo cliente!", "Sucesso", buttons, MessageBoxIcon.Information);
+                            carregaGrid();
+                            Transacao recibo = new Transacao();
+
+                            recibo.IdPedidoReceber = orcamento.idOrcamento;
+                            recibo.ValorReceber = orcamento.ValorTotal;
+                            recibo.Situacao = "Aberto";
+
+                            context.Transacao.Add(recibo);
+                            context.SaveChanges();
+                        }
                     }
                     else
                     {
@@ -172,7 +182,7 @@ namespace SistemaIntegradoV1._0
                         context.SaveChanges();
 
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
-                        MessageBox.Show("Reprovado pelo cliente!", ":(", buttons, MessageBoxIcon.Information);
+                        MessageBox.Show("Reprovado pelo cliente!", "Sucesso", buttons, MessageBoxIcon.Information);
                         carregaGrid();
                     }
                     else

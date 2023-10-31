@@ -37,9 +37,9 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.btnProduto = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
             this.btnMateria = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.btnProduto = new System.Windows.Forms.Button();
             this.menuContainerVendas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnVendas = new System.Windows.Forms.Button();
@@ -116,6 +116,7 @@
             this.menuCadastro.Controls.Add(this.panel11);
             this.menuCadastro.Controls.Add(this.panel12);
             this.menuCadastro.Controls.Add(this.panel13);
+            this.menuCadastro.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuCadastro.Location = new System.Drawing.Point(0, 50);
             this.menuCadastro.Margin = new System.Windows.Forms.Padding(0, 50, 0, 20);
             this.menuCadastro.Name = "menuCadastro";
@@ -134,7 +135,7 @@
             // btnCadastro
             // 
             this.btnCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnCadastro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastro.ForeColor = System.Drawing.Color.White;
             this.btnCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastro.Image")));
             this.btnCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,7 +143,7 @@
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(163, 57);
             this.btnCadastro.TabIndex = 3;
-            this.btnCadastro.Text = "           Cadastro";
+            this.btnCadastro.Text = "        Cadastro";
             this.btnCadastro.UseVisualStyleBackColor = false;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
@@ -167,43 +168,18 @@
             this.btnClientes.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(163, 57);
             this.btnClientes.TabIndex = 3;
-            this.btnClientes.Text = "    Cliente";
+            this.btnClientes.Text = "Cliente";
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.btnProduto);
+            this.panel12.Controls.Add(this.btnMateria);
             this.panel12.Location = new System.Drawing.Point(0, 78);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(153, 39);
             this.panel12.TabIndex = 7;
-            // 
-            // btnProduto
-            // 
-            this.btnProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnProduto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProduto.ForeColor = System.Drawing.Color.White;
-            this.btnProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnProduto.Image")));
-            this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduto.Location = new System.Drawing.Point(-5, -12);
-            this.btnProduto.Name = "btnProduto";
-            this.btnProduto.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnProduto.Size = new System.Drawing.Size(163, 57);
-            this.btnProduto.TabIndex = 3;
-            this.btnProduto.Text = "       Produto";
-            this.btnProduto.UseVisualStyleBackColor = false;
-            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.btnMateria);
-            this.panel13.Location = new System.Drawing.Point(0, 117);
-            this.panel13.Margin = new System.Windows.Forms.Padding(0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(153, 39);
-            this.panel13.TabIndex = 8;
             // 
             // btnMateria
             // 
@@ -217,15 +193,41 @@
             this.btnMateria.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnMateria.Size = new System.Drawing.Size(163, 57);
             this.btnMateria.TabIndex = 3;
-            this.btnMateria.Text = "            Matéria prima";
+            this.btnMateria.Text = "           Matéria prima";
             this.btnMateria.UseVisualStyleBackColor = false;
             this.btnMateria.Click += new System.EventHandler(this.btnMateria_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.btnProduto);
+            this.panel13.Location = new System.Drawing.Point(0, 117);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(153, 39);
+            this.panel13.TabIndex = 8;
+            // 
+            // btnProduto
+            // 
+            this.btnProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.btnProduto.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnProduto.ForeColor = System.Drawing.Color.White;
+            this.btnProduto.Image = ((System.Drawing.Image)(resources.GetObject("btnProduto.Image")));
+            this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduto.Location = new System.Drawing.Point(-5, -12);
+            this.btnProduto.Name = "btnProduto";
+            this.btnProduto.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProduto.Size = new System.Drawing.Size(163, 57);
+            this.btnProduto.TabIndex = 3;
+            this.btnProduto.Text = " Produto";
+            this.btnProduto.UseVisualStyleBackColor = false;
+            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
             // 
             // menuContainerVendas
             // 
             this.menuContainerVendas.Controls.Add(this.panel4);
             this.menuContainerVendas.Controls.Add(this.panel3);
             this.menuContainerVendas.Controls.Add(this.panel5);
+            this.menuContainerVendas.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuContainerVendas.Location = new System.Drawing.Point(0, 222);
             this.menuContainerVendas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.menuContainerVendas.Name = "menuContainerVendas";
@@ -244,7 +246,7 @@
             // btnVendas
             // 
             this.btnVendas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVendas.ForeColor = System.Drawing.Color.White;
             this.btnVendas.Image = ((System.Drawing.Image)(resources.GetObject("btnVendas.Image")));
             this.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,6 +313,7 @@
             this.menuContainerFinanceiro.Controls.Add(this.panel2);
             this.menuContainerFinanceiro.Controls.Add(this.panel8);
             this.menuContainerFinanceiro.Controls.Add(this.panel9);
+            this.menuContainerFinanceiro.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menuContainerFinanceiro.Location = new System.Drawing.Point(0, 365);
             this.menuContainerFinanceiro.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.menuContainerFinanceiro.Name = "menuContainerFinanceiro";
@@ -329,7 +332,7 @@
             // btnFinanceiro
             // 
             this.btnFinanceiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnFinanceiro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinanceiro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinanceiro.ForeColor = System.Drawing.Color.White;
             this.btnFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("btnFinanceiro.Image")));
             this.btnFinanceiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -394,6 +397,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.btnProducao);
+            this.panel6.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.panel6.Location = new System.Drawing.Point(3, 503);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.panel6.Name = "panel6";
@@ -403,7 +407,7 @@
             // btnProducao
             // 
             this.btnProducao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnProducao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducao.ForeColor = System.Drawing.Color.White;
             this.btnProducao.Image = ((System.Drawing.Image)(resources.GetObject("btnProducao.Image")));
             this.btnProducao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -418,6 +422,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.btnSuplimentos);
+            this.panel7.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.panel7.Location = new System.Drawing.Point(3, 565);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.panel7.Name = "panel7";
@@ -427,7 +432,7 @@
             // btnSuplimentos
             // 
             this.btnSuplimentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnSuplimentos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuplimentos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuplimentos.ForeColor = System.Drawing.Color.White;
             this.btnSuplimentos.Image = ((System.Drawing.Image)(resources.GetObject("btnSuplimentos.Image")));
             this.btnSuplimentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -442,6 +447,7 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.btnEstoques);
+            this.panel14.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.panel14.Location = new System.Drawing.Point(3, 627);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(188, 39);
@@ -450,7 +456,7 @@
             // btnEstoques
             // 
             this.btnEstoques.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
-            this.btnEstoques.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstoques.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEstoques.ForeColor = System.Drawing.Color.White;
             this.btnEstoques.Image = ((System.Drawing.Image)(resources.GetObject("btnEstoques.Image")));
             this.btnEstoques.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -522,8 +528,8 @@
             this.tabbedMDIManager1.DropDownButtonToolTip = "";
             this.tabbedMDIManager1.ImageSize = new System.Drawing.Size(16, 16);
             this.tabbedMDIManager1.NeedUpdateHostedForm = false;
-            this.tabbedMDIManager1.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererOffice2016Black);
-            this.tabbedMDIManager1.ThemeName = "TabRendererOffice2016Black";
+            this.tabbedMDIManager1.TabStyle = typeof(Syncfusion.Windows.Forms.Tools.TabRendererOffice2016DarkGray);
+            this.tabbedMDIManager1.ThemeName = "TabRendererOffice2016DarkGray";
             this.tabbedMDIManager1.TabControlRemoved += new Syncfusion.Windows.Forms.Tools.TabbedMDITabControlEventHandler(this.tabbedMDIManager1_TabControlRemoved);
             // 
             // engrenagens
@@ -633,9 +639,9 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button btnProduto;
-        private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button btnMateria;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button btnProduto;
         private System.Windows.Forms.Timer menuCadastroTransition;
         private Syncfusion.Windows.Forms.Tools.TabbedMDIManager tabbedMDIManager1;
         private System.Windows.Forms.PictureBox engrenagens;

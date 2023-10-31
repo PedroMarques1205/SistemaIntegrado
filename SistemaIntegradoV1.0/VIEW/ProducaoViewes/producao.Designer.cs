@@ -33,9 +33,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btnEnviarProducao = new System.Windows.Forms.ToolStripButton();
             this.btnRealizarPedido = new System.Windows.Forms.ToolStripButton();
             this.btnFinalizarProducao = new System.Windows.Forms.ToolStripButton();
+            this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
+            this.tsbMandarParaProducao = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ProducaoDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -78,9 +79,10 @@
             this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.toolStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnEnviarProducao,
             this.btnRealizarPedido,
-            this.btnFinalizarProducao});
+            this.tsbMandarParaProducao,
+            this.btnFinalizarProducao,
+            this.comboBoxFiltros});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -88,19 +90,6 @@
             this.toolStrip2.Size = new System.Drawing.Size(928, 69);
             this.toolStrip2.TabIndex = 22;
             this.toolStrip2.Text = "toolStrip2";
-            // 
-            // btnEnviarProducao
-            // 
-            this.btnEnviarProducao.ForeColor = System.Drawing.Color.White;
-            this.btnEnviarProducao.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviarProducao.Image")));
-            this.btnEnviarProducao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnEnviarProducao.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEnviarProducao.Name = "btnEnviarProducao";
-            this.btnEnviarProducao.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.btnEnviarProducao.Size = new System.Drawing.Size(117, 66);
-            this.btnEnviarProducao.Text = "Enviar Produção";
-            this.btnEnviarProducao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEnviarProducao.Click += new System.EventHandler(this.tbsEnviarProducao_Click);
             // 
             // btnRealizarPedido
             // 
@@ -127,6 +116,29 @@
             this.btnFinalizarProducao.Text = "Finalizar Produção";
             this.btnFinalizarProducao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFinalizarProducao.Click += new System.EventHandler(this.btnFinalizarProducao_Click);
+            // 
+            // comboBoxFiltros
+            // 
+            this.comboBoxFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.comboBoxFiltros.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBoxFiltros.Margin = new System.Windows.Forms.Padding(1, 20, 1, 0);
+            this.comboBoxFiltros.MaxLength = 32767;
+            this.comboBoxFiltros.Name = "comboBoxFiltros";
+            this.comboBoxFiltros.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
+            // 
+            // tsbMandarParaProducao
+            // 
+            this.tsbMandarParaProducao.ForeColor = System.Drawing.Color.White;
+            this.tsbMandarParaProducao.Image = ((System.Drawing.Image)(resources.GetObject("tsbMandarParaProducao.Image")));
+            this.tsbMandarParaProducao.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbMandarParaProducao.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMandarParaProducao.Name = "tsbMandarParaProducao";
+            this.tsbMandarParaProducao.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbMandarParaProducao.Size = new System.Drawing.Size(132, 66);
+            this.tsbMandarParaProducao.Text = "Enviar P/ Produção";
+            this.tsbMandarParaProducao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbMandarParaProducao.Click += new System.EventHandler(this.tsbMandarParaProducao_Click);
             // 
             // producao
             // 
@@ -158,7 +170,8 @@
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnFinalizarProducao;
-        private System.Windows.Forms.ToolStripButton btnEnviarProducao;
         private System.Windows.Forms.ToolStripButton btnRealizarPedido;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
+        private System.Windows.Forms.ToolStripButton tsbMandarParaProducao;
     }
 }

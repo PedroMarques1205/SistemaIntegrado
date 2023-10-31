@@ -96,8 +96,8 @@
             this.tbsCadastroProdruto.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsCadastroProdruto.Name = "tbsCadastroProdruto";
             this.tbsCadastroProdruto.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.tbsCadastroProdruto.Size = new System.Drawing.Size(121, 66);
-            this.tbsCadastroProdruto.Text = "Enviar P/ Entrega";
+            this.tbsCadastroProdruto.Size = new System.Drawing.Size(113, 66);
+            this.tbsCadastroProdruto.Text = "Fila de Entregas";
             this.tbsCadastroProdruto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsCadastroProdruto.Click += new System.EventHandler(this.tbsEntregasAfazer_Click);
             // 

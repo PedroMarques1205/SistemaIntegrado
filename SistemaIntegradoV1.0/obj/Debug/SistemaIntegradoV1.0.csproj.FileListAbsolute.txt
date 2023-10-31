@@ -75,7 +75,6 @@ C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegrado
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.recibos.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.producao.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.enviarProducao.resources
-C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.ordemsEmAprovacao.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.realizarPedidoCompra.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.suprimentos.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.ordemCompra.resources
@@ -83,3 +82,5 @@ C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegrado
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.Faturas.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.estoques.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.cadastrarProduto.resources
+C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosClienteViews.editarCliente.resources
+C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosClienteViews.clientesDesativados.resources
