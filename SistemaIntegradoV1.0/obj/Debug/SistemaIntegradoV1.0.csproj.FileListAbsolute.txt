@@ -70,14 +70,12 @@ C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\bin\Debug\Syncfusion.Share
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\bin\Debug\Syncfusion.SpellChecker.Base.xml
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\bin\Debug\Syncfusion.Tools.Base.xml
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\bin\Debug\Syncfusion.Tools.Windows.xml
-C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.entregasAfazer.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.eviarEntrega.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.recibos.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.producao.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.enviarProducao.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.realizarPedidoCompra.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.suprimentos.resources
-C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.ordemCompra.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.cadastrarPedido.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.Faturas.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.estoques.resources
@@ -85,3 +83,4 @@ C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegrado
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosClienteViews.editarCliente.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosClienteViews.clientesDesativados.resources
 C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosProdutoViews.editarProduto.resources
+C:\Projetos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.entregasDespachadas.resources

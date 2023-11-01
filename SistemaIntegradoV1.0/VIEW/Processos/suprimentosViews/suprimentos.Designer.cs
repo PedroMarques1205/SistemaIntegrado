@@ -1,6 +1,6 @@
 ﻿namespace SistemaIntegradoV1._0
 {
-    partial class entrega
+    partial class suprimentos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(entrega));
-            this.EntregasDataGridView = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(suprimentos));
+            this.PedidosDataGridView = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.tbsCadastroProdruto = new System.Windows.Forms.ToolStripButton();
+            this.tbsEnviarPedido = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.EntregasDataGridView)).BeginInit();
+            this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
+            ((System.ComponentModel.ISupportInitialize)(this.PedidosDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // EntregasDataGridView
+            // PedidosDataGridView
             // 
-            this.EntregasDataGridView.AccessibleName = "Table";
-            this.EntregasDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.PedidosDataGridView.AccessibleName = "Table";
+            this.PedidosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EntregasDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.EntregasDataGridView.Location = new System.Drawing.Point(0, 61);
-            this.EntregasDataGridView.Name = "EntregasDataGridView";
-            this.EntregasDataGridView.Size = new System.Drawing.Size(872, 446);
-            this.EntregasDataGridView.Style.HeaderStyle.Font.Size = 11F;
-            this.EntregasDataGridView.TabIndex = 9;
-            this.EntregasDataGridView.Text = "sfDataGrid1";
+            this.PedidosDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.PedidosDataGridView.Location = new System.Drawing.Point(0, 64);
+            this.PedidosDataGridView.Name = "PedidosDataGridView";
+            this.PedidosDataGridView.Size = new System.Drawing.Size(826, 443);
+            this.PedidosDataGridView.Style.HeaderStyle.Font.Size = 11F;
+            this.PedidosDataGridView.TabIndex = 10;
+            this.PedidosDataGridView.Text = "sfDataGrid1";
+            this.PedidosDataGridView.QueryRowStyle += new Syncfusion.WinForms.DataGrid.Events.QueryRowStyleEventHandler(this.PedidosDataGridView_QueryRowStyle);
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrosLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 485);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(872, 22);
-            this.statusStrip1.TabIndex = 20;
+            this.statusStrip1.Size = new System.Drawing.Size(826, 22);
+            this.statusStrip1.TabIndex = 21;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // registrosLabel
@@ -79,28 +81,30 @@
             this.toolStrip3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
             this.toolStrip3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tbsCadastroProdruto,
+            this.tbsEnviarPedido,
             this.toolStripButton2,
-            this.tdbRefresh});
+            this.tdbRefresh,
+            this.comboBoxFiltros});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip3.Size = new System.Drawing.Size(872, 69);
-            this.toolStrip3.TabIndex = 26;
+            this.toolStrip3.Size = new System.Drawing.Size(826, 69);
+            this.toolStrip3.TabIndex = 27;
             this.toolStrip3.Text = "toolStrip3";
+            this.toolStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip3_ItemClicked);
             // 
-            // tbsCadastroProdruto
+            // tbsEnviarPedido
             // 
-            this.tbsCadastroProdruto.ForeColor = System.Drawing.Color.White;
-            this.tbsCadastroProdruto.Image = ((System.Drawing.Image)(resources.GetObject("tbsCadastroProdruto.Image")));
-            this.tbsCadastroProdruto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tbsCadastroProdruto.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tbsCadastroProdruto.Name = "tbsCadastroProdruto";
-            this.tbsCadastroProdruto.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.tbsCadastroProdruto.Size = new System.Drawing.Size(130, 66);
-            this.tbsCadastroProdruto.Text = "Mandar P/ Entrega";
-            this.tbsCadastroProdruto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tbsCadastroProdruto.Click += new System.EventHandler(this.tbsEntregasAfazer_Click);
+            this.tbsEnviarPedido.ForeColor = System.Drawing.Color.White;
+            this.tbsEnviarPedido.Image = ((System.Drawing.Image)(resources.GetObject("tbsEnviarPedido.Image")));
+            this.tbsEnviarPedido.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsEnviarPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsEnviarPedido.Name = "tbsEnviarPedido";
+            this.tbsEnviarPedido.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tbsEnviarPedido.Size = new System.Drawing.Size(152, 66);
+            this.tbsEnviarPedido.Text = "Enviar Para Fornecedor";
+            this.tbsEnviarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tbsEnviarPedido.Click += new System.EventHandler(this.tbsEntregasAfazer_Click);
             // 
             // toolStripButton2
             // 
@@ -110,8 +114,8 @@
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.toolStripButton2.Size = new System.Drawing.Size(152, 66);
-            this.toolStripButton2.Text = "Produtos Despachados";
+            this.toolStripButton2.Size = new System.Drawing.Size(107, 66);
+            this.toolStripButton2.Text = "Setar Entregue";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -129,20 +133,31 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
-            // entrega
+            // comboBoxFiltros
+            // 
+            this.comboBoxFiltros.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.comboBoxFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.comboBoxFiltros.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBoxFiltros.Margin = new System.Windows.Forms.Padding(1, 5, 20, 0);
+            this.comboBoxFiltros.MaxLength = 32767;
+            this.comboBoxFiltros.Name = "comboBoxFiltros";
+            this.comboBoxFiltros.Size = new System.Drawing.Size(121, 64);
+            this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
+            // 
+            // suprimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 507);
+            this.ClientSize = new System.Drawing.Size(826, 529);
             this.Controls.Add(this.toolStrip3);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.EntregasDataGridView);
+            this.Controls.Add(this.PedidosDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "entrega";
-            this.Text = "Entregas";
-            this.Load += new System.EventHandler(this.entrega_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.EntregasDataGridView)).EndInit();
+            this.Name = "suprimentos";
+            this.Text = "Suprimentos";
+            this.Load += new System.EventHandler(this.suprimentos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PedidosDataGridView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
@@ -153,12 +168,13 @@
         }
 
         #endregion
-        private Syncfusion.WinForms.DataGrid.SfDataGrid EntregasDataGridView;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid PedidosDataGridView;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton tbsCadastroProdruto;
+        private System.Windows.Forms.ToolStripButton tbsEnviarPedido;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
     }
 }

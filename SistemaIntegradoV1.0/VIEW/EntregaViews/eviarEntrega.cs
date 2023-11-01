@@ -56,7 +56,7 @@ namespace SistemaIntegradoV1._0
                     context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
                     context.SaveChanges();
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result = MessageBox.Show("Produto enviado para entrega", ":)", buttons, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show("Produto enviado para entrega", "Sucesso", buttons, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
             }

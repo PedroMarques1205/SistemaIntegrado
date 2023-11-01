@@ -109,22 +109,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MODEL\materiasQuantidade.cs" />
-    <Compile Include="VIEW\cadastrosClienteViews\clientesDesativados.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\clientesDesativados.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.Designer.cs">
       <DependentUpon>clientesDesativados.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\editarCliente.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\editarCliente.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.Designer.cs">
       <DependentUpon>editarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\editarProduto.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\editarProduto.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.Designer.cs">
       <DependentUpon>editarProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\estoquesViews\estoques.cs">
@@ -133,53 +133,53 @@
     <Compile Include="VIEW\estoquesViews\estoques.Designer.cs">
       <DependentUpon>estoques.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Transacoes\Faturas.cs">
+    <Compile Include="VIEW\Processos\Transacoes\Faturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Transacoes\Faturas.Designer.cs">
+    <Compile Include="VIEW\Processos\Transacoes\Faturas.Designer.cs">
       <DependentUpon>Faturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\cadastrarPedido.cs">
+    <Compile Include="VIEW\Processos\suprimentosViews\cadastrarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\cadastrarPedido.Designer.cs">
+    <Compile Include="VIEW\Processos\suprimentosViews\cadastrarPedido.Designer.cs">
       <DependentUpon>cadastrarPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.cs">
+    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.Designer.cs">
       <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.cs">
+    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.Designer.cs">
       <DependentUpon>cadastroMateriaP.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\cadastrarProduto.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\cadastrarProduto.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.Designer.cs">
       <DependentUpon>cadastrarProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\cadastroProduto.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosProdutoViews\cadastroProduto.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.Designer.cs">
       <DependentUpon>cadastroProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\cadastroCliente.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\cadastroCliente.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.Designer.cs">
       <DependentUpon>cadastroCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entregasAfazer.cs">
+    <Compile Include="VIEW\EntregaViews\entregasDespachadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entregasAfazer.Designer.cs">
-      <DependentUpon>entregasAfazer.cs</DependentUpon>
+    <Compile Include="VIEW\EntregaViews\entregasDespachadas.Designer.cs">
+      <DependentUpon>entregasDespachadas.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\EntregaViews\entrega.cs">
       <SubType>Form</SubType>
@@ -187,10 +187,10 @@
     <Compile Include="VIEW\EntregaViews\entrega.Designer.cs">
       <DependentUpon>entrega.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\cadastrarCliente.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\cadastrosClienteViews\cadastrarCliente.Designer.cs">
+    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.Designer.cs">
       <DependentUpon>cadastrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\EntregaViews\eviarEntrega.cs">
@@ -199,52 +199,46 @@
     <Compile Include="VIEW\EntregaViews\eviarEntrega.Designer.cs">
       <DependentUpon>eviarEntrega.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\ordemCompra.cs">
+    <Compile Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\ordemCompra.Designer.cs">
-      <DependentUpon>ordemCompra.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VIEW\ProducaoViewes\realizarPedidoCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VIEW\ProducaoViewes\realizarPedidoCompra.Designer.cs">
+    <Compile Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.Designer.cs">
       <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\suprimentos.cs">
+    <Compile Include="VIEW\Processos\suprimentosViews\suprimentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\suprimentosViews\suprimentos.Designer.cs">
+    <Compile Include="VIEW\Processos\suprimentosViews\suprimentos.Designer.cs">
       <DependentUpon>suprimentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\VendasViews\enviarProducao.cs">
+    <Compile Include="VIEW\Processos\VendasViews\enviarProducao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\VendasViews\enviarProducao.Designer.cs">
+    <Compile Include="VIEW\Processos\VendasViews\enviarProducao.Designer.cs">
       <DependentUpon>enviarProducao.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\ProducaoViewes\producao.cs">
+    <Compile Include="VIEW\Processos\ProducaoViewes\producao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\ProducaoViewes\producao.Designer.cs">
+    <Compile Include="VIEW\Processos\ProducaoViewes\producao.Designer.cs">
       <DependentUpon>producao.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Transacoes\Recibos.cs">
+    <Compile Include="VIEW\Processos\Transacoes\Recibos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Transacoes\Recibos.Designer.cs">
+    <Compile Include="VIEW\Processos\Transacoes\Recibos.Designer.cs">
       <DependentUpon>Recibos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\VendasViews\pedidoVendas.cs">
+    <Compile Include="VIEW\Processos\VendasViews\pedidoVendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\VendasViews\pedidoVendas.Designer.cs">
+    <Compile Include="VIEW\Processos\VendasViews\pedidoVendas.Designer.cs">
       <DependentUpon>pedidoVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\VendasViews\realizarPedido.cs">
+    <Compile Include="VIEW\Processos\VendasViews\realizarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\VendasViews\realizarPedido.Designer.cs">
+    <Compile Include="VIEW\Processos\VendasViews\realizarPedido.Designer.cs">
       <DependentUpon>realizarPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\telaPrincipal\TelaPrincipal.cs">
@@ -255,41 +249,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="VIEW\cadastrosClienteViews\clientesDesativados.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.resx">
       <DependentUpon>clientesDesativados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosClienteViews\editarCliente.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.resx">
       <DependentUpon>editarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\editarProduto.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.resx">
       <DependentUpon>editarProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\estoquesViews\estoques.resx">
       <DependentUpon>estoques.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\suprimentosViews\cadastrarPedido.resx">
+    <EmbeddedResource Include="VIEW\Processos\suprimentosViews\cadastrarPedido.resx">
       <DependentUpon>cadastrarPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastroMateriaPrimaViews\cadastrarMateriaP.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.resx">
       <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastroMateriaPrimaViews\cadastroMateriaP.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.resx">
       <DependentUpon>cadastroMateriaP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\cadastrarProduto.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.resx">
       <DependentUpon>cadastrarProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosProdutoViews\cadastroProduto.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.resx">
       <DependentUpon>cadastroProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosClienteViews\cadastrarCliente.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.resx">
       <DependentUpon>cadastrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\cadastrosClienteViews\cadastroCliente.resx">
+    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.resx">
       <DependentUpon>cadastroCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\EntregaViews\entregasAfazer.resx">
-      <DependentUpon>entregasAfazer.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\EntregaViews\entregasDespachadas.resx">
+      <DependentUpon>entregasDespachadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\EntregaViews\entrega.resx">
       <DependentUpon>entrega.cs</DependentUpon>
@@ -297,31 +291,28 @@
     <EmbeddedResource Include="VIEW\EntregaViews\eviarEntrega.resx">
       <DependentUpon>eviarEntrega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\suprimentosViews\ordemCompra.resx">
-      <DependentUpon>ordemCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\ProducaoViewes\realizarPedidoCompra.resx">
+    <EmbeddedResource Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.resx">
       <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\suprimentosViews\suprimentos.resx">
+    <EmbeddedResource Include="VIEW\Processos\suprimentosViews\suprimentos.resx">
       <DependentUpon>suprimentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Transacoes\Faturas.resx">
+    <EmbeddedResource Include="VIEW\Processos\Transacoes\Faturas.resx">
       <DependentUpon>Faturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\VendasViews\enviarProducao.resx">
+    <EmbeddedResource Include="VIEW\Processos\VendasViews\enviarProducao.resx">
       <DependentUpon>enviarProducao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\ProducaoViewes\producao.resx">
+    <EmbeddedResource Include="VIEW\Processos\ProducaoViewes\producao.resx">
       <DependentUpon>producao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Transacoes\Recibos.resx">
+    <EmbeddedResource Include="VIEW\Processos\Transacoes\Recibos.resx">
       <DependentUpon>Recibos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\VendasViews\pedidoVendas.resx">
+    <EmbeddedResource Include="VIEW\Processos\VendasViews\pedidoVendas.resx">
       <DependentUpon>pedidoVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\VendasViews\realizarPedido.resx">
+    <EmbeddedResource Include="VIEW\Processos\VendasViews\realizarPedido.resx">
       <DependentUpon>realizarPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\telaPrincipal\TelaPrincipal.resx">
