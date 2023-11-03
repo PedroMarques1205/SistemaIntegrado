@@ -127,7 +127,7 @@ namespace SistemaIntegradoV1._0
         private void cadastroCliente_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            comboBoxFiltros.Text = "Todos";
+            comboBoxFiltros.Text = "Ativos";
             comboBoxFiltros.Items.Add("Ativos");
             comboBoxFiltros.Items.Add("Desativos");
             comboBoxFiltros.Items.Add("Todos");

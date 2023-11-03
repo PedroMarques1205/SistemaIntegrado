@@ -24,6 +24,10 @@ namespace SistemaIntegradoV1._0
         private void Faturas_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            comboBoxFiltros.Text = "Todos";
+            comboBoxFiltros.Items.Add("Todos");
+            comboBoxFiltros.Items.Add("A pagar");
+            comboBoxFiltros.Items.Add("Pagos");
             controiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
@@ -33,18 +37,51 @@ namespace SistemaIntegradoV1._0
         {
             using (ConnectionString context = new ConnectionString())
             {
-                var query = (from recibo in context.Transacao
-                             where recibo.idPedidoPagar != null
-                             select new
-                             {
-                                 idTransacao = recibo.IdTransacao,
-                                 fornecedor = recibo.PedidoCompraSuprimento.Fornecedor,
-                                 valorPagar = recibo.ValorPago,
-                                 situacao = recibo.Situacao,
-                             }).ToList();
+                if (comboBoxFiltros.Text=="Todos")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.idPedidoPagar != null
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     fornecedor = recibo.PedidoCompraSuprimento.Fornecedor,
+                                     valorPagar = recibo.ValorPago,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
 
-                FaturasDataGridView.DataSource = query;
-                registrosLabelfooter.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                    FaturasDataGridView.DataSource = query;
+                    registrosLabelfooter.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
+                else if (comboBoxFiltros.Text=="Pagos")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.idPedidoPagar != null && recibo.Situacao == "Pago"
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     fornecedor = recibo.PedidoCompraSuprimento.Fornecedor,
+                                     valorPagar = recibo.ValorPago,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
+
+                    FaturasDataGridView.DataSource = query;
+                    registrosLabelfooter.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
+                else if (comboBoxFiltros.Text=="A pagar")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.idPedidoPagar != null && recibo.Situacao != "Pago"
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     fornecedor = recibo.PedidoCompraSuprimento.Fornecedor,
+                                     valorPagar = recibo.ValorPago,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
+
+                    FaturasDataGridView.DataSource = query;
+                    registrosLabelfooter.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
             }
         }
         public void controiGrid()
@@ -117,7 +154,7 @@ namespace SistemaIntegradoV1._0
                 switch (status)
                 {
                     case "Pago":
-                        e.Style.BackColor = Color.LightCoral;
+                        e.Style.BackColor = Color.LightGreen;
                         break;
                 }
             }
@@ -128,6 +165,11 @@ namespace SistemaIntegradoV1._0
             Cursor.Current = Cursors.WaitCursor;
             carregaGrid();
             Cursor.Current = Cursors.Default;
+        }
+
+        private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaGrid();
         }
     }
 }

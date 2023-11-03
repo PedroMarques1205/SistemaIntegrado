@@ -36,6 +36,7 @@
             this.btnCadastrarMateria = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
             this.tsbDesativarMp = new System.Windows.Forms.ToolStripButton();
+            this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.MpDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -82,7 +83,8 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnCadastrarMateria,
             this.tdbRefresh,
-            this.tsbDesativarMp});
+            this.tsbDesativarMp,
+            this.comboBoxFiltros});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -130,6 +132,17 @@
             this.tsbDesativarMp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDesativarMp.Click += new System.EventHandler(this.tsbDesativarMp_Click);
             // 
+            // comboBoxFiltros
+            // 
+            this.comboBoxFiltros.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.comboBoxFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.comboBoxFiltros.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBoxFiltros.Margin = new System.Windows.Forms.Padding(1, 5, 20, 0);
+            this.comboBoxFiltros.MaxLength = 32767;
+            this.comboBoxFiltros.Name = "comboBoxFiltros";
+            this.comboBoxFiltros.Size = new System.Drawing.Size(121, 64);
+            this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
+            // 
             // cadastroMateriaP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,5 +174,6 @@
         private System.Windows.Forms.ToolStripButton btnCadastrarMateria;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
         private System.Windows.Forms.ToolStripButton tsbDesativarMp;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
     }
 }

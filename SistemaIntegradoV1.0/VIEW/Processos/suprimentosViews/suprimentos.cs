@@ -107,8 +107,8 @@ namespace SistemaIntegradoV1._0
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "precoTotal", HeaderText = "Preço Total", Visible = true });
             PedidosDataGridView.Columns.Add(new GridDateTimeColumn() { MappingName = "prazo", HeaderText = "Prazo", Visible = true });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "condicao", HeaderText = "Forma de pagamento", Visible = true });
-            PedidosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "entregue", HeaderText = "Foi Entregue?", Visible = true });
-            PedidosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAceito", HeaderText = "Foi Aceito?", Visible = true });
+            PedidosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "entregue", HeaderText = "Entregue", Visible = true });
+            PedidosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAceito", HeaderText = "Enviado", Visible = true });
 
             using (ConnectionString context = new ConnectionString())
             {

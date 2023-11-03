@@ -35,6 +35,7 @@
             this.tsbDarBaixaRecibo = new System.Windows.Forms.ToolStrip();
             this.tbsCadastroProdruto = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.FaturasDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.tsbDarBaixaRecibo.SuspendLayout();
@@ -80,7 +81,8 @@
             this.tsbDarBaixaRecibo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tsbDarBaixaRecibo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbsCadastroProdruto,
-            this.tdbRefresh});
+            this.tdbRefresh,
+            this.comboBoxFiltros});
             this.tsbDarBaixaRecibo.Location = new System.Drawing.Point(0, 0);
             this.tsbDarBaixaRecibo.Name = "tsbDarBaixaRecibo";
             this.tsbDarBaixaRecibo.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -115,6 +117,17 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
+            // comboBoxFiltros
+            // 
+            this.comboBoxFiltros.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.comboBoxFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.comboBoxFiltros.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBoxFiltros.Margin = new System.Windows.Forms.Padding(1, 5, 20, 0);
+            this.comboBoxFiltros.MaxLength = 32767;
+            this.comboBoxFiltros.Name = "comboBoxFiltros";
+            this.comboBoxFiltros.Size = new System.Drawing.Size(121, 64);
+            this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
+            // 
             // Faturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,5 +158,6 @@
         private System.Windows.Forms.ToolStrip tsbDarBaixaRecibo;
         private System.Windows.Forms.ToolStripButton tbsCadastroProdruto;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
     }
 }

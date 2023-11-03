@@ -34,17 +34,50 @@ namespace SistemaIntegradoV1._0
         {
             using (ConnectionString context = new ConnectionString())
             {
-                var query = (from produto in context.Produto
-                             where produto.isAtivo == true
-                             select new
-                             {
-                                 idProduto = produto.IdProduto,
-                                 Nome = produto.Nome,
-                                 preco = produto.PrecoUnitario,
-                             }).ToList();
+                if (comboBoxFiltros.Text == "Todos")
+                {
+                    var query = (from produto in context.Produto
+                                 select new
+                                 {
+                                     idProduto = produto.IdProduto,
+                                     Nome = produto.Nome,
+                                     preco = produto.PrecoUnitario,
+                                     isAtivo = produto.isAtivo
+                                 }).ToList();
 
-                ProdutosDataGridView.DataSource = query;
-                registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.Produto.Count());
+                    ProdutosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.Produto.Count());
+                }
+                else if (comboBoxFiltros.Text == "Ativos")
+                {
+                    var query = (from produto in context.Produto
+                                 where produto.isAtivo == true
+                                 select new
+                                 {
+                                     idProduto = produto.IdProduto,
+                                     Nome = produto.Nome,
+                                     preco = produto.PrecoUnitario,
+                                     isAtivo = produto.isAtivo
+                                 }).ToList();
+
+                    ProdutosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.Produto.Count());
+                }
+                else if (comboBoxFiltros.Text == "Desativos")
+                {
+                    var query = (from produto in context.Produto
+                                 where produto.isAtivo == false
+                                 select new
+                                 {
+                                     idProduto = produto.IdProduto,
+                                     Nome = produto.Nome,
+                                     preco = produto.PrecoUnitario,
+                                     isAtivo = produto.isAtivo
+                                 }).ToList();
+
+                    ProdutosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.Produto.Count());
+                }
             }
         }
         public void constroiGrid()
@@ -52,6 +85,7 @@ namespace SistemaIntegradoV1._0
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idProduto", HeaderText = "ID Produto", Visible = true, Width = 100 });
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Nome", HeaderText = "Produto", Visible = true });
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "preco", HeaderText = "Preço", Visible = true });
+            ProdutosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAtivo", HeaderText = "Ativo", Visible = true,Width = 200 });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -62,6 +96,7 @@ namespace SistemaIntegradoV1._0
                                  idProduto = produto.IdProduto,
                                  Nome = produto.Nome,
                                  preco = produto.PrecoUnitario,
+                                 isAtivo = produto.isAtivo
                              }).ToList();
                 ProdutosDataGridView.DataSource = query;
             }
@@ -69,6 +104,10 @@ namespace SistemaIntegradoV1._0
         private void cadastroProduto_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            comboBoxFiltros.Text = "Ativos";
+            comboBoxFiltros.Items.Add("Ativos");
+            comboBoxFiltros.Items.Add("Desativos");
+            comboBoxFiltros.Items.Add("Todos");
             constroiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
@@ -119,6 +158,11 @@ namespace SistemaIntegradoV1._0
                     }
                 }
             }
+        }
+
+        private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaGrid();
         }
     }
 }

@@ -23,35 +23,72 @@ namespace SistemaIntegradoV1._0
         private void Recibos_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            comboBoxFiltros.Text = "Todos";
+            comboBoxFiltros.Items.Add("Todos");
+            comboBoxFiltros.Items.Add("Recebidos");
+            comboBoxFiltros.Items.Add("A receber");
             controiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
         }
 
-        public void carregaGrid() 
+        public void carregaGrid()
         {
             using (ConnectionString context = new ConnectionString())
             {
-                var query = (from recibo in context.Transacao
-                             where recibo.IdPedidoReceber != null
-                             select new
-                             {
-                                 idTransacao = recibo.IdTransacao,
-                                 cliente = recibo.Orcamento.Cliente.Nome,
-                                 valorReceber = recibo.ValorReceber,
-                                 situacao = recibo.Situacao,
-                             }).ToList();
+                if (comboBoxFiltros.Text=="Todos")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.IdPedidoReceber != null
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     cliente = recibo.Orcamento.Cliente.Nome,
+                                     valorReceber = recibo.ValorReceber,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
 
-                RecibosDataGridView.DataSource = query;
-                registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                    RecibosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
+                else if (comboBoxFiltros.Text=="Recebidos")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.IdPedidoReceber != null && recibo.Situacao == "Recebido"
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     cliente = recibo.Orcamento.Cliente.Nome,
+                                     valorReceber = recibo.ValorReceber,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
+
+                    RecibosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
+                else if (comboBoxFiltros.Text=="A receber")
+                {
+                    var query = (from recibo in context.Transacao
+                                 where recibo.IdPedidoReceber != null && recibo.Situacao != "Recebido"
+                                 select new
+                                 {
+                                     idTransacao = recibo.IdTransacao,
+                                     cliente = recibo.Orcamento.Cliente.Nome,
+                                     valorReceber = recibo.ValorReceber,
+                                     situacao = recibo.Situacao,
+                                 }).ToList();
+
+                    RecibosDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
+                }
             }
         }
         public void controiGrid()
         {
             RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idTransacao", HeaderText = "idTransacao", Visible = true, Width = 0 });
             RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "cliente", HeaderText = "Cliente", Visible = true, Width = 300 });
-            RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "valorReceber", HeaderText = "Valor a Receber", Visible = true});
-            RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "situacao", HeaderText = "Situação do Recibo", Visible = true});
+            RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "valorReceber", HeaderText = "Valor a Receber", Visible = true });
+            RecibosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "situacao", HeaderText = "Situação do Recibo", Visible = true });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -78,7 +115,7 @@ namespace SistemaIntegradoV1._0
                 switch (status.ToLower())
                 {
                     case "recebido":
-                        e.Style.BackColor = Color.LightCoral;
+                        e.Style.BackColor = Color.LightGreen;
                         break;
                 }
             }
@@ -110,7 +147,7 @@ namespace SistemaIntegradoV1._0
                         MessageBox.Show("Recibo recebido!", "Sucesso", buttons, MessageBoxIcon.Information);
                         carregaGrid();
                     }
-                    else 
+                    else
                     {
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
                         MessageBox.Show("Selecione o recibo que quer dar baixa porfavor", "Nenhum recibo selecionado", buttons, MessageBoxIcon.Information);
@@ -127,6 +164,11 @@ namespace SistemaIntegradoV1._0
             Cursor.Current = Cursors.WaitCursor;
             carregaGrid();
             Cursor.Current = Cursors.Default;
+        }
+
+        private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaGrid();
         }
     }
 }

@@ -33,22 +33,54 @@ namespace SistemaIntegradoV1._0
         {
             using (ConnectionString context = new ConnectionString())
             {
-                var query = (from mp in context.MateriaPrima
-                             where mp.isAtivo == true
-                             select new
-                             {
-                                 Nome = mp.Nome,
-                                 codigo = mp.CodigoMp,
-                             }).ToList();
+                if (comboBoxFiltros.Text == "Ativos")
+                {
+                    var query = (from mp in context.MateriaPrima
+                                 where mp.isAtivo == true
+                                 select new
+                                 {
+                                     Nome = mp.Nome,
+                                     codigo = mp.CodigoMp,
+                                     isAtivo = mp.isAtivo
+                                 }).ToList();
 
-                MpDataGridView.DataSource = query;
-                registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.MateriaPrima.Count());
+                    MpDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.MateriaPrima.Count());
+                }
+                else if (comboBoxFiltros.Text == "Desativos")
+                {
+                    var query = (from mp in context.MateriaPrima
+                                 where mp.isAtivo == false
+                                 select new
+                                 {
+                                     Nome = mp.Nome,
+                                     codigo = mp.CodigoMp,
+                                     isAtivo = mp.isAtivo
+                                 }).ToList();
+
+                    MpDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.MateriaPrima.Count());
+                }
+                else if (comboBoxFiltros.Text == "Todos")
+                {
+                    var query = (from mp in context.MateriaPrima
+                                 select new
+                                 {
+                                     Nome = mp.Nome,
+                                     codigo = mp.CodigoMp,
+                                     isAtivo = mp.isAtivo
+                                 }).ToList();
+
+                    MpDataGridView.DataSource = query;
+                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(context.MateriaPrima.Count());
+                }
             }
         }
         public void constroiGrid()
         {
             MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "codigo", HeaderText = "Código", Visible = true, Width = 100 });
             MpDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Nome", HeaderText = "Matéria Prima", Visible = true });
+            MpDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAtivo", HeaderText = "Ativo", Visible = true, Width = 200 });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -58,6 +90,7 @@ namespace SistemaIntegradoV1._0
                              {
                                  Nome = mp.Nome,
                                  codigo = mp.CodigoMp,
+                                 isAtivo = mp.isAtivo
                              }).ToList();
 
                 MpDataGridView.DataSource = query;
@@ -66,6 +99,10 @@ namespace SistemaIntegradoV1._0
         private void cadastroMateriaP_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            comboBoxFiltros.Text = "Ativos";
+            comboBoxFiltros.Items.Add("Ativos");
+            comboBoxFiltros.Items.Add("Desativos");
+            comboBoxFiltros.Items.Add("Todos");
             constroiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
@@ -115,7 +152,39 @@ namespace SistemaIntegradoV1._0
                                 context.Entry<MateriaPrima>(MateriaParaExcluir).State = EntityState.Modified;
                                 context.SaveChanges();
 
+                                List<MateriasUsadasNoProduto> lista = context.MateriasUsadasNoProduto.ToList();
+                                List<Produto> produtos = context.Produto.ToList();
+                                foreach (MateriasUsadasNoProduto item in lista)
+                                {
+                                    if (item.idMateriaPrima.Equals(MateriaParaExcluir.idMateriaPrima))
+                                    {
+                                        context.MateriasUsadasNoProduto.Remove(item);
+                                        context.SaveChanges();
+                                    }
+                                }
                                 carregaGrid();
+                            }
+                        }
+                        using (ConnectionString context = new ConnectionString())
+                        {
+                            List<MateriasUsadasNoProduto> lista = context.MateriasUsadasNoProduto.ToList();
+                            List<Produto> produtos = context.Produto.ToList();
+                            foreach (Produto produto in produtos)
+                            {
+                                int contador = 0;
+                                foreach (MateriasUsadasNoProduto item in lista)
+                                {
+                                    if (item.idProduto.Equals(produto.IdProduto))
+                                    {
+                                        contador++;
+                                    }
+                                }
+                                if (contador == 0)
+                                {
+                                    produto.isAtivo = false;
+                                    context.Entry<Produto>(produto).State = EntityState.Modified;
+                                    context.SaveChanges();
+                                }
                             }
                         }
                     }
@@ -126,6 +195,11 @@ namespace SistemaIntegradoV1._0
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result = MessageBox.Show("Selecione a matéria que deseja inativar", "Nenhum cliente selecionado", buttons, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            carregaGrid();
         }
     }
 }

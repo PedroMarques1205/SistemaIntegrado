@@ -29,14 +29,18 @@ namespace SistemaIntegradoV1._0
             {
                 foreach (MateriaPrima item in context.MateriaPrima)
                 {
-                    if (txtNomeMP.Text.ToUpper().Equals(item.Nome.ToUpper()))
+                    if (item.isAtivo == true)
                     {
-                        return true;
+                        if (txtNomeMP.Text.ToUpper().Equals(item.Nome.ToUpper()))
+                        {
+                            return true;
+                        }
                     }
                 }
                 return false;
             }
         }
+
         public bool verificaCampos()
         {
             foreach (Control c in this.Controls)
@@ -62,6 +66,7 @@ namespace SistemaIntegradoV1._0
             }
             return false;
         }
+
         private void btnCadastrarMP_Click(object sender, EventArgs e)
         {
             try
@@ -73,7 +78,7 @@ namespace SistemaIntegradoV1._0
                         MessageBoxButtons button = MessageBoxButtons.OK;
                         DialogResult resul = MessageBox.Show("Essa matéria já foi cadastrada!", "Error", button, MessageBoxIcon.Error);
                     }
-                    else if (verificaCampos()) 
+                    else if (verificaCampos())
                     {
                         MessageBoxButtons button = MessageBoxButtons.OK;
                         DialogResult resul = MessageBox.Show("Preencha todos os campos", "Error", button, MessageBoxIcon.Error);
