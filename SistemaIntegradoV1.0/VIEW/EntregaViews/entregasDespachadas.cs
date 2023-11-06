@@ -23,6 +23,7 @@ namespace SistemaIntegradoV1._0
         private void entregasAfazer_Load(object sender, EventArgs e)
         {
             constroiGrid();
+            carregaGrid();
         }
 
         private void constroiGrid()
@@ -39,7 +40,10 @@ namespace SistemaIntegradoV1._0
                     EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "num", HeaderText = "N° residência", Visible = true });
                     EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "bairro", HeaderText = "Bairro", Visible = true });
                     EnviosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isEntregue", HeaderText = "Está entregue?", Visible = true });
+
                     var query = (from entrega in context.Entrega
+                                 join endereco in context.Endereco
+                                 on entrega.Orcamento.idOrcamento equals endereco.idOrcamento
                                  select new
                                  {
                                      idEntrega = entrega.IdEntrega,
@@ -47,9 +51,9 @@ namespace SistemaIntegradoV1._0
                                      dataEntrega = entrega.DataEntrega,
                                      tipoEntrega = entrega.tipoEntrega,
                                      isEntregue = entrega.IsEntregue,
-                                     rua = entrega.Orcamento.Cliente.Rua,
-                                     num = entrega.Orcamento.Cliente.Num,
-                                     bairro = entrega.Orcamento.Cliente.Bairro,
+                                     rua = endereco.Rua,
+                                     num = endereco.Num,
+                                     bairro = endereco.Bairro,
                                  }).ToList();
                     EnviosDataGridView.DataSource  = query;
                 }
@@ -64,6 +68,8 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from entrega in context.Entrega
+                             join endereco in context.Endereco
+                             on entrega.Orcamento.idOrcamento equals endereco.idOrcamento
                              select new
                              {
                                  idEntrega = entrega.IdEntrega,
@@ -71,73 +77,15 @@ namespace SistemaIntegradoV1._0
                                  dataEntrega = entrega.DataEntrega,
                                  tipoEntrega = entrega.tipoEntrega,
                                  isEntregue = entrega.IsEntregue,
-                                 rua = entrega.Orcamento.Cliente.Rua,
-                                 num = entrega.Orcamento.Cliente.Num,
-                                 bairro = entrega.Orcamento.Cliente.Bairro,
+                                 rua = endereco.Rua,
+                                 num = endereco.Num,
+                                 bairro = endereco.Bairro,
                              }).ToList();
+                EnviosDataGridView.DataSource  = query;
 
             }
         }
-        //public void carregaGrid() 
-        //{
-        //    using (ConnectionString context = new ConnectionString())
-        //    {
-        //        var query = (from orcamento in context.Orcamento
-        //                     join cliente in context.Cliente
-        //                     on orcamento.CpfCliente equals cliente.CpfCliente
-        //                     join produto in context.Produto
-        //                     on orcamento.idProduto equals produto.IdProduto
-        //                     where orcamento.statusCliente == "Aceito" &&
-        //                     orcamento.statusEntrega !="Aceito"
-        //                     select new
-        //                     {
-        //                         idOrc = orcamento.idOrcamento,
-        //                         CpfCliente = cliente.CpfCliente,
-        //                         NomeDoCliente = cliente.Nome,
-        //                         Produto = produto.Nome,
-        //                         quantidade = orcamento.QuantProduto,
-        //                         bairro = cliente.Bairro,
-        //                         rua = cliente.Rua,
-        //                         num = cliente.Num,
-        //                     }).ToList();
-        //        EnviosDataGridView.DataSource = query;
-        //    }
-        //}
-        //public void constroiGrid() 
-        //{
-            
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idOrc", HeaderText = "IdOrcamento", Visible = true, Width = 0 });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "CpfCliente", HeaderText = "CPF do cliente", Visible = true });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "NomeDoCliente", HeaderText = "Cliente", Visible = true, Width = 300 });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Produto", HeaderText = "Produto", Visible = true });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "quantidade", Visible = true });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "rua", HeaderText = "Rua", Visible = true });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "bairro", HeaderText = "Bairro", Visible = true });
-        //    EnviosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "num", HeaderText = "N° residência", Visible = true });
-        //    using (ConnectionString context = new ConnectionString())
-        //    {
-        //        var query = (from orcamento in context.Orcamento
-        //                     join cliente in context.Cliente
-        //                     on orcamento.CpfCliente equals cliente.CpfCliente
-        //                     join produto in context.Produto
-        //                     on orcamento.idProduto equals produto.IdProduto
-        //                     where orcamento.statusCliente == "Aceito" &&
-        //                     orcamento.statusEntrega !="Aceito"
-        //                     select new
-        //                     {
-        //                         idOrc = orcamento.idOrcamento,
-        //                         CpfCliente = cliente.CpfCliente,
-        //                         NomeDoCliente = cliente.Nome,
-        //                         Produto = produto.Nome,
-        //                         quantidade = orcamento.QuantProduto,
-        //                         bairro = cliente.Bairro,
-        //                         rua = cliente.Rua,
-        //                         num = cliente.Num,
-        //                     }).ToList();
-        //        EnviosDataGridView.DataSource = query;
-        //    }
-        //}
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             using (ConnectionString context = new ConnectionString())
@@ -162,7 +110,7 @@ namespace SistemaIntegradoV1._0
 
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
                         MessageBox.Show("Pedido entregue!", "Sucesso", buttons, MessageBoxIcon.Information);
-
+                        carregaGrid();
                     }
                     else
                     {

@@ -2,6 +2,7 @@
 <Schema Namespace="DB_SISTEMA_INTEGRADOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="ConnectionString" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cliente" EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" />
+    <EntitySet Name="Endereco" EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" />
     <EntitySet Name="Entrega" EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" />
     <EntitySet Name="EstoqueMateriaPrima" EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima" />
     <EntitySet Name="EstoqueProdutoAcabado" EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" />
@@ -15,6 +16,10 @@
     <AssociationSet Name="FK_Orcamento_CpfCliente" Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Orcamento" EntitySet="Orcamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Endereco__idOrca__46E78A0C" Association="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__46E78A0C">
+      <End Role="Orcamento" EntitySet="Orcamento" />
+      <End Role="Endereco" EntitySet="Endereco" />
     </AssociationSet>
     <AssociationSet Name="FK_Entrega_IdOrcamento" Association="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento">
       <End Role="Orcamento" EntitySet="Orcamento" />
@@ -67,6 +72,20 @@
     <Property Name="Municipio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="isAtivo" Type="Boolean" />
     <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Cliente" ToRole="Orcamento" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idOrcamento" Type="Int32" Nullable="false" />
+    <Property Name="Rua" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Municipio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__46E78A0C" FromRole="Endereco" ToRole="Orcamento" />
   </EntityType>
   <EntityType Name="Entrega">
     <Key>
@@ -134,6 +153,7 @@
     <Property Name="statusEntrega" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="formaPagamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Cliente" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Orcamento" ToRole="Cliente" />
+    <NavigationProperty Name="Endereco" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__46E78A0C" FromRole="Orcamento" ToRole="Endereco" />
     <NavigationProperty Name="Entrega" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" FromRole="Orcamento" ToRole="Entrega" />
     <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Orcamento" ToRole="Produto" />
     <NavigationProperty Name="Transacao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber" FromRole="Orcamento" ToRole="Transacao" />
@@ -199,6 +219,18 @@
       </Principal>
       <Dependent Role="Orcamento">
         <PropertyRef Name="CpfCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Endereco__idOrca__46E78A0C">
+    <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="1" />
+    <End Type="DB_SISTEMA_INTEGRADOModel.Endereco" Role="Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orcamento">
+        <PropertyRef Name="idOrcamento" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="idOrcamento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

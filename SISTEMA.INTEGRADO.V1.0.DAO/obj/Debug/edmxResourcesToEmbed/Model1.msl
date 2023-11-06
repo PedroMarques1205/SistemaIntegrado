@@ -16,6 +16,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="idOrcamento" ColumnName="idOrcamento" />
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Entrega">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Entrega">
         <MappingFragment StoreEntitySet="Entrega">

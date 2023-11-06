@@ -66,12 +66,47 @@ namespace SistemaIntegradoV1._0
                 return false;
             }
         }
+
+        public void esvaziaCampos()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is System.Windows.Forms.TextBox)
+                {
+                    System.Windows.Forms.TextBox textBox = c as System.Windows.Forms.TextBox;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        c.Text = "";
+                    }
+
+                }
+                else if (c is MaskedTextBox)
+                {
+                    MaskedTextBox textBox = c as MaskedTextBox;
+                    if (!textBox.MaskCompleted)
+                    {
+                    }
+
+                }
+                else if (c is System.Windows.Forms.ComboBox)
+                {
+                    System.Windows.Forms.ComboBox textBox = c as System.Windows.Forms.ComboBox;
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        c.Text = "";
+                    }
+
+                }
+            }
+        }
+
         private void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
             try
             {
                 using (ConnectionString context = new ConnectionString())
                 {
+                    
                     if (verificaCampos())
                     {
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
@@ -143,7 +178,19 @@ namespace SistemaIntegradoV1._0
                                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                                     DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
                                     lista.Clear();
-                                    this.Close();
+                                    MessageBoxButtons button = MessageBoxButtons.YesNo;
+                                    DialogResult resul = MessageBox.Show("Deseja cadastrar outro produto?", "Pergunta", button, MessageBoxIcon.Question);
+                                    if (resul == DialogResult.Yes)
+                                    {
+                                        txtNomeProduto.Text = "";
+                                        txtPreco.Text = "";
+                                        materiasDataGrid.DataSource = lista;
+                                        materiasDataGrid.AddNewRowText = "Click aqui para adicionar uma nova informação";
+                                    }
+                                    else
+                                    {
+                                        this.Close();
+                                    }
                                 }
 
                             }

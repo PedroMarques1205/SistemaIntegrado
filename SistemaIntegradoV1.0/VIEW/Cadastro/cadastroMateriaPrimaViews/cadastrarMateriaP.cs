@@ -118,7 +118,16 @@ namespace SistemaIntegradoV1._0
                         context.SaveChanges();
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
                         DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
-                        this.Close();
+                        MessageBoxButtons button = MessageBoxButtons.YesNo;
+                        DialogResult resul = MessageBox.Show("Deseja cadastrar outra matéria prima?", "Pergunta", button, MessageBoxIcon.Question);
+                        if (resul == DialogResult.Yes)
+                        {
+                            txtNomeMP.Text = "";
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
                     }
                 }
             }

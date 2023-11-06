@@ -63,6 +63,9 @@
     <Compile Include="Cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Endereco.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entrega.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

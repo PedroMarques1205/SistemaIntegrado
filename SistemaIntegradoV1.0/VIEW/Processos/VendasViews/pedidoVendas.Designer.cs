@@ -39,6 +39,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.PedidosDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -91,7 +92,8 @@
             this.tbsCadastroProdruto,
             this.toolStripButton2,
             this.toolStripButton5,
-            this.tdbRefresh});
+            this.tdbRefresh,
+            this.toolStripButton1});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -152,6 +154,19 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.toolStripButton1.Size = new System.Drawing.Size(181, 66);
+            this.toolStripButton1.Text = "Realizar Ordem de Produção";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
             // pedidoVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +200,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

@@ -29,19 +29,41 @@ namespace SistemaIntegradoV1._0
             {
                 using (ConnectionString context = new ConnectionString())
                 {
-                    OrdemProducao producao = new OrdemProducao();
+                    MessageBoxButtons button = MessageBoxButtons.YesNo;
+                    DialogResult resul = MessageBox.Show("Você está prestes a realizar uma ordem de produção sem demanda, tem certeza disso?", "Pergunta", button, MessageBoxIcon.Question);
+                    if (resul == DialogResult.Yes)
+                    {
+                        OrdemProducao producao = new OrdemProducao();
 
-                    Produto produto = context.Produto.FirstOrDefault(
-                        p => p.Nome.Equals(produtosDropDown.Text));
+                        Produto produto = context.Produto.FirstOrDefault(
+                            p => p.Nome.Equals(produtosDropDown.Text));
 
-                    producao.IdProduto = produto.IdProduto;
-                    producao.QtdAproduzir =  Convert.ToInt32(txtQuantidade.Text);
-                    producao.FaseAtual = "Em aprovação";
+                        List<MateriasUsadasNoProduto> mpUsadas = context.MateriasUsadasNoProduto.Where(x => x.idProduto.Equals(produto.IdProduto)).ToList();
 
-                    context.OrdemProducao.Add(producao);
-                    context.SaveChanges();
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result = MessageBox.Show("Pedido realizado com sucesso!", ":)", buttons, MessageBoxIcon.Information);
+                        producao.IdProduto = produto.IdProduto;
+                        producao.QtdAproduzir =  Convert.ToInt32(txtQuantidade.Text);
+                        producao.FaseAtual = "Em aprovação";
+
+                        foreach (MateriasUsadasNoProduto item in mpUsadas)
+                        {
+                            PedidoCompraSuprimento pedido = new PedidoCompraSuprimento();
+                            pedido.MateriaPrima = item.MateriaPrima;
+                            pedido.Quantidade = item.Quantidade * producao.QtdAproduzir;
+                            pedido.IsPedidoAceito = false;
+
+                            context.PedidoCompraSuprimento.Add(pedido);
+                            context.SaveChanges();
+                        }
+                        context.OrdemProducao.Add(producao);
+                        context.SaveChanges();
+                        MessageBoxButtons buttons = MessageBoxButtons.OK;
+                        DialogResult result = MessageBox.Show("Pedido realizado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+
                 }
             }
             catch { }

@@ -17,6 +17,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Orcamento()
         {
+            this.Endereco = new HashSet<Endereco>();
             this.Entrega = new HashSet<Entrega>();
             this.Transacao = new HashSet<Transacao>();
         }
@@ -31,6 +32,8 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public string formaPagamento { get; set; }
     
         public virtual Cliente Cliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Endereco> Endereco { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entrega> Entrega { get; set; }
         public virtual Produto Produto { get; set; }

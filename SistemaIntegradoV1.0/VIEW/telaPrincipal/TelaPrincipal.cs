@@ -315,5 +315,10 @@ namespace SistemaIntegradoV1._0
                 }
             }
         }
+
+        private void sideBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

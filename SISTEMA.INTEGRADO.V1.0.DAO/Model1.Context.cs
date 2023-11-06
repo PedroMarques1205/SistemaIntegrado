@@ -26,6 +26,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         }
     
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Endereco> Endereco { get; set; }
         public virtual DbSet<Entrega> Entrega { get; set; }
         public virtual DbSet<EstoqueMateriaPrima> EstoqueMateriaPrima { get; set; }
         public virtual DbSet<EstoqueProdutoAcabado> EstoqueProdutoAcabado { get; set; }

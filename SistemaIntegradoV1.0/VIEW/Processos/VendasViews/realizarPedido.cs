@@ -50,42 +50,49 @@ namespace SistemaIntegradoV1._0
 
         public bool verificaCampos()
         {
-            foreach (Control c in this.Controls)
+            if (!localEntregaCheckBox.Checked)
             {
-                if (c is TextBox)
+                foreach (Control c in this.Controls)
                 {
-                    TextBox textBox = c as TextBox;
-                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    if (c is TextBox)
                     {
-                        return true;
+                        TextBox textBox = c as TextBox;
+                        if (string.IsNullOrWhiteSpace(textBox.Text))
+                        {
+                            return true;
+                        }
+                    }
+                    else if (c is MaskedTextBox)
+                    {
+                        MaskedTextBox textBox = c as MaskedTextBox;
+                        if (!textBox.MaskCompleted)
+                        {
+                            return true;
+                        }
+                    }
+                    else if (c is ComboBox)
+                    {
+                        ComboBox textBox = c as ComboBox;
+                        if (string.IsNullOrWhiteSpace(textBox.Text))
+                        {
+                            return true;
+                        }
+                    }
+                    else if (c is NumericUpDown)
+                    {
+                        NumericUpDown textBox = c as NumericUpDown;
+                        if (textBox.Value == 0)
+                        {
+                            return true;
+                        }
                     }
                 }
-                else if (c is MaskedTextBox)
-                {
-                    MaskedTextBox textBox = c as MaskedTextBox;
-                    if (!textBox.MaskCompleted)
-                    {
-                        return true;
-                    }
-                }
-                else if (c is ComboBox)
-                {
-                    ComboBox textBox = c as ComboBox;
-                    if (string.IsNullOrWhiteSpace(textBox.Text))
-                    {
-                        return true;
-                    }
-                }
-                else if (c is NumericUpDown)
-                {
-                    NumericUpDown textBox = c as NumericUpDown;
-                    if (textBox.Value == 0)
-                    {
-                        return true;
-                    }
-                }
+                return false;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -101,86 +108,102 @@ namespace SistemaIntegradoV1._0
                     }
                     else
                     {
-                        Orcamento orcamento = new Orcamento();
-                        Produto produto = context.Produto.FirstOrDefault(p => p.Nome.Equals(produtosDropDown.Text));
-                        EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(q => q.IdProduto.Equals(produto.IdProduto));
-                        if (produto != null)
+                        if (localEntregaCheckBox.Checked)
                         {
-                            Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
-
-                            if (cliente != null && cliente.isAtivo == true)
+                            Orcamento orcamento = new Orcamento();
+                            Produto produto = context.Produto.FirstOrDefault(p => p.Nome.Equals(produtosDropDown.Text));
+                            EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(q => q.IdProduto.Equals(produto.IdProduto));
+                            Endereco endereco = new Endereco();
+                            if (produto != null)
                             {
-                                orcamento.CpfCliente = cliente.CpfCliente;
-                                orcamento.idProduto = produto.IdProduto;
-                                orcamento.QuantProduto = Convert.ToInt32(txtQuantidade.Text);
-                                orcamento.ValorTotal = orcamento.QuantProduto * produto.PrecoUnitario;
-                                orcamento.statusCliente = "Em aprovação";
-                                orcamento.formaPagamento = dpdPagamento.Text;
+                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
 
-                                context.Orcamento.Add(orcamento);
-                                context.SaveChanges();
-                                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                                DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                                if (cliente != null && cliente.isAtivo == true)
+                                {
+                                    orcamento.CpfCliente = cliente.CpfCliente;
+                                    orcamento.idProduto = produto.IdProduto;
+                                    orcamento.QuantProduto = Convert.ToInt32(txtQuantidade.Text);
+                                    orcamento.ValorTotal = orcamento.QuantProduto * produto.PrecoUnitario;
+                                    orcamento.statusCliente = "Em aprovação";
+                                    orcamento.formaPagamento = dpdPagamento.Text;
+
+                                    context.Orcamento.Add(orcamento);
+                                    context.SaveChanges();
+
+                                    endereco.Rua = cliente.Rua;
+                                    endereco.Num = cliente.Num;
+                                    endereco.Bairro = cliente.Bairro;
+                                    endereco.Estado = cliente.Estado;
+                                    endereco.idOrcamento = orcamento.idOrcamento;
+                                    endereco.Complemento = cliente.Complemento;
+
+                                    context.Endereco.Add(endereco);
+                                    context.SaveChanges();
+                                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                    DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                    DialogResult result = MessageBox.Show("Esse cliente não existe", "Error", buttons, MessageBoxIcon.Error);
+                                    this.Close();
+                                }
                             }
                             else
                             {
                                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                                DialogResult result = MessageBox.Show("Esse cliente não existe", "Error", buttons, MessageBoxIcon.Error);
+                                DialogResult result = MessageBox.Show("Esse produto não existe", "Error", buttons, MessageBoxIcon.Error);
                                 this.Close();
                             }
                         }
                         else
                         {
-                            MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            DialogResult result = MessageBox.Show("Esse produto não existe", "Error", buttons, MessageBoxIcon.Error);
-                            this.Close();
-                        }
-                        if (!verificarEstoque(produto, estoque))
-                        {
-                            MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            DialogResult result = MessageBox.Show("Não possuimos esse produto em estoque\nenviando para produção", "Error", buttons, MessageBoxIcon.Error);
-
-                            OrdemProducao producao = new OrdemProducao();
-
-                            Produto produto1 = context.Produto.FirstOrDefault(
-                                p => p.Nome.Equals(produtosDropDown.Text));
-
-                            producao.IdProduto = produto1.IdProduto;
-                            producao.QtdAproduzir =  Convert.ToInt32(txtQuantidade.Text);
-                            producao.FaseAtual = "Em aprovação";
-                            int contador = 0;
-
-                            context.OrdemProducao.Add(producao);
-                            context.SaveChanges();
-
-                            List<MateriasUsadasNoProduto> mpUsadas = context.MateriasUsadasNoProduto.Where(c => c.idProduto.Equals(producao.Produto.IdProduto)).ToList();
-                            List<MateriasUsadasNoProduto> newMpUsadas = new List<MateriasUsadasNoProduto>();
-                            foreach (MateriasUsadasNoProduto item in mpUsadas)
+                            Orcamento orcamento = new Orcamento();
+                            Produto produto = context.Produto.FirstOrDefault(p => p.Nome.Equals(produtosDropDown.Text));
+                            EstoqueProdutoAcabado estoque = context.EstoqueProdutoAcabado.FirstOrDefault(q => q.IdProduto.Equals(produto.IdProduto));
+                            Endereco endereco = new Endereco();
+                            if (produto != null)
                             {
-                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
-                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(item.idMateriaPrima));
-                                if (item.Quantidade * producao.QtdAproduzir > estoqueMateriaPrima.Quantidade)
+                                endereco.Rua = txtRua.Text;
+                                endereco.Num = Convert.ToInt32(txtNum.Text);
+                                endereco.Bairro = txtBairro.Text;
+                                endereco.Estado = cbEstado.Text;
+
+                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
+
+
+                                endereco.Complemento = txtComplemento.Text;
+
+
+                                if (cliente != null && cliente.isAtivo == true)
                                 {
-                                    newMpUsadas.Add(item);
+                                    orcamento.CpfCliente = cliente.CpfCliente;
+                                    orcamento.idProduto = produto.IdProduto;
+                                    orcamento.QuantProduto = Convert.ToInt32(txtQuantidade.Text);
+                                    orcamento.ValorTotal = orcamento.QuantProduto * produto.PrecoUnitario;
+                                    orcamento.statusCliente = "Em aprovação";
+                                    orcamento.formaPagamento = dpdPagamento.Text;
+
+                                    context.Orcamento.Add(orcamento);
+                                    context.SaveChanges();
+                                    endereco.idOrcamento = orcamento.idOrcamento;
+                                    context.Endereco.Add(endereco);
+                                    context.SaveChanges();
+                                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                    DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                    DialogResult result = MessageBox.Show("Esse cliente não existe", "Error", buttons, MessageBoxIcon.Error);
+                                    this.Close();
                                 }
                             }
-                            for (int i = 0; i<newMpUsadas.Count; i++)
+                            else
                             {
-                                MateriasUsadasNoProduto newMp = newMpUsadas[i];
-                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
-                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
-                            }
-                            for (int i = 0; i<newMpUsadas.Count; i++)
-                            {
-                                PedidoCompraSuprimento pedido = new PedidoCompraSuprimento();
-                                MateriasUsadasNoProduto newMp = newMpUsadas[i];
-                                EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
-                                estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
-                                pedido.IdMateriaPrima = newMpUsadas[i].idMateriaPrima;
-                                pedido.Quantidade = (producao.QtdAproduzir*(newMpUsadas[i].Quantidade) - estoqueMateriaPrima.Quantidade);
-                                pedido.IsPedidoAceito= false;
-                                context.PedidoCompraSuprimento.Add(pedido);
-                                context.SaveChanges();
+                                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                DialogResult result = MessageBox.Show("Esse produto não existe", "Error", buttons, MessageBoxIcon.Error);
+                                this.Close();
                             }
                         }
                     }
@@ -189,7 +212,6 @@ namespace SistemaIntegradoV1._0
             catch
             {
             }
-
         }
 
         public bool verificarEstoque(Produto produto, EstoqueProdutoAcabado estoqueProduto)
@@ -247,6 +269,28 @@ namespace SistemaIntegradoV1._0
 
                     valorTotal.Text = "Valor Total: $" + texto;
                 }
+            }
+        }
+
+        private void localEntregaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (localEntregaCheckBox.Checked)
+            {
+                txtRua.Enabled = false;
+                txtBairro.Enabled = false;
+                txtNum.Enabled = false;
+                cbEstado.Enabled = false;
+                txtMunicipio.Enabled = false;
+                txtComplemento.Enabled = false;
+            }
+            else
+            {
+                txtRua.Enabled = true;
+                txtBairro.Enabled = true;
+                txtNum.Enabled = true;
+                cbEstado.Enabled = true;
+                txtMunicipio.Enabled = true;
+                txtComplemento.Enabled = true;
             }
         }
     }

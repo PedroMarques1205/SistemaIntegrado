@@ -35,22 +35,20 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from orcamento in context.Orcamento
-                             join cliente in context.Cliente
-                             on orcamento.CpfCliente equals cliente.CpfCliente
-                             join produto in context.Produto
-                             on orcamento.idProduto equals produto.IdProduto
+                             join endereco in context.Endereco
+                             on orcamento.idOrcamento equals endereco.idOrcamento
                              where orcamento.statusCliente == "Aceito" &&
                              orcamento.statusEntrega != "Aceito"
                              select new
                              {
                                  idOrc = orcamento.idOrcamento,
-                                 CpfCliente = cliente.CpfCliente,
-                                 NomeDoCliente = cliente.Nome,
-                                 Produto = produto.Nome,
+                                 CpfCliente = orcamento.Cliente.CpfCliente,
+                                 NomeDoCliente = orcamento.Cliente.Nome,
+                                 Produto = orcamento.Produto.Nome,
                                  quantidade = orcamento.QuantProduto,
-                                 bairro = cliente.Bairro,
-                                 rua = cliente.Rua,
-                                 num = cliente.Num,
+                                 bairro = endereco.Bairro,
+                                 rua = endereco.Rua,
+                                 num = endereco.Num,
                              }).ToList();
                 EntregasDataGridView.DataSource = query;
 
@@ -73,22 +71,20 @@ namespace SistemaIntegradoV1._0
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from orcamento in context.Orcamento
-                             join cliente in context.Cliente
-                             on orcamento.CpfCliente equals cliente.CpfCliente
-                             join produto in context.Produto
-                             on orcamento.idProduto equals produto.IdProduto
+                             join endereco in context.Endereco
+                             on orcamento.idOrcamento equals endereco.idOrcamento
                              where orcamento.statusCliente == "Aceito" &&
-                             orcamento.statusEntrega !="Aceito"
+                             orcamento.statusEntrega != "Aceito"
                              select new
                              {
                                  idOrc = orcamento.idOrcamento,
-                                 CpfCliente = cliente.CpfCliente,
-                                 NomeDoCliente = cliente.Nome,
-                                 Produto = produto.Nome,
+                                 CpfCliente = orcamento.Cliente.CpfCliente,
+                                 NomeDoCliente = orcamento.Cliente.Nome,
+                                 Produto = orcamento.Produto.Nome,
                                  quantidade = orcamento.QuantProduto,
-                                 bairro = cliente.Bairro,
-                                 rua = cliente.Rua,
-                                 num = cliente.Num,
+                                 bairro = endereco.Bairro,
+                                 rua = endereco.Rua,
+                                 num = endereco.Num,
                              }).ToList();
                 EntregasDataGridView.DataSource = query;
             }

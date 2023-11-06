@@ -14,6 +14,19 @@
     <Property Name="Municipio" Type="varchar" MaxLength="40" />
     <Property Name="isAtivo" Type="bit" />
   </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOrcamento" Type="int" Nullable="false" />
+    <Property Name="Rua" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Bairro" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+    <Property Name="Complemento" Type="varchar" MaxLength="20" />
+    <Property Name="Estado" Type="varchar" MaxLength="40" />
+    <Property Name="Municipio" Type="varchar" MaxLength="40" />
+  </EntityType>
   <EntityType Name="Entrega">
     <Key>
       <PropertyRef Name="IdEntrega" />
@@ -117,6 +130,18 @@
     <Property Name="IdTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idPedidoPagar" Type="int" />
   </EntityType>
+  <Association Name="FK__Endereco__idOrca__46E78A0C">
+    <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="1" />
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orcamento">
+        <PropertyRef Name="idOrcamento" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="idOrcamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Entrega_IdOrcamento">
     <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="1" />
     <End Role="Entrega" Type="Self.Entrega" Multiplicity="*" />
@@ -239,6 +264,7 @@
   </Association>
   <EntityContainer Name="DB_SISTEMA_INTEGRADOModelStoreContainer">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EstoqueMateriaPrima" EntityType="Self.EstoqueMateriaPrima" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EstoqueProdutoAcabado" EntityType="Self.EstoqueProdutoAcabado" Schema="dbo" store:Type="Tables" />
@@ -249,6 +275,10 @@
     <EntitySet Name="PedidoCompraSuprimento" EntityType="Self.PedidoCompraSuprimento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacao" EntityType="Self.Transacao" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Endereco__idOrca__46E78A0C" Association="Self.FK__Endereco__idOrca__46E78A0C">
+      <End Role="Orcamento" EntitySet="Orcamento" />
+      <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
     <AssociationSet Name="FK_Entrega_IdOrcamento" Association="Self.FK_Entrega_IdOrcamento">
       <End Role="Orcamento" EntitySet="Orcamento" />
       <End Role="Entrega" EntitySet="Entrega" />

@@ -100,15 +100,16 @@
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.sideBar.Controls.Add(this.menuCadastro);
             this.sideBar.Controls.Add(this.menuContainerVendas);
-            this.sideBar.Controls.Add(this.menuContainerFinanceiro);
             this.sideBar.Controls.Add(this.panel6);
             this.sideBar.Controls.Add(this.panel7);
+            this.sideBar.Controls.Add(this.menuContainerFinanceiro);
             this.sideBar.Controls.Add(this.panel14);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.Location = new System.Drawing.Point(0, 35);
             this.sideBar.Name = "sideBar";
             this.sideBar.Size = new System.Drawing.Size(206, 832);
             this.sideBar.TabIndex = 3;
+            this.sideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.sideBar_Paint);
             // 
             // menuCadastro
             // 
@@ -314,7 +315,7 @@
             this.menuContainerFinanceiro.Controls.Add(this.panel8);
             this.menuContainerFinanceiro.Controls.Add(this.panel9);
             this.menuContainerFinanceiro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.menuContainerFinanceiro.Location = new System.Drawing.Point(0, 365);
+            this.menuContainerFinanceiro.Location = new System.Drawing.Point(0, 489);
             this.menuContainerFinanceiro.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.menuContainerFinanceiro.Name = "menuContainerFinanceiro";
             this.menuContainerFinanceiro.Size = new System.Drawing.Size(203, 115);
@@ -398,7 +399,7 @@
             // 
             this.panel6.Controls.Add(this.btnProducao);
             this.panel6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.panel6.Location = new System.Drawing.Point(3, 503);
+            this.panel6.Location = new System.Drawing.Point(3, 368);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(188, 39);
@@ -423,7 +424,7 @@
             // 
             this.panel7.Controls.Add(this.btnSuplimentos);
             this.panel7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.panel7.Location = new System.Drawing.Point(3, 565);
+            this.panel7.Location = new System.Drawing.Point(3, 430);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(188, 39);

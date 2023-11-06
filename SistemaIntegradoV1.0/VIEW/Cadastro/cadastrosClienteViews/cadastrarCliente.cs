@@ -94,7 +94,24 @@ namespace SistemaIntegradoV1._0
                             context.SaveChanges();
                             MessageBoxButtons buttons = MessageBoxButtons.OK;
                             DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
-                            this.Close();
+
+                            MessageBoxButtons button = MessageBoxButtons.YesNo;
+                            DialogResult resul = MessageBox.Show("Deseja cadastrar outro cliente?", "Pergunta", button, MessageBoxIcon.Question);
+                            if (resul == DialogResult.Yes)
+                            {
+                                txtCpf.Text = "";
+                                txtNomeCliente.Text = "";
+                                txtRua.Text = "";
+                                txtBairro.Text = "";
+                                txtNum.Text = "";
+                                cbEstado.Text = "";
+                                txtMunicipio.Text = "";
+                                txtComplemento.Text = "";
+                            }
+                            else
+                            {
+                                this.Close();
+                            }
                         }
                     }
                 }

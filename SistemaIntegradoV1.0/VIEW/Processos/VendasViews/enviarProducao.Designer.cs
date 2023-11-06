@@ -119,10 +119,13 @@
             this.Controls.Add(this.produtosDropDown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "enviarProducao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "enviarProducao";
+            this.Text = "Enviar P/ Producao";
             this.Load += new System.EventHandler(this.enviarProducao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).EndInit();
             this.ResumeLayout(false);

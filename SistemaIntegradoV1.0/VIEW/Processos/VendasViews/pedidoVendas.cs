@@ -123,8 +123,76 @@ namespace SistemaIntegradoV1._0
 
                         if (orcamento.QuantProduto > estoque.Quantidade)
                         {
-                            MessageBoxButtons buttons = MessageBoxButtons.OK;
-                            MessageBox.Show("Não é possível aceitar o pedido, pois não temos produto suficiente em estoque", "Atenção", buttons, MessageBoxIcon.Exclamation);
+                            Produto produto = orcamento.Produto;
+                            if (!verificarEstoque(produto, estoque))
+                            {
+                                MessageBoxButtons b = MessageBoxButtons.OK;
+                                DialogResult r = MessageBox.Show("Não possuimos esse produto em estoque\nenviando para produção", "Error", b, MessageBoxIcon.Error);
+
+                                OrdemProducao producao = new OrdemProducao();
+
+                                int quantidade = Convert.ToInt32(linhaSelecionada.GetType().GetProperty("quantidade").GetValue(linhaSelecionada, null));
+
+                                Produto produto1 = context.Produto.FirstOrDefault(
+                                    p => p.Nome.Equals(orcamento.Produto.Nome));
+
+                                producao.IdProduto = produto1.IdProduto;
+                                producao.QtdAproduzir =  quantidade;
+                                producao.FaseAtual = "Em aprovação";
+                                int contador = 0;
+
+                                context.OrdemProducao.Add(producao);
+                                context.SaveChanges();
+
+                                List<MateriasUsadasNoProduto> mpUsadas = context.MateriasUsadasNoProduto.Where(c => c.idProduto.Equals(producao.Produto.IdProduto)).ToList();
+                                List<MateriasUsadasNoProduto> newMpUsadas = new List<MateriasUsadasNoProduto>();
+                                foreach (MateriasUsadasNoProduto item in mpUsadas)
+                                {
+                                    EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                    estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(item.idMateriaPrima));
+                                    if (item.Quantidade * producao.QtdAproduzir > estoqueMateriaPrima.Quantidade)
+                                    {
+                                        newMpUsadas.Add(item);
+                                    }
+                                }
+                                for (int i = 0; i<newMpUsadas.Count; i++)
+                                {
+                                    MateriasUsadasNoProduto newMp = newMpUsadas[i];
+                                    EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                    estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
+                                }
+                                for (int i = 0; i<newMpUsadas.Count; i++)
+                                {
+                                    PedidoCompraSuprimento pedido = new PedidoCompraSuprimento();
+                                    MateriasUsadasNoProduto newMp = newMpUsadas[i];
+                                    EstoqueMateriaPrima estoqueMateriaPrima = new EstoqueMateriaPrima();
+                                    estoqueMateriaPrima = context.EstoqueMateriaPrima.FirstOrDefault(x => x.MateriaPrima.idMateriaPrima.Equals(newMp.idMateriaPrima));
+                                    pedido.IdMateriaPrima = newMpUsadas[i].idMateriaPrima;
+                                    pedido.Quantidade = (producao.QtdAproduzir*(newMpUsadas[i].Quantidade) - estoqueMateriaPrima.Quantidade);
+                                    pedido.IsPedidoAceito= false;
+                                    context.PedidoCompraSuprimento.Add(pedido);
+                                    context.SaveChanges();
+                                }
+                                orcamento.statusCliente = "Aceito";
+
+                                estoque.Quantidade -= Convert.ToInt32(orcamento.QuantProduto);
+
+                                context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
+                                context.Entry<EstoqueProdutoAcabado>(estoque).State = EntityState.Modified;
+                                context.SaveChanges();
+
+                                MessageBoxButtons bu = MessageBoxButtons.OK;
+                                MessageBox.Show("Aceito pelo cliente!", "Sucesso", bu, MessageBoxIcon.Information);
+                                carregaGrid();
+                                Transacao recibo = new Transacao();
+
+                                recibo.IdPedidoReceber = orcamento.idOrcamento;
+                                recibo.ValorReceber = orcamento.ValorTotal;
+                                recibo.Situacao = "Aberto";
+
+                                context.Transacao.Add(recibo);
+                                context.SaveChanges();
+                            }
                         }
                         else
                         {
@@ -143,7 +211,7 @@ namespace SistemaIntegradoV1._0
 
                             recibo.IdPedidoReceber = orcamento.idOrcamento;
                             recibo.ValorReceber = orcamento.ValorTotal;
-                            recibo.Situacao = "Aberto";
+                            recibo.Situacao = "Aberto ";
 
                             context.Transacao.Add(recibo);
                             context.SaveChanges();
@@ -156,6 +224,25 @@ namespace SistemaIntegradoV1._0
                     }
                 }
                 catch { }
+            }
+        }
+
+        public bool verificarEstoque(Produto produto, EstoqueProdutoAcabado estoqueProduto)
+        {
+            using (ConnectionString context = new ConnectionString())
+            {
+                var linhaSelecionada = PedidosDataGridView.SelectedItem;
+
+                int quantidade = Convert.ToInt32(linhaSelecionada.GetType().GetProperty("quantidade").GetValue(linhaSelecionada, null));
+
+                if (estoqueProduto.Quantidade < quantidade)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
 
@@ -220,6 +307,13 @@ namespace SistemaIntegradoV1._0
             Cursor.Current = Cursors.WaitCursor;
             carregaGrid();
             Cursor.Current = Cursors.Default;
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            enviarProducao tela = new enviarProducao();
+            tela.ShowDialog();
+            carregaGrid();
         }
     }
 }
