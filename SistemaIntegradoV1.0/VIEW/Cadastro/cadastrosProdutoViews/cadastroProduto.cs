@@ -1,4 +1,6 @@
 ﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosProdutoViews;
+using Syncfusion.Windows.Forms.Grid;
 using Syncfusion.WinForms.DataGrid;
 using System;
 using System.Collections.Generic;
@@ -6,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,8 @@ namespace SistemaIntegradoV1._0
 {
     public partial class cadastroProduto : Form
     {
+        public bool doubleClick { get; set; }
+
         public cadastroProduto()
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -82,10 +87,12 @@ namespace SistemaIntegradoV1._0
         }
         public void constroiGrid()
         {
-            ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idProduto", HeaderText = "ID Produto", Visible = true, Width = 100 });
+            ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idProduto", HeaderText = "ID Produto", Visible = true, Width = 0 });
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Nome", HeaderText = "Produto", Visible = true });
-            ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "preco", HeaderText = "Preço", Visible = true });
+            ProdutosDataGridView.Columns.Add(new GridNumericColumn() { MappingName = "preco", HeaderText = "Preço", Visible = true, Width = 200 });
             ProdutosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAtivo", HeaderText = "Ativo", Visible = true,Width = 200 });
+
+            ProdutosDataGridView.Columns["preco"].Format = "{0:C}";
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -101,6 +108,7 @@ namespace SistemaIntegradoV1._0
                 ProdutosDataGridView.DataSource = query;
             }
         }
+
         private void cadastroProduto_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -163,6 +171,22 @@ namespace SistemaIntegradoV1._0
         private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
         {
             carregaGrid();
+        }
+
+        private void ProdutosDataGridView_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            using (ConnectionString context = new ConnectionString())
+            {
+                var linhaSelecionada = ProdutosDataGridView.SelectedItem;
+
+                int idProduto = Convert.ToInt32(linhaSelecionada.GetType().GetProperty("idProduto").GetValue(linhaSelecionada, null));
+
+                Produto produtoSeleciondo = context.Produto.FirstOrDefault(x => x.IdProduto.Equals(idProduto));
+                List<MateriasUsadasNoProduto> mpUsadas = context.MateriasUsadasNoProduto.Where(x => x.idProduto.Equals(produtoSeleciondo.IdProduto)).ToList();
+
+                informacoesProdutosView tela = new informacoesProdutosView(mpUsadas, produtoSeleciondo);
+                tela.ShowDialog();
+            }
         }
     }
 }

@@ -38,6 +38,7 @@
             this.btnCancela = new System.Windows.Forms.Button();
             this.materiasDataGrid = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.MateriasUsadasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.materiasDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MateriasUsadasBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             this.btnCadastrarProduto.BackColor = System.Drawing.SystemColors.Control;
             this.btnCadastrarProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarProduto.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnCadastrarProduto.Location = new System.Drawing.Point(369, 391);
+            this.btnCadastrarProduto.Location = new System.Drawing.Point(369, 442);
             this.btnCadastrarProduto.Name = "btnCadastrarProduto";
             this.btnCadastrarProduto.Size = new System.Drawing.Size(101, 33);
             this.btnCadastrarProduto.TabIndex = 8;
@@ -99,7 +100,7 @@
             this.btnCancela.BackColor = System.Drawing.SystemColors.Control;
             this.btnCancela.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancela.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnCancela.Location = new System.Drawing.Point(476, 391);
+            this.btnCancela.Location = new System.Drawing.Point(476, 442);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(101, 33);
             this.btnCancela.TabIndex = 9;
@@ -118,19 +119,36 @@
             this.materiasDataGrid.AutoGenerateColumns = false;
             this.materiasDataGrid.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.materiasDataGrid.EditMode = Syncfusion.WinForms.DataGrid.Enums.EditMode.SingleClick;
-            this.materiasDataGrid.Location = new System.Drawing.Point(12, 62);
+            this.materiasDataGrid.Location = new System.Drawing.Point(12, 110);
             this.materiasDataGrid.Name = "materiasDataGrid";
-            this.materiasDataGrid.Size = new System.Drawing.Size(565, 323);
+            this.materiasDataGrid.Size = new System.Drawing.Size(565, 326);
             this.materiasDataGrid.TabIndex = 11;
             this.materiasDataGrid.Text = "sfDataGrid1";
             this.materiasDataGrid.ValidationMode = Syncfusion.WinForms.DataGrid.Enums.GridValidationMode.InView;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
+            this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpar.Location = new System.Drawing.Point(490, 71);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(87, 33);
+            this.btnLimpar.TabIndex = 12;
+            this.btnLimpar.Text = "&Limpar";
+            this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // cadastrarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(589, 436);
+            this.ClientSize = new System.Drawing.Size(589, 478);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.materiasDataGrid);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnCadastrarProduto);
@@ -162,5 +180,6 @@
         private System.Windows.Forms.Button btnCancela;
         private Syncfusion.WinForms.DataGrid.SfDataGrid materiasDataGrid;
         private System.Windows.Forms.BindingSource MateriasUsadasBindingSource;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

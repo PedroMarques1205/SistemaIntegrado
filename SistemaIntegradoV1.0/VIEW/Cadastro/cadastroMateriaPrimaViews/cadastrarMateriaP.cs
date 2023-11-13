@@ -66,7 +66,6 @@ namespace SistemaIntegradoV1._0
             }
             return false;
         }
-
         private void btnCadastrarMP_Click(object sender, EventArgs e)
         {
             try
@@ -87,24 +86,27 @@ namespace SistemaIntegradoV1._0
                     {
                         MateriaPrima mp = new MateriaPrima();
                         EstoqueMateriaPrima Estoque = new EstoqueMateriaPrima();
-                        string letra = txtNomeMP.Text.ToUpper();
+                        TipoMateria tipo = context.TipoMateria.FirstOrDefault(x => x.NomeTipo.Equals(txtTiposMateria.Text));
+
+                        string letra = tipo.Codigo.ToUpper();
 
                         int numCodigo = 1;
-                        string codeMP = letra[0] + "-";
+                        string codeMP = letra + "-";
 
                         foreach (MateriaPrima item in context.MateriaPrima)
                         {
-                            if (item.CodigoMp[0].Equals(codeMP[0]))
+                            if (item.CodigoTipo.Equals(tipo.Codigo)) 
                             {
                                 numCodigo++;
                             }
                         }
+                            
 
                         string formato = codeMP + numCodigo.ToString("D4");
                         mp.Nome = txtNomeMP.Text;
                         mp.CodigoMp = formato;
                         mp.isAtivo = true;
-
+                        mp.CodigoTipo = tipo.Codigo;
                         context.MateriaPrima.Add(mp);
                         context.SaveChanges();
 
@@ -138,7 +140,13 @@ namespace SistemaIntegradoV1._0
 
         private void cadastrarMateriaP_Load(object sender, EventArgs e)
         {
-
+            using (ConnectionString context = new ConnectionString())
+            {
+                foreach (TipoMateria item in context.TipoMateria)
+                {
+                    txtTiposMateria.Items.Add(item.NomeTipo);
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

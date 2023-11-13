@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SistemaIntegradoV1._0
 {
@@ -38,61 +39,16 @@ namespace SistemaIntegradoV1._0
                 {
                     produtosDropDown.Items.Add(item.Nome);
                 }
+                foreach (Cliente item in context.Cliente)
+                {
+                    clientesDropdown.Items.Add(item.Nome);
+                }
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
             this.Close();
-
-        }
-
-        public bool verificaCampos()
-        {
-            if (!localEntregaCheckBox.Checked)
-            {
-                foreach (Control c in this.Controls)
-                {
-                    if (c is TextBox)
-                    {
-                        TextBox textBox = c as TextBox;
-                        if (string.IsNullOrWhiteSpace(textBox.Text))
-                        {
-                            return true;
-                        }
-                    }
-                    else if (c is MaskedTextBox)
-                    {
-                        MaskedTextBox textBox = c as MaskedTextBox;
-                        if (!textBox.MaskCompleted)
-                        {
-                            return true;
-                        }
-                    }
-                    else if (c is ComboBox)
-                    {
-                        ComboBox textBox = c as ComboBox;
-                        if (string.IsNullOrWhiteSpace(textBox.Text))
-                        {
-                            return true;
-                        }
-                    }
-                    else if (c is NumericUpDown)
-                    {
-                        NumericUpDown textBox = c as NumericUpDown;
-                        if (textBox.Value == 0)
-                        {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -101,7 +57,7 @@ namespace SistemaIntegradoV1._0
             {
                 using (ConnectionString context = new ConnectionString())
                 {
-                    if (verificaCampos())
+                    if (string.IsNullOrWhiteSpace(dpdPagamento.Text) || !!string.IsNullOrEmpty(clientesDropdown.Text) || txtQuantidade.Value == 0)
                     {
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
                         DialogResult result = MessageBox.Show("Preencha todos os campos", "Error", buttons, MessageBoxIcon.Error);
@@ -116,7 +72,7 @@ namespace SistemaIntegradoV1._0
                             Endereco endereco = new Endereco();
                             if (produto != null)
                             {
-                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
+                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.Nome.Equals(clientesDropdown.Text));
 
                                 if (cliente != null && cliente.isAtivo == true)
                                 {
@@ -169,7 +125,7 @@ namespace SistemaIntegradoV1._0
                                 endereco.Bairro = txtBairro.Text;
                                 endereco.Estado = cbEstado.Text;
 
-                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.CpfCliente.Equals(txtCpfCliente.Text));
+                                Cliente cliente = context.Cliente.FirstOrDefault(c => c.Nome.Equals(clientesDropdown.Text));
 
 
                                 endereco.Complemento = txtComplemento.Text;
@@ -276,6 +232,19 @@ namespace SistemaIntegradoV1._0
         {
             if (localEntregaCheckBox.Checked)
             {
+                using (ConnectionString context = new ConnectionString())
+                {
+                    if (!string.IsNullOrEmpty(clientesDropdown.Text))
+                    {
+                        Cliente cliente = context.Cliente.FirstOrDefault(c => c.Nome.Equals(clientesDropdown.Text));
+                        txtRua.Text = cliente.Rua;
+                        txtBairro.Text = cliente.Bairro;
+                        txtNum.Text = Convert.ToString(cliente.Num);
+                        cbEstado.Text = cliente.Estado;
+                        txtMunicipio.Text = cliente.Municipio;
+                        txtComplemento.Text = cliente.Complemento;
+                    }
+                }
                 txtRua.Enabled = false;
                 txtBairro.Enabled = false;
                 txtNum.Enabled = false;
@@ -291,6 +260,12 @@ namespace SistemaIntegradoV1._0
                 cbEstado.Enabled = true;
                 txtMunicipio.Enabled = true;
                 txtComplemento.Enabled = true;
+                txtRua.Text = "";
+                txtBairro.Text = "";
+                txtNum.Text = "";
+                cbEstado.Text = "";
+                txtMunicipio.Text = "";
+                txtComplemento.Text = "";
             }
         }
     }

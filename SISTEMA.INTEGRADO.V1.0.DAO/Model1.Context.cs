@@ -36,6 +36,9 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public virtual DbSet<OrdemProducao> OrdemProducao { get; set; }
         public virtual DbSet<PedidoCompraSuprimento> PedidoCompraSuprimento { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
+        public virtual DbSet<TipoAcesso> TipoAcesso { get; set; }
+        public virtual DbSet<TipoMateria> TipoMateria { get; set; }
         public virtual DbSet<Transacao> Transacao { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

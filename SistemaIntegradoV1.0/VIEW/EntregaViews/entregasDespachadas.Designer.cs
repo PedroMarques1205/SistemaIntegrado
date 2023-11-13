@@ -37,12 +37,14 @@
             // EnviosDataGridView
             // 
             this.EnviosDataGridView.AccessibleName = "Table";
+            this.EnviosDataGridView.AllowFiltering = true;
             this.EnviosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EnviosDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
             this.EnviosDataGridView.Location = new System.Drawing.Point(12, 104);
             this.EnviosDataGridView.Name = "EnviosDataGridView";
             this.EnviosDataGridView.Size = new System.Drawing.Size(1166, 450);
+            this.EnviosDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.EnviosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.EnviosDataGridView.TabIndex = 10;
             this.EnviosDataGridView.Text = "sfDataGrid1";

@@ -37,6 +37,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
             this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
+            this.tbsGerarOrdem = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.PedidosDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -45,6 +46,7 @@
             // PedidosDataGridView
             // 
             this.PedidosDataGridView.AccessibleName = "Table";
+            this.PedidosDataGridView.AllowFiltering = true;
             this.PedidosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -52,6 +54,7 @@
             this.PedidosDataGridView.Location = new System.Drawing.Point(0, 64);
             this.PedidosDataGridView.Name = "PedidosDataGridView";
             this.PedidosDataGridView.Size = new System.Drawing.Size(826, 443);
+            this.PedidosDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.PedidosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.PedidosDataGridView.TabIndex = 10;
             this.PedidosDataGridView.Text = "sfDataGrid1";
@@ -84,7 +87,8 @@
             this.tbsEnviarPedido,
             this.toolStripButton2,
             this.tdbRefresh,
-            this.comboBoxFiltros});
+            this.comboBoxFiltros,
+            this.tbsGerarOrdem});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -144,6 +148,19 @@
             this.comboBoxFiltros.Size = new System.Drawing.Size(121, 64);
             this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
             // 
+            // tbsGerarOrdem
+            // 
+            this.tbsGerarOrdem.ForeColor = System.Drawing.Color.White;
+            this.tbsGerarOrdem.Image = ((System.Drawing.Image)(resources.GetObject("tbsGerarOrdem.Image")));
+            this.tbsGerarOrdem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsGerarOrdem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsGerarOrdem.Name = "tbsGerarOrdem";
+            this.tbsGerarOrdem.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tbsGerarOrdem.Size = new System.Drawing.Size(181, 66);
+            this.tbsGerarOrdem.Text = "Realizar Ordem de Produção";
+            this.tbsGerarOrdem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tbsGerarOrdem.Click += new System.EventHandler(this.tbsGerarOrdem_Click);
+            // 
             // suprimentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +193,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
         private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
+        private System.Windows.Forms.ToolStripButton tbsGerarOrdem;
     }
 }

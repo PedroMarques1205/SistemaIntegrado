@@ -47,6 +47,7 @@
             // ClientesDataGridView
             // 
             this.ClientesDataGridView.AccessibleName = "Table";
+            this.ClientesDataGridView.AllowFiltering = true;
             this.ClientesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -54,9 +55,11 @@
             this.ClientesDataGridView.Location = new System.Drawing.Point(0, 65);
             this.ClientesDataGridView.Name = "ClientesDataGridView";
             this.ClientesDataGridView.Size = new System.Drawing.Size(891, 460);
+            this.ClientesDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.ClientesDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.ClientesDataGridView.TabIndex = 11;
             this.ClientesDataGridView.Text = "sfDataGrid1";
+            this.ClientesDataGridView.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.ClientesDataGridView_CellDoubleClick);
             this.ClientesDataGridView.Click += new System.EventHandler(this.ClientesDataGridView_Click);
             // 
             // statusStrip1

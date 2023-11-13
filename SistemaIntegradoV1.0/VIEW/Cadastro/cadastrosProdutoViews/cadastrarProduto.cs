@@ -1,6 +1,7 @@
 ﻿using SISTEMA.INTEGRADO.V1._0.DAO;
 using Syncfusion.WinForms.DataGrid;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,7 +107,6 @@ namespace SistemaIntegradoV1._0
             {
                 using (ConnectionString context = new ConnectionString())
                 {
-                    
                     if (verificaCampos())
                     {
                         MessageBoxButtons buttons = MessageBoxButtons.OK;
@@ -215,6 +215,14 @@ namespace SistemaIntegradoV1._0
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            List<materiasQuantidade> lista = new List<materiasQuantidade>();
+            lista.Clear();
+            materiasDataGrid.DataSource = lista;
+            materiasDataGrid.AddNewRowText = "Click aqui para adicionar uma nova informação";
         }
     }
 }

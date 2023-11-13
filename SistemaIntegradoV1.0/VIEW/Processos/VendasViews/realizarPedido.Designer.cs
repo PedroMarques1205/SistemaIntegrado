@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dpdPagamento = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCpfCliente = new System.Windows.Forms.MaskedTextBox();
             this.produtosDropDown = new System.Windows.Forms.ComboBox();
             this.txtQuantidade = new System.Windows.Forms.NumericUpDown();
             this.btnCancela = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.localEntregaCheckBox = new System.Windows.Forms.CheckBox();
+            this.clientesDropdown = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,17 +61,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(9, 31);
+            this.label1.Location = new System.Drawing.Point(9, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 17);
+            this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "CPF do Cliente:";
+            this.label1.Text = "Cliente:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(191, 31);
+            this.label2.Location = new System.Drawing.Point(330, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 17);
             this.label2.TabIndex = 5;
@@ -107,23 +107,14 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Forma de pagamento:";
             // 
-            // txtCpfCliente
-            // 
-            this.txtCpfCliente.Location = new System.Drawing.Point(12, 52);
-            this.txtCpfCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCpfCliente.Mask = "000.000.000-00";
-            this.txtCpfCliente.Name = "txtCpfCliente";
-            this.txtCpfCliente.Size = new System.Drawing.Size(175, 20);
-            this.txtCpfCliente.TabIndex = 27;
-            this.txtCpfCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // produtosDropDown
             // 
-            this.produtosDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.produtosDropDown.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.produtosDropDown.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.produtosDropDown.FormattingEnabled = true;
-            this.produtosDropDown.Location = new System.Drawing.Point(194, 52);
+            this.produtosDropDown.Location = new System.Drawing.Point(333, 50);
             this.produtosDropDown.Name = "produtosDropDown";
-            this.produtosDropDown.Size = new System.Drawing.Size(465, 21);
+            this.produtosDropDown.Size = new System.Drawing.Size(323, 21);
             this.produtosDropDown.TabIndex = 28;
             this.produtosDropDown.SelectedIndexChanged += new System.EventHandler(this.produtosDropDown_SelectedIndexChanged);
             // 
@@ -171,7 +162,7 @@
             this.valorTotal.AutoSize = true;
             this.valorTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.valorTotal.ForeColor = System.Drawing.Color.Green;
-            this.valorTotal.Location = new System.Drawing.Point(550, 9);
+            this.valorTotal.Location = new System.Drawing.Point(527, 9);
             this.valorTotal.Name = "valorTotal";
             this.valorTotal.Size = new System.Drawing.Size(109, 17);
             this.valorTotal.TabIndex = 32;
@@ -350,12 +341,23 @@
             this.localEntregaCheckBox.UseVisualStyleBackColor = true;
             this.localEntregaCheckBox.CheckedChanged += new System.EventHandler(this.localEntregaCheckBox_CheckedChanged);
             // 
+            // clientesDropdown
+            // 
+            this.clientesDropdown.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.clientesDropdown.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.clientesDropdown.FormattingEnabled = true;
+            this.clientesDropdown.Location = new System.Drawing.Point(9, 50);
+            this.clientesDropdown.Name = "clientesDropdown";
+            this.clientesDropdown.Size = new System.Drawing.Size(318, 21);
+            this.clientesDropdown.TabIndex = 47;
+            // 
             // realizarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(673, 391);
+            this.Controls.Add(this.clientesDropdown);
             this.Controls.Add(this.localEntregaCheckBox);
             this.Controls.Add(this.cbEstado);
             this.Controls.Add(this.txtMunicipio);
@@ -375,7 +377,6 @@
             this.Controls.Add(this.btnCadastrarProduto);
             this.Controls.Add(this.txtQuantidade);
             this.Controls.Add(this.produtosDropDown);
-            this.Controls.Add(this.txtCpfCliente);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dpdPagamento);
             this.Controls.Add(this.label4);
@@ -401,7 +402,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox dpdPagamento;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox txtCpfCliente;
         private System.Windows.Forms.ComboBox produtosDropDown;
         private System.Windows.Forms.NumericUpDown txtQuantidade;
         private System.Windows.Forms.Button btnCancela;
@@ -421,5 +421,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox localEntregaCheckBox;
+        private System.Windows.Forms.ComboBox clientesDropdown;
     }
 }

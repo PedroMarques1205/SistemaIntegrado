@@ -23,11 +23,6 @@ namespace SistemaIntegradoV1._0
         private void producao_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            comboBoxFiltros.Text = "Todos";
-            comboBoxFiltros.Items.Add("Em aprovação");
-            comboBoxFiltros.Items.Add("Em produção");
-            comboBoxFiltros.Items.Add("Finalizado");
-            comboBoxFiltros.Items.Add("Todos");
             constroiGrid();
             carregaGrid();
             Cursor.Current = Cursors.Default;
@@ -59,35 +54,17 @@ namespace SistemaIntegradoV1._0
         {
             using (ConnectionString context = new ConnectionString())
             {
-                if (comboBoxFiltros.Text == "Todos")
-                {
-                    var query = (from ordem in context.OrdemProducao
-                                 select new
-                                 {
-                                     idOrdem = ordem.IdOrdem,
-                                     produto = ordem.Produto.Nome,
-                                     quantidade = ordem.QtdAproduzir,
-                                     estadoAtual = ordem.FaseAtual
-                                 }).ToList();
+                var query = (from ordem in context.OrdemProducao
+                             select new
+                             {
+                                 idOrdem = ordem.IdOrdem,
+                                 produto = ordem.Produto.Nome,
+                                 quantidade = ordem.QtdAproduzir,
+                                 estadoAtual = ordem.FaseAtual
+                             }).ToList();
 
-                    ProducaoDataGridView.DataSource = query;
-                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
-                }
-                else
-                {
-                    var query = (from ordem in context.OrdemProducao
-                                 where ordem.FaseAtual == comboBoxFiltros.Text
-                                 select new
-                                 {
-                                     idOrdem = ordem.IdOrdem,
-                                     produto = ordem.Produto.Nome,
-                                     quantidade = ordem.QtdAproduzir,
-                                     estadoAtual = ordem.FaseAtual
-                                 }).ToList();
-
-                    ProducaoDataGridView.DataSource = query;
-                    registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
-                }
+                ProducaoDataGridView.DataSource = query;
+                registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.ToList().Count);
             }
         }
 
@@ -236,7 +213,7 @@ namespace SistemaIntegradoV1._0
                             {
                                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                                 MessageBox.Show("Não possuimos matéria prima suficiente em estoque!", "Error", buttons, MessageBoxIcon.Exclamation);
-                                
+
                                 temMp = false;
                                 //string mensagem = "";
                                 //for (int i = 0; i<newMpUsadas.Count; i++)

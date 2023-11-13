@@ -62,6 +62,7 @@
     <EntitySetMapping Name="MateriaPrima">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.MateriaPrima">
         <MappingFragment StoreEntitySet="MateriaPrima">
+          <ScalarProperty Name="CodigoTipo" ColumnName="CodigoTipo" />
           <ScalarProperty Name="isAtivo" ColumnName="isAtivo" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="CodigoMp" ColumnName="CodigoMp" />
@@ -130,6 +131,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TipoAcesso">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.TipoAcesso">
+        <MappingFragment StoreEntitySet="TipoAcesso">
+          <ScalarProperty Name="TipoAcesso1" ColumnName="TipoAcesso" />
+          <ScalarProperty Name="CodTipoAcesso" ColumnName="CodTipoAcesso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMateria">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.TipoMateria">
+        <MappingFragment StoreEntitySet="TipoMateria">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="NomeTipo" ColumnName="NomeTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Transacao">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Transacao">
         <MappingFragment StoreEntitySet="Transacao">
@@ -139,6 +156,15 @@
           <ScalarProperty Name="Situacao" ColumnName="Situacao" />
           <ScalarProperty Name="ValorReceber" ColumnName="ValorReceber" />
           <ScalarProperty Name="IdPedidoReceber" ColumnName="IdPedidoReceber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="CodTipoAcesso" ColumnName="CodTipoAcesso" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

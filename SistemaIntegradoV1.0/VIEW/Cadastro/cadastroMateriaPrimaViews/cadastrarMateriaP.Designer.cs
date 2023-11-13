@@ -35,6 +35,8 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnCancela = new System.Windows.Forms.Button();
             this.btnCadastrarProduto = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTiposMateria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.txtNomeMP.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeMP.Location = new System.Drawing.Point(12, 62);
             this.txtNomeMP.Name = "txtNomeMP";
-            this.txtNomeMP.Size = new System.Drawing.Size(378, 25);
+            this.txtNomeMP.Size = new System.Drawing.Size(238, 25);
             this.txtNomeMP.TabIndex = 0;
             this.txtNomeMP.TextChanged += new System.EventHandler(this.txtNomeMP_TextChanged);
             // 
@@ -85,12 +87,34 @@
             this.btnCadastrarProduto.UseVisualStyleBackColor = false;
             this.btnCadastrarProduto.Click += new System.EventHandler(this.btnCadastrarMP_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(254, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 17);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Tipo Matéria: *";
+            // 
+            // txtTiposMateria
+            // 
+            this.txtTiposMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtTiposMateria.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.txtTiposMateria.FormattingEnabled = true;
+            this.txtTiposMateria.Location = new System.Drawing.Point(257, 62);
+            this.txtTiposMateria.Name = "txtTiposMateria";
+            this.txtTiposMateria.Size = new System.Drawing.Size(133, 25);
+            this.txtTiposMateria.TabIndex = 27;
+            // 
             // cadastrarMateriaP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(402, 170);
+            this.Controls.Add(this.txtTiposMateria);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancela);
             this.Controls.Add(this.btnCadastrarProduto);
             this.Controls.Add(this.label1);
@@ -116,5 +140,7 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button btnCancela;
         private System.Windows.Forms.Button btnCadastrarProduto;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox txtTiposMateria;
     }
 }

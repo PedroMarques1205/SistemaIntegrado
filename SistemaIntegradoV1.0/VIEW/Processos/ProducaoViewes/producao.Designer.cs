@@ -29,51 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(producao));
-            this.ProducaoDataGridView = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnRealizarPedido = new System.Windows.Forms.ToolStripButton();
             this.tsbMandarParaProducao = new System.Windows.Forms.ToolStripButton();
             this.btnFinalizarProducao = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.comboBoxFiltros = new Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx();
+            this.ProducaoDataGridView = new Syncfusion.WinForms.DataGrid.SfDataGrid();
+            this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProducaoDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ProducaoDataGridView
-            // 
-            this.ProducaoDataGridView.AccessibleName = "Table";
-            this.ProducaoDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-            this.ProducaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProducaoDataGridView.Location = new System.Drawing.Point(0, 69);
-            this.ProducaoDataGridView.Name = "ProducaoDataGridView";
-            this.ProducaoDataGridView.Size = new System.Drawing.Size(928, 436);
-            this.ProducaoDataGridView.Style.HeaderStyle.Font.Size = 11F;
-            this.ProducaoDataGridView.TabIndex = 11;
-            this.ProducaoDataGridView.Text = "sfDataGrid1";
-            this.ProducaoDataGridView.QueryRowStyle += new Syncfusion.WinForms.DataGrid.Events.QueryRowStyleEventHandler(this.ProducaoDataGridView_QueryRowStyle);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrosLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 505);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(928, 22);
-            this.statusStrip1.TabIndex = 20;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // registrosLabel
-            // 
-            this.registrosLabel.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrosLabel.ForeColor = System.Drawing.Color.White;
-            this.registrosLabel.Name = "registrosLabel";
-            this.registrosLabel.Size = new System.Drawing.Size(146, 17);
-            this.registrosLabel.Text = "Registros Encontrados: 0";
             // 
             // toolStrip2
             // 
@@ -83,8 +50,7 @@
             this.btnRealizarPedido,
             this.tsbMandarParaProducao,
             this.btnFinalizarProducao,
-            this.tdbRefresh,
-            this.comboBoxFiltros});
+            this.tdbRefresh});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -145,23 +111,48 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
-            // comboBoxFiltros
+            // ProducaoDataGridView
             // 
-            this.comboBoxFiltros.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.comboBoxFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.comboBoxFiltros.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.comboBoxFiltros.Margin = new System.Windows.Forms.Padding(1, 5, 20, 0);
-            this.comboBoxFiltros.MaxLength = 32767;
-            this.comboBoxFiltros.Name = "comboBoxFiltros";
-            this.comboBoxFiltros.Size = new System.Drawing.Size(121, 64);
-            this.comboBoxFiltros.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltros_SelectedIndexChanged);
+            this.ProducaoDataGridView.AccessibleName = "Table";
+            this.ProducaoDataGridView.AllowFiltering = true;
+            this.ProducaoDataGridView.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.ProducaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProducaoDataGridView.EnableDataVirtualization = true;
+            this.ProducaoDataGridView.Location = new System.Drawing.Point(0, 69);
+            this.ProducaoDataGridView.Margin = new System.Windows.Forms.Padding(0);
+            this.ProducaoDataGridView.Name = "ProducaoDataGridView";
+            this.ProducaoDataGridView.Size = new System.Drawing.Size(928, 439);
+            this.ProducaoDataGridView.Style.HeaderStyle.Font.Bold = true;
+            this.ProducaoDataGridView.Style.HeaderStyle.Font.Size = 11F;
+            this.ProducaoDataGridView.TabIndex = 23;
+            this.ProducaoDataGridView.Text = "sfDataGrid1";
+            this.ProducaoDataGridView.QueryRowStyle += new Syncfusion.WinForms.DataGrid.Events.QueryRowStyleEventHandler(this.ProducaoDataGridView_QueryRowStyle);
+            // 
+            // registrosLabel
+            // 
+            this.registrosLabel.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrosLabel.ForeColor = System.Drawing.Color.White;
+            this.registrosLabel.Name = "registrosLabel";
+            this.registrosLabel.Size = new System.Drawing.Size(146, 17);
+            this.registrosLabel.Text = "Registros Encontrados: 0";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrosLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 508);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(928, 22);
+            this.statusStrip1.TabIndex = 20;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // producao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(928, 527);
+            this.ClientSize = new System.Drawing.Size(928, 530);
             this.Controls.Add(this.ProducaoDataGridView);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.statusStrip1);
@@ -169,26 +160,24 @@
             this.Name = "producao";
             this.Text = "Produção";
             this.Load += new System.EventHandler(this.producao_Load);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProducaoDataGridView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Syncfusion.WinForms.DataGrid.SfDataGrid ProducaoDataGridView;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnFinalizarProducao;
         private System.Windows.Forms.ToolStripButton btnRealizarPedido;
-        private Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx comboBoxFiltros;
         private System.Windows.Forms.ToolStripButton tsbMandarParaProducao;
         private System.Windows.Forms.ToolStripButton tdbRefresh;
+        private Syncfusion.WinForms.DataGrid.SfDataGrid ProducaoDataGridView;
+        private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

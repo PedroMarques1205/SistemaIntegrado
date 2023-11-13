@@ -53,6 +53,7 @@
             // PedidosDataGridView
             // 
             this.PedidosDataGridView.AccessibleName = "Table";
+            this.PedidosDataGridView.AllowFiltering = true;
             this.PedidosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,6 +61,7 @@
             this.PedidosDataGridView.Location = new System.Drawing.Point(0, 66);
             this.PedidosDataGridView.Name = "PedidosDataGridView";
             this.PedidosDataGridView.Size = new System.Drawing.Size(1009, 431);
+            this.PedidosDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.PedidosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.PedidosDataGridView.TabIndex = 18;
             this.PedidosDataGridView.Text = "sfDataGrid1";

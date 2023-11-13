@@ -44,6 +44,7 @@
             // FaturasDataGridView
             // 
             this.FaturasDataGridView.AccessibleName = "Table";
+            this.FaturasDataGridView.AllowFiltering = true;
             this.FaturasDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -51,6 +52,7 @@
             this.FaturasDataGridView.Location = new System.Drawing.Point(0, 64);
             this.FaturasDataGridView.Name = "FaturasDataGridView";
             this.FaturasDataGridView.Size = new System.Drawing.Size(939, 445);
+            this.FaturasDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.FaturasDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.FaturasDataGridView.TabIndex = 12;
             this.FaturasDataGridView.Text = "sfDataGrid1";

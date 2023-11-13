@@ -1,4 +1,8 @@
-﻿using System;
+﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using SistemaIntegradoV1._0.VIEW.Cadastro;
+using SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews;
+using SistemaIntegradoV1._0.VIEW.estoquesViews;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +11,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Syncfusion.Windows.Forms.Tools.MenuDropDown;
 
 namespace SistemaIntegradoV1._0
 {
     public partial class TelaPrincipal : Form
     {
-        public TelaPrincipal()
+        public bool Loggof { get; set; }
+
+
+        public Usuario currentUser { get; set; }
+
+
+        public TelaPrincipal(Usuario usuarioLogado)
         {
+            currentUser = usuarioLogado;
             InitializeComponent();
+            msgBemvindo.Text = "          " + usuarioLogado.Login;
+            Loggof = false;
+
+            if (currentUser.CodTipoAcesso.Equals("FAB"))
+            {
+                menuCadastro.Visible = false;
+                menuContainerVendas.Visible = false;
+                panel7.Visible = false;
+                menuContainerFinanceiro.Visible = false;
+            }
+            else if (currentUser.CodTipoAcesso.Equals("VEN"))
+            {
+                panel16.Visible = false;
+                panel12.Visible = false;
+                panel13.Visible = false;
+                panel6.Visible = false;
+                panel7.Visible = false;
+                menuContainerFinanceiro.Visible = false;
+            }
+            else if (currentUser.CodTipoAcesso.Equals("FIN"))
+            {
+                menuCadastro.Visible = false;
+                menuContainerVendas.Visible = false;
+                panel7.Visible = false;
+                panel16.Visible = false;
+                panel6.Visible = false;
+            }
+            else if (currentUser.CodTipoAcesso.Equals("SUP"))
+            {
+                menuContainerVendas.Visible = false;
+                panel16.Visible = false;
+                panel11.Visible = false;
+                panel6.Visible = false;
+                menuContainerFinanceiro.Visible = false;
+            }
         }
+
 
         bool menuExpand = false;
         private void menuTransition_Tick(object sender, EventArgs e)
@@ -39,6 +87,7 @@ namespace SistemaIntegradoV1._0
                 }
             }
         }
+
 
         private void btnVendas_Click(object sender, EventArgs e)
         {
@@ -81,6 +130,7 @@ namespace SistemaIntegradoV1._0
             menuContainerVendas.Height = 39;
             menuContainerFinanceiro.Height = 39;
             menuCadastro.Height = 39;
+            menuEstoques.Height = 39;
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is MdiClient)
@@ -148,7 +198,7 @@ namespace SistemaIntegradoV1._0
 
             tela.MdiParent = this;
             tela.Show();
-            
+
         }
 
         bool cadastroTransicted = false;
@@ -156,11 +206,32 @@ namespace SistemaIntegradoV1._0
         {
             if (cadastroTransicted == false)
             {
-                menuCadastro.Height += 10;
-                if (menuCadastro.Height >= 152)
+                if (currentUser.CodTipoAcesso == "VEN")
                 {
-                    menuCadastroTransition.Stop();
-                    cadastroTransicted=true;
+                    menuCadastro.Height += 10;
+                    if (menuCadastro.Height >= 70)
+                    {
+                        menuCadastroTransition.Stop();
+                        cadastroTransicted=true;
+                    }
+                }
+                else if (currentUser.CodTipoAcesso == "SUP")
+                {
+                    menuCadastro.Height += 10;
+                    if (menuCadastro.Height >= 110)
+                    {
+                        menuCadastroTransition.Stop();
+                        cadastroTransicted=true;
+                    }
+                }
+                else
+                {
+                    menuCadastro.Height += 10;
+                    if (menuCadastro.Height >= 202)
+                    {
+                        menuCadastroTransition.Stop();
+                        cadastroTransicted=true;
+                    }
                 }
             }
             else
@@ -297,7 +368,7 @@ namespace SistemaIntegradoV1._0
         {
             engrenagens.Visible = false;
             titulo.Visible = false;
-            estoques tela = new estoques();
+            estoquesProduto tela = new estoquesProduto();
             tela.MdiParent = this;
             tela.Show();
         }
@@ -319,6 +390,81 @@ namespace SistemaIntegradoV1._0
         private void sideBar_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Loggof = true;
+            this.Close();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            engrenagens.Visible = false;
+            titulo.Visible = false;
+            cadastroUsuario tela = new cadastroUsuario();
+
+            tela.MdiParent = this;
+            tela.Show();
+        }
+
+        private void msgBemvindo_Click(object sender, EventArgs e)
+        {
+            informacoesUsuario tela = new informacoesUsuario(currentUser);
+            tela.ShowDialog();
+        }
+
+        bool estoqueExpand = false;
+        private void menuEstoquesTransition_Tick(object sender, EventArgs e)
+        {
+            if (estoqueExpand == false)
+            {
+                menuEstoques.Height += 10;
+                if (menuEstoques.Height >= 117)
+                {
+                    menuEstoquesTransition.Stop();
+                    estoqueExpand=true;
+                }
+            }
+            else
+            {
+                menuEstoques.Height -= 10;
+                if (menuEstoques.Height <= 39)
+                {
+                    menuEstoquesTransition.Stop();
+                    estoqueExpand = false;
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            menuEstoquesTransition.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            engrenagens.Visible = false;
+            titulo.Visible = false;
+            estoquesProduto tela = new estoquesProduto();
+
+            tela.MdiParent = this;
+            tela.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            engrenagens.Visible = false;
+            titulo.Visible = false;
+            estoqueMaterias tela = new estoqueMaterias();
+
+            tela.MdiParent = this;
+            tela.Show();
         }
     }
 }

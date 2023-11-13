@@ -44,6 +44,7 @@
             // EntregasDataGridView
             // 
             this.EntregasDataGridView.AccessibleName = "Table";
+            this.EntregasDataGridView.AllowFiltering = true;
             this.EntregasDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -51,6 +52,7 @@
             this.EntregasDataGridView.Location = new System.Drawing.Point(0, 61);
             this.EntregasDataGridView.Name = "EntregasDataGridView";
             this.EntregasDataGridView.Size = new System.Drawing.Size(872, 446);
+            this.EntregasDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.EntregasDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.EntregasDataGridView.TabIndex = 9;
             this.EntregasDataGridView.Text = "sfDataGrid1";

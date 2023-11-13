@@ -25,8 +25,10 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public string CodigoMp { get; set; }
         public string Nome { get; set; }
         public Nullable<bool> isAtivo { get; set; }
+        public string CodigoTipo { get; set; }
     
         public virtual EstoqueMateriaPrima EstoqueMateriaPrima { get; set; }
+        public virtual TipoMateria TipoMateria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MateriasUsadasNoProduto> MateriasUsadasNoProduto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

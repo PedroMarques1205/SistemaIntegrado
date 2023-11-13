@@ -307,5 +307,12 @@ namespace SistemaIntegradoV1._0
                 }
             }
         }
+
+        private void tbsGerarOrdem_Click(object sender, EventArgs e)
+        {
+            enviarProducao tela = new enviarProducao();
+            tela.ShowDialog();
+            carregaGrid();
+        }
     }
 }

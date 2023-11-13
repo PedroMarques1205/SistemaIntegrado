@@ -45,6 +45,7 @@
             // ProdutosDataGridView
             // 
             this.ProdutosDataGridView.AccessibleName = "Table";
+            this.ProdutosDataGridView.AllowFiltering = true;
             this.ProdutosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -53,9 +54,11 @@
             this.ProdutosDataGridView.Name = "ProdutosDataGridView";
             this.ProdutosDataGridView.Size = new System.Drawing.Size(904, 469);
             this.ProdutosDataGridView.Style.CellStyle.Font.Size = 10F;
+            this.ProdutosDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.ProdutosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.ProdutosDataGridView.TabIndex = 12;
             this.ProdutosDataGridView.Text = "sfDataGrid1";
+            this.ProdutosDataGridView.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.ProdutosDataGridView_CellDoubleClick);
             // 
             // statusStrip1
             // 

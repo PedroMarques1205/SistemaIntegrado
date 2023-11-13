@@ -1,4 +1,5 @@
 ﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosClienteViews;
 using SistemaIntegradoV1._0.VIEW.cadastrosClienteViews;
 using Syncfusion.Windows.Forms;
 using Syncfusion.WinForms.DataGrid;
@@ -293,6 +294,20 @@ namespace SistemaIntegradoV1._0
         private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
         {
             carregaGrid();
+        }
+
+        private void ClientesDataGridView_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            var linhaSelecionada = ClientesDataGridView.SelectedItem;;
+
+            string cpf = Convert.ToString(linhaSelecionada.GetType().GetProperty("CPF").GetValue(linhaSelecionada, null));
+
+            using (ConnectionString context = new ConnectionString())
+            {
+                Cliente cliente = context.Cliente.FirstOrDefault(v => v.CpfCliente.Equals(cpf));
+                informacoesClientes tela = new informacoesClientes(cliente);
+                tela.ShowDialog();
+            }
         }
     }
 }

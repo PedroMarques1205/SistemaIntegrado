@@ -12,27 +12,17 @@ using System.Windows.Forms;
 
 namespace SistemaIntegradoV1._0
 {
-    public partial class estoques : Form
+    public partial class estoquesProduto : Form
     {
-        public estoques()
+        public estoquesProduto()
         {
             InitializeComponent();
         }
 
-        public void carregaGrids()
+        public void carregaGrid()
         {
             using (ConnectionString context = new ConnectionString())
             {
-                var queryMP = (from estoque in context.EstoqueMateriaPrima
-                               where estoque.MateriaPrima.isAtivo == true
-                               select new
-                               {
-                                   materia = estoque.NomeMp,
-                                   quantidade = estoque.Quantidade,
-                               }).ToList();
-
-                materiaDataGridViewe.DataSource = queryMP;
-
                 var queryProduto = (from estoque in context.EstoqueProdutoAcabado
                                     where estoque.Produto.isAtivo == true
                                     select new
@@ -43,30 +33,14 @@ namespace SistemaIntegradoV1._0
 
                 produtosDataGridView.DataSource = queryProduto;
 
-                registrosLabel.Text = "Registros Encontrados Produto: " + Convert.ToString(queryProduto.ToList().Count) + " | Registros Encontrados Matéria: " + Convert.ToString(queryMP.ToList().Count);
+                registrosLabel.Text = "Registros Encontrados " + Convert.ToString(queryProduto.ToList().Count);
             }
         }
-        public void ConstroiGridMateria()
+ 
+        public void ConstroiGrid()
         {
-            materiaDataGridViewe.Columns.Add(new GridTextColumn() { MappingName = "materia", HeaderText = "Matéria Prima", Visible = true, Width = 300 });
-            materiaDataGridViewe.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "Quantidade", Visible = true });
-            using (ConnectionString context = new ConnectionString())
-            {
-                var query = (from estoque in context.EstoqueMateriaPrima
-                             where estoque.MateriaPrima.isAtivo == true
-                             select new
-                             {
-                                 materia = estoque.NomeMp,
-                                 quantidade = estoque.Quantidade,
-                             }).ToList();
-
-                materiaDataGridViewe.DataSource = query;
-            }
-        }
-        public void ConstroiGripProduto()
-        {
-            produtosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Produto", HeaderText = "Produto", Visible = true, Width = 300 });
-            produtosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "Quantidade", Visible = true });
+            produtosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Produto", HeaderText = "Produto", Visible = true});
+            produtosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "Quantidade", Visible = true, Width = 300 });
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from estoque in context.EstoqueProdutoAcabado
@@ -83,9 +57,8 @@ namespace SistemaIntegradoV1._0
         private void estoques_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            ConstroiGridMateria();
-            ConstroiGripProduto();
-            carregaGrids();
+            ConstroiGrid();
+            carregaGrid();
             Cursor.Current = Cursors.Default;
         }
 

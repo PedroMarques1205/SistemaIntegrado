@@ -44,6 +44,7 @@
             // RecibosDataGridView
             // 
             this.RecibosDataGridView.AccessibleName = "Table";
+            this.RecibosDataGridView.AllowFiltering = true;
             this.RecibosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -51,6 +52,7 @@
             this.RecibosDataGridView.Location = new System.Drawing.Point(0, 63);
             this.RecibosDataGridView.Name = "RecibosDataGridView";
             this.RecibosDataGridView.Size = new System.Drawing.Size(939, 446);
+            this.RecibosDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.RecibosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.RecibosDataGridView.TabIndex = 11;
             this.RecibosDataGridView.Text = "sfDataGrid1";

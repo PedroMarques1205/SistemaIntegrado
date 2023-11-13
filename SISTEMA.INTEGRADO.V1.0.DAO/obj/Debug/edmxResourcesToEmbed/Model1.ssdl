@@ -42,7 +42,7 @@
       <PropertyRef Name="IdMateriaPrima" />
     </Key>
     <Property Name="IdMateriaPrima" Type="int" Nullable="false" />
-    <Property Name="NomeMp" Type="varchar" MaxLength="30" />
+    <Property Name="NomeMp" Type="varchar" MaxLength="200" />
     <Property Name="Quantidade" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EstoqueProdutoAcabado">
@@ -50,7 +50,7 @@
       <PropertyRef Name="IdProduto" />
     </Key>
     <Property Name="IdProduto" Type="int" Nullable="false" />
-    <Property Name="NomeProduto" Type="varchar" MaxLength="30" />
+    <Property Name="NomeProduto" Type="varchar" MaxLength="200" />
     <Property Name="Quantidade" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MateriaPrima">
@@ -59,8 +59,9 @@
     </Key>
     <Property Name="idMateriaPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CodigoMp" Type="varchar" MaxLength="15" />
-    <Property Name="Nome" Type="varchar" MaxLength="50" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" />
     <Property Name="isAtivo" Type="bit" />
+    <Property Name="CodigoTipo" Type="varchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="MateriasUsadasNoProduto">
     <Key>
@@ -68,7 +69,7 @@
       <PropertyRef Name="idProduto" />
     </Key>
     <Property Name="idMateriaPrima" Type="int" Nullable="false" />
-    <Property Name="NomeMp" Type="varchar" MaxLength="30" />
+    <Property Name="NomeMp" Type="varchar" MaxLength="200" />
     <Property Name="idProduto" Type="int" Nullable="false" />
     <Property Name="NomeProduto" Type="varchar" MaxLength="30" />
     <Property Name="Quantidade" Type="int" />
@@ -115,9 +116,23 @@
       <PropertyRef Name="IdProduto" />
     </Key>
     <Property Name="IdProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" MaxLength="30" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" />
     <Property Name="PrecoUnitario" Type="float" />
     <Property Name="isAtivo" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoAcesso">
+    <Key>
+      <PropertyRef Name="CodTipoAcesso" />
+    </Key>
+    <Property Name="CodTipoAcesso" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TipoAcesso" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TipoMateria">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="NomeTipo" Type="varchar" MaxLength="100" />
+    <Property Name="Codigo" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Transacao">
     <Key>
@@ -130,7 +145,15 @@
     <Property Name="IdTransacao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idPedidoPagar" Type="int" />
   </EntityType>
-  <Association Name="FK__Endereco__idOrca__46E78A0C">
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Senha" Type="varchar" MaxLength="30" />
+    <Property Name="CodTipoAcesso" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <Association Name="FK__Endereco__idOrca__4E88ABD4">
     <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="1" />
     <End Role="Endereco" Type="Self.Endereco" Multiplicity="*" />
     <ReferentialConstraint>
@@ -139,6 +162,30 @@
       </Principal>
       <Dependent Role="Endereco">
         <PropertyRef Name="idOrcamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MateriaPr__Codig__403A8C7D">
+    <End Role="TipoMateria" Type="Self.TipoMateria" Multiplicity="0..1" />
+    <End Role="MateriaPrima" Type="Self.MateriaPrima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMateria">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="MateriaPrima">
+        <PropertyRef Name="CodigoTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__CodTipo__398D8EEE">
+    <End Role="TipoAcesso" Type="Self.TipoAcesso" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAcesso">
+        <PropertyRef Name="CodTipoAcesso" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="CodTipoAcesso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -274,10 +321,21 @@
     <EntitySet Name="OrdemProducao" EntityType="Self.OrdemProducao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidoCompraSuprimento" EntityType="Self.PedidoCompraSuprimento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAcesso" EntityType="Self.TipoAcesso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoMateria" EntityType="Self.TipoMateria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transacao" EntityType="Self.Transacao" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Endereco__idOrca__46E78A0C" Association="Self.FK__Endereco__idOrca__46E78A0C">
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Endereco__idOrca__4E88ABD4" Association="Self.FK__Endereco__idOrca__4E88ABD4">
       <End Role="Orcamento" EntitySet="Orcamento" />
       <End Role="Endereco" EntitySet="Endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MateriaPr__Codig__403A8C7D" Association="Self.FK__MateriaPr__Codig__403A8C7D">
+      <End Role="TipoMateria" EntitySet="TipoMateria" />
+      <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__CodTipo__398D8EEE" Association="Self.FK__Usuario__CodTipo__398D8EEE">
+      <End Role="TipoAcesso" EntitySet="TipoAcesso" />
+      <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_Entrega_IdOrcamento" Association="Self.FK_Entrega_IdOrcamento">
       <End Role="Orcamento" EntitySet="Orcamento" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaIntegradoV1._0.VIEW.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace SistemaIntegradoV1._0
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cWWJCf1JpRGVGfV5yd0VHYlZQRHxaRk0DNHVRdkdgWH9fd3VXR2FeUUFwWkc=");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaPrincipal());
+            Application.Run(new LoginView());
         }
     }
 }

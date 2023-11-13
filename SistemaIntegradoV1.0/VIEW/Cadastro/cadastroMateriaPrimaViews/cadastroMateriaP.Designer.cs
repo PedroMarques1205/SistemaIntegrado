@@ -45,6 +45,7 @@
             // MpDataGridView
             // 
             this.MpDataGridView.AccessibleName = "Table";
+            this.MpDataGridView.AllowFiltering = true;
             this.MpDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -53,9 +54,12 @@
             this.MpDataGridView.Name = "MpDataGridView";
             this.MpDataGridView.Size = new System.Drawing.Size(929, 439);
             this.MpDataGridView.Style.CellStyle.Font.Size = 10F;
+            this.MpDataGridView.Style.HeaderStyle.Font.Bold = true;
             this.MpDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.MpDataGridView.TabIndex = 13;
             this.MpDataGridView.Text = "sfDataGrid1";
+            this.MpDataGridView.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.MpDataGridView_CellDoubleClick);
+            this.MpDataGridView.DoubleClick += new System.EventHandler(this.MpDataGridView_DoubleClick);
             // 
             // statusStrip1
             // 

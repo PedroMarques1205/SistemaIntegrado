@@ -1,4 +1,5 @@
 ﻿using SISTEMA.INTEGRADO.V1._0.DAO;
+using SistemaIntegradoV1._0.VIEW.Cadastro.cadastroMateriaPrimaViews;
 using SistemaIntegradoV1._0.VIEW.cadastrosClienteViews;
 using Syncfusion.WinForms.DataGrid;
 using System;
@@ -200,6 +201,37 @@ namespace SistemaIntegradoV1._0
         private void comboBoxFiltros_SelectedIndexChanged(object sender, EventArgs e)
         {
             carregaGrid();
+        }
+
+        private void MpDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            var linhaSelecionada = MpDataGridView.SelectedItem;
+
+            string codigo = Convert.ToString(linhaSelecionada.GetType().GetProperty("codigo").GetValue(linhaSelecionada, null));
+
+            using (ConnectionString context = new ConnectionString()) 
+            {
+                MateriaPrima mp = context.MateriaPrima.FirstOrDefault(x => x.CodigoMp.Equals(codigo));
+
+                InformacoesMateriaP tela = new InformacoesMateriaP(mp);
+                tela.ShowDialog();
+            }
+        }
+
+        private void MpDataGridView_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            var linhaSelecionada = MpDataGridView.SelectedItem;
+
+            string codigo = Convert.ToString(linhaSelecionada.GetType().GetProperty("codigo").GetValue(linhaSelecionada, null));
+
+            using (ConnectionString context = new ConnectionString())
+            {
+                MateriaPrima mp = context.MateriaPrima.FirstOrDefault(x => x.CodigoMp.Equals(codigo));
+
+                InformacoesMateriaP tela = new InformacoesMateriaP(mp);
+                tela.ShowDialog();
+            }
+
         }
     }
 }
