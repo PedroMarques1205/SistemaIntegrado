@@ -5,21 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6ec5256a81684211b4ff8b5b8430200f" Name="Diagram1" ZoomLevel="24">
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Cadastro" Width="1.5" PointX="8.75" PointY="2.375" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" Width="1.5" PointX="0.75" PointY="12.625" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" Width="1.5" PointX="5.25" PointY="16.5" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" Width="1.5" PointX="5.25" PointY="17.125" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueMateriaPrima" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.EstoqueProdutoAcabado" Width="1.5" PointX="3" PointY="7.75" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Width="1.5" PointX="3.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" Width="1.5" PointX="6" PointY="13.25" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" Width="1.5" PointX="3" PointY="11.375" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" Width="1.5" PointX="6" PointY="20.25" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" Width="1.5" PointX="3" PointY="16.75" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Pedido" Width="1.5" PointX="11" PointY="2.625" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" Width="1.5" PointX="6" PointY="3.5" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Produto" Width="1.5" PointX="0.75" PointY="8.875" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" Width="1.5" PointX="7.75" PointY="8.5" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" Width="1.5" PointX="7.75" PointY="8.375" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoMateria" Width="1.5" PointX="1.5" PointY="4.25" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" Width="1.5" PointX="8.25" PointY="11.875" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Usuario" Width="1.5" PointX="10" PointY="8.375" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Usuario" Width="1.5" PointX="10" PointY="8.25" />
+        <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811" />
         <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" />
         <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4E88ABD4" />
         <AssociationConnector Association="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" />

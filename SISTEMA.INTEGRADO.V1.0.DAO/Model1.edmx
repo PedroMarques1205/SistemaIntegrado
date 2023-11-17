@@ -5,6 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB_SISTEMA_INTEGRADOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cadastro">
+          <Key>
+            <PropertyRef Name="IDCadastro" />
+          </Key>
+          <Property Name="IDCadastro" Type="int" Nullable="false" />
+          <Property Name="TipoCadastro" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Razao" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Fantasia" Type="varchar" MaxLength="40" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Rua" Type="varchar" MaxLength="200" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="Complemento" Type="varchar" MaxLength="20" />
+          <Property Name="Bairro" Type="varchar" MaxLength="40" />
+          <Property Name="Cidade" Type="varchar" MaxLength="40" />
+          <Property Name="UF" Type="varchar" MaxLength="2" />
+          <Property Name="CEP" Type="varchar" MaxLength="10" />
+          <Property Name="Telefone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="256" />
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="CpfCliente" />
@@ -91,6 +110,7 @@
           <Property Name="statusCliente" Type="varchar" MaxLength="20" />
           <Property Name="statusEntrega" Type="varchar" MaxLength="20" />
           <Property Name="formaPagamento" Type="varchar" MaxLength="30" />
+          <Property Name="PodeSerEntregue" Type="bit" />
         </EntityType>
         <EntityType Name="OrdemProducao">
           <Key>
@@ -100,6 +120,23 @@
           <Property Name="IdProduto" Type="int" Nullable="false" />
           <Property Name="QtdAproduzir" Type="int" />
           <Property Name="FaseAtual" Type="varchar" MaxLength="50" />
+          <Property Name="IdOrcamento" Type="int" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IDPedido" />
+          </Key>
+          <Property Name="IDPedido" Type="int" Nullable="false" />
+          <Property Name="IDCadastro" Type="int" Nullable="false" />
+          <Property Name="IDProduto" Type="int" Nullable="false" />
+          <Property Name="IDProducao" Type="int" />
+          <Property Name="IDCompra" Type="int" />
+          <Property Name="IDFinanceiro" Type="int" Nullable="false" />
+          <Property Name="IDEntrega" Type="int" Nullable="false" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="money" />
+          <Property Name="Status" Type="varchar" MaxLength="40" />
+          <Property Name="DataPedido" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="PedidoCompraSuprimento">
           <Key>
@@ -179,6 +216,18 @@
             </Principal>
             <Dependent Role="MateriaPrima">
               <PropertyRef Name="CodigoTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pedido__IDCadast__71D1E811">
+          <End Role="Cadastro" Type="Self.Cadastro" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadastro">
+              <PropertyRef Name="IDCadastro" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="IDCadastro" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -315,6 +364,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DB_SISTEMA_INTEGRADOModelStoreContainer">
+          <EntitySet Name="Cadastro" EntityType="Self.Cadastro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entrega" EntityType="Self.Entrega" Schema="dbo" store:Type="Tables" />
@@ -324,6 +374,7 @@
           <EntitySet Name="MateriasUsadasNoProduto" EntityType="Self.MateriasUsadasNoProduto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orcamento" EntityType="Self.Orcamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdemProducao" EntityType="Self.OrdemProducao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PedidoCompraSuprimento" EntityType="Self.PedidoCompraSuprimento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoAcesso" EntityType="Self.TipoAcesso" Schema="dbo" store:Type="Tables" />
@@ -337,6 +388,10 @@
           <AssociationSet Name="FK__MateriaPr__Codig__403A8C7D" Association="Self.FK__MateriaPr__Codig__403A8C7D">
             <End Role="TipoMateria" EntitySet="TipoMateria" />
             <End Role="MateriaPrima" EntitySet="MateriaPrima" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pedido__IDCadast__71D1E811" Association="Self.FK__Pedido__IDCadast__71D1E811">
+            <End Role="Cadastro" EntitySet="Cadastro" />
+            <End Role="Pedido" EntitySet="Pedido" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuario__CodTipo__398D8EEE" Association="Self.FK__Usuario__CodTipo__398D8EEE">
             <End Role="TipoAcesso" EntitySet="TipoAcesso" />
@@ -388,6 +443,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DB_SISTEMA_INTEGRADOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cadastro" EntityType="DB_SISTEMA_INTEGRADOModel.Cadastro" />
           <EntitySet Name="Cliente" EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" />
           <EntitySet Name="Endereco" EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" />
           <EntitySet Name="Entrega" EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" />
@@ -397,12 +453,17 @@
           <EntitySet Name="MateriasUsadasNoProduto" EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" />
           <EntitySet Name="Orcamento" EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" />
           <EntitySet Name="OrdemProducao" EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" />
+          <EntitySet Name="Pedido" EntityType="DB_SISTEMA_INTEGRADOModel.Pedido" />
           <EntitySet Name="PedidoCompraSuprimento" EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" />
           <EntitySet Name="Produto" EntityType="DB_SISTEMA_INTEGRADOModel.Produto" />
           <EntitySet Name="TipoAcesso" EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" />
           <EntitySet Name="TipoMateria" EntityType="DB_SISTEMA_INTEGRADOModel.TipoMateria" />
           <EntitySet Name="Transacao" EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" />
           <EntitySet Name="Usuario" EntityType="DB_SISTEMA_INTEGRADOModel.Usuario" />
+          <AssociationSet Name="FK__Pedido__IDCadast__71D1E811" Association="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811">
+            <End Role="Cadastro" EntitySet="Cadastro" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orcamento_CpfCliente" Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Orcamento" EntitySet="Orcamento" />
@@ -456,6 +517,26 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Cadastro">
+          <Key>
+            <PropertyRef Name="IDCadastro" />
+          </Key>
+          <Property Name="IDCadastro" Type="Int32" Nullable="false" />
+          <Property Name="TipoCadastro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Razao" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Fantasia" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Rua" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cidade" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pedido" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811" FromRole="Cadastro" ToRole="Pedido" />
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="CpfCliente" />
@@ -552,6 +633,7 @@
           <Property Name="statusCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="statusEntrega" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="formaPagamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PodeSerEntregue" Type="Boolean" />
           <NavigationProperty Name="Cliente" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Orcamento" ToRole="Cliente" />
           <NavigationProperty Name="Endereco" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4E88ABD4" FromRole="Orcamento" ToRole="Endereco" />
           <NavigationProperty Name="Entrega" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" FromRole="Orcamento" ToRole="Entrega" />
@@ -566,7 +648,25 @@
           <Property Name="IdProduto" Type="Int32" Nullable="false" />
           <Property Name="QtdAproduzir" Type="Int32" />
           <Property Name="FaseAtual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdOrcamento" Type="Int32" />
           <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="OrdemProducao" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IDPedido" />
+          </Key>
+          <Property Name="IDPedido" Type="Int32" Nullable="false" />
+          <Property Name="IDCadastro" Type="Int32" Nullable="false" />
+          <Property Name="IDProduto" Type="Int32" Nullable="false" />
+          <Property Name="IDProducao" Type="Int32" />
+          <Property Name="IDCompra" Type="Int32" />
+          <Property Name="IDFinanceiro" Type="Int32" Nullable="false" />
+          <Property Name="IDEntrega" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="PrecoUnitario" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataPedido" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Cadastro" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811" FromRole="Pedido" ToRole="Cadastro" />
         </EntityType>
         <EntityType Name="PedidoCompraSuprimento">
           <Key>
@@ -635,6 +735,18 @@
           <Property Name="CodTipoAcesso" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TipoAcesso" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Usuario__CodTipo__398D8EEE" FromRole="Usuario" ToRole="TipoAcesso" />
         </EntityType>
+        <Association Name="FK__Pedido__IDCadast__71D1E811">
+          <End Type="DB_SISTEMA_INTEGRADOModel.Cadastro" Role="Cadastro" Multiplicity="1" />
+          <End Type="DB_SISTEMA_INTEGRADOModel.Pedido" Role="Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadastro">
+              <PropertyRef Name="IDCadastro" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="IDCadastro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orcamento_CpfCliente">
           <End Type="DB_SISTEMA_INTEGRADOModel.Cliente" Role="Cliente" Multiplicity="1" />
           <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="*" />
@@ -797,6 +909,26 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_SISTEMA_INTEGRADOModelStoreContainer" CdmEntityContainer="ConnectionString">
+          <EntitySetMapping Name="Cadastro">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cadastro">
+              <MappingFragment StoreEntitySet="Cadastro">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Rua" ColumnName="Rua" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="Fantasia" ColumnName="Fantasia" />
+                <ScalarProperty Name="Razao" ColumnName="Razao" />
+                <ScalarProperty Name="TipoCadastro" ColumnName="TipoCadastro" />
+                <ScalarProperty Name="IDCadastro" ColumnName="IDCadastro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
@@ -880,6 +1012,7 @@
           <EntitySetMapping Name="Orcamento">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Orcamento">
               <MappingFragment StoreEntitySet="Orcamento">
+                <ScalarProperty Name="PodeSerEntregue" ColumnName="PodeSerEntregue" />
                 <ScalarProperty Name="formaPagamento" ColumnName="formaPagamento" />
                 <ScalarProperty Name="statusEntrega" ColumnName="statusEntrega" />
                 <ScalarProperty Name="statusCliente" ColumnName="statusCliente" />
@@ -894,10 +1027,28 @@
           <EntitySetMapping Name="OrdemProducao">
             <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.OrdemProducao">
               <MappingFragment StoreEntitySet="OrdemProducao">
+                <ScalarProperty Name="IdOrcamento" ColumnName="IdOrcamento" />
                 <ScalarProperty Name="FaseAtual" ColumnName="FaseAtual" />
                 <ScalarProperty Name="QtdAproduzir" ColumnName="QtdAproduzir" />
                 <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
                 <ScalarProperty Name="IdOrdem" ColumnName="IdOrdem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedido">
+            <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="DataPedido" ColumnName="DataPedido" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="IDEntrega" ColumnName="IDEntrega" />
+                <ScalarProperty Name="IDFinanceiro" ColumnName="IDFinanceiro" />
+                <ScalarProperty Name="IDCompra" ColumnName="IDCompra" />
+                <ScalarProperty Name="IDProducao" ColumnName="IDProducao" />
+                <ScalarProperty Name="IDProduto" ColumnName="IDProduto" />
+                <ScalarProperty Name="IDCadastro" ColumnName="IDCadastro" />
+                <ScalarProperty Name="IDPedido" ColumnName="IDPedido" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

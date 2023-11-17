@@ -18,6 +18,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public int IdProduto { get; set; }
         public Nullable<int> QtdAproduzir { get; set; }
         public string FaseAtual { get; set; }
+        public Nullable<int> IdOrcamento { get; set; }
     
         public virtual Produto Produto { get; set; }
     }

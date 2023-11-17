@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_SISTEMA_INTEGRADOModelStoreContainer" CdmEntityContainer="ConnectionString">
+    <EntitySetMapping Name="Cadastro">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cadastro">
+        <MappingFragment StoreEntitySet="Cadastro">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+          <ScalarProperty Name="Fantasia" ColumnName="Fantasia" />
+          <ScalarProperty Name="Razao" ColumnName="Razao" />
+          <ScalarProperty Name="TipoCadastro" ColumnName="TipoCadastro" />
+          <ScalarProperty Name="IDCadastro" ColumnName="IDCadastro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
@@ -84,6 +104,7 @@
     <EntitySetMapping Name="Orcamento">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Orcamento">
         <MappingFragment StoreEntitySet="Orcamento">
+          <ScalarProperty Name="PodeSerEntregue" ColumnName="PodeSerEntregue" />
           <ScalarProperty Name="formaPagamento" ColumnName="formaPagamento" />
           <ScalarProperty Name="statusEntrega" ColumnName="statusEntrega" />
           <ScalarProperty Name="statusCliente" ColumnName="statusCliente" />
@@ -98,10 +119,28 @@
     <EntitySetMapping Name="OrdemProducao">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.OrdemProducao">
         <MappingFragment StoreEntitySet="OrdemProducao">
+          <ScalarProperty Name="IdOrcamento" ColumnName="IdOrcamento" />
           <ScalarProperty Name="FaseAtual" ColumnName="FaseAtual" />
           <ScalarProperty Name="QtdAproduzir" ColumnName="QtdAproduzir" />
           <ScalarProperty Name="IdProduto" ColumnName="IdProduto" />
           <ScalarProperty Name="IdOrdem" ColumnName="IdOrdem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="DataPedido" ColumnName="DataPedido" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="IDEntrega" ColumnName="IDEntrega" />
+          <ScalarProperty Name="IDFinanceiro" ColumnName="IDFinanceiro" />
+          <ScalarProperty Name="IDCompra" ColumnName="IDCompra" />
+          <ScalarProperty Name="IDProducao" ColumnName="IDProducao" />
+          <ScalarProperty Name="IDProduto" ColumnName="IDProduto" />
+          <ScalarProperty Name="IDCadastro" ColumnName="IDCadastro" />
+          <ScalarProperty Name="IDPedido" ColumnName="IDPedido" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

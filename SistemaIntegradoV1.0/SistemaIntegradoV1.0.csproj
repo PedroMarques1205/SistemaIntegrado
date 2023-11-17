@@ -37,17 +37,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.102.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.102.1\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.0.0\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.0.0\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.Core.WinForms, Version=23.1460.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Core.WinForms.23.1.41\lib\net46\Syncfusion.Core.WinForms.dll</HintPath>
@@ -95,309 +117,369 @@
       <HintPath>..\packages\Syncfusion.Tools.Windows.23.1.41\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MODEL\Criptografia.cs" />
     <Compile Include="MODEL\materiasQuantidade.cs" />
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\InformacoesMateriaP.cs">
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmDetalhes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\InformacoesMateriaP.Designer.cs">
-      <DependentUpon>InformacoesMateriaP.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmDetalhes.Designer.cs">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.cs">
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmEditar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.Designer.cs">
-      <DependentUpon>clientesDesativados.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmEditar.Designer.cs">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.cs">
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmDetalhes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.Designer.cs">
-      <DependentUpon>editarCliente.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmDetalhes.Designer.cs">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\informacoesClientes.cs">
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmEditar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\informacoesClientes.Designer.cs">
-      <DependentUpon>informacoesClientes.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmEditar.Designer.cs">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.cs">
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmDetalhes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.Designer.cs">
-      <DependentUpon>editarProduto.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmDetalhes.Designer.cs">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\informacoesProdutosView.cs">
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\informacoesProdutosView.Designer.cs">
-      <DependentUpon>informacoesProdutosView.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastrarUsuario.cs">
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmListagemUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastrarUsuario.Designer.cs">
-      <DependentUpon>cadastrarUsuario.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmListagemUsuarios.Designer.cs">
+      <DependentUpon>FrmListagemUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastroUsuario.cs">
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmDetalhes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastroUsuario.Designer.cs">
-      <DependentUpon>cadastroUsuario.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmDetalhes.Designer.cs">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\informacoesUsuario.cs">
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmMudarSenha.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\informacoesUsuario.Designer.cs">
-      <DependentUpon>informacoesUsuario.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmMudarSenha.Designer.cs">
+      <DependentUpon>FrmMudarSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\mudarSenhaView.cs">
+    <Compile Include="VIEW\ESTOQUE\FrmEstoqueMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosUsuariosViews\mudarSenhaView.Designer.cs">
-      <DependentUpon>mudarSenhaView.cs</DependentUpon>
+    <Compile Include="VIEW\ESTOQUE\FrmEstoqueMaterias.Designer.cs">
+      <DependentUpon>FrmEstoqueMaterias.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\estoquesViews\estoqueMaterias.cs">
+    <Compile Include="VIEW\ESTOQUE\FrmEstoquesProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\estoquesViews\estoqueMaterias.Designer.cs">
-      <DependentUpon>estoqueMaterias.cs</DependentUpon>
+    <Compile Include="VIEW\ESTOQUE\FrmEstoquesProduto.Designer.cs">
+      <DependentUpon>FrmEstoquesProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\estoquesViews\estoquesProduto.cs">
+    <Compile Include="VIEW\LOGIN\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\estoquesViews\estoquesProduto.Designer.cs">
-      <DependentUpon>estoquesProduto.cs</DependentUpon>
+    <Compile Include="VIEW\LOGIN\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Login\LoginView.cs">
+    <Compile Include="VIEW\PROCESSOS\TRANSACOES\FrmFaturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Login\LoginView.Designer.cs">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\TRANSACOES\FrmFaturas.Designer.cs">
+      <DependentUpon>FrmFaturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\Transacoes\Faturas.cs">
+    <Compile Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmRealizaPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\Transacoes\Faturas.Designer.cs">
-      <DependentUpon>Faturas.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmRealizaPedido.Designer.cs">
+      <DependentUpon>FrmRealizaPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\suprimentosViews\cadastrarPedido.cs">
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmMateria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\suprimentosViews\cadastrarPedido.Designer.cs">
-      <DependentUpon>cadastrarPedido.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmMateria.Designer.cs">
+      <DependentUpon>FrmMateria.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.cs">
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmListagemMateria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.Designer.cs">
-      <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmListagemMateria.Designer.cs">
+      <DependentUpon>FrmListagemMateria.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.cs">
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.Designer.cs">
-      <DependentUpon>cadastroMateriaP.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmProduto.Designer.cs">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.cs">
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmListagemProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.Designer.cs">
-      <DependentUpon>cadastrarProduto.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmListagemProduto.Designer.cs">
+      <DependentUpon>FrmListagemProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.cs">
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmListagemCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.Designer.cs">
-      <DependentUpon>cadastroProduto.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmListagemCliente.Designer.cs">
+      <DependentUpon>FrmListagemCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.cs">
+    <Compile Include="VIEW\ENTREGA\FrmDespachadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.Designer.cs">
-      <DependentUpon>cadastroCliente.cs</DependentUpon>
+    <Compile Include="VIEW\ENTREGA\FrmDespachadas.Designer.cs">
+      <DependentUpon>FrmDespachadas.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entregasDespachadas.cs">
+    <Compile Include="VIEW\ENTREGA\FrmEntrega.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entregasDespachadas.Designer.cs">
-      <DependentUpon>entregasDespachadas.cs</DependentUpon>
+    <Compile Include="VIEW\ENTREGA\FrmEntrega.Designer.cs">
+      <DependentUpon>FrmEntrega.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entrega.cs">
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\entrega.Designer.cs">
-      <DependentUpon>entrega.cs</DependentUpon>
+    <Compile Include="VIEW\CADASTROS\CLIENTE\FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.cs">
+    <Compile Include="VIEW\ENTREGA\FrmEviarEntrega.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.Designer.cs">
-      <DependentUpon>cadastrarCliente.cs</DependentUpon>
+    <Compile Include="VIEW\ENTREGA\FrmEviarEntrega.Designer.cs">
+      <DependentUpon>FrmEviarEntrega.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\eviarEntrega.cs">
+    <Compile Include="VIEW\PROCESSOS\PRODUCAO\FrmPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\EntregaViews\eviarEntrega.Designer.cs">
-      <DependentUpon>eviarEntrega.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\PRODUCAO\FrmPedido.Designer.cs">
+      <DependentUpon>FrmPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.cs">
+    <Compile Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmSuprimentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.Designer.cs">
-      <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmSuprimentos.Designer.cs">
+      <DependentUpon>FrmSuprimentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\suprimentosViews\suprimentos.cs">
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmOrdemProducao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\suprimentosViews\suprimentos.Designer.cs">
-      <DependentUpon>suprimentos.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmOrdemProducao.Designer.cs">
+      <DependentUpon>FrmOrdemProducao.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\enviarProducao.cs">
+    <Compile Include="VIEW\PROCESSOS\PRODUCAO\FrmProducao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\enviarProducao.Designer.cs">
-      <DependentUpon>enviarProducao.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\PRODUCAO\FrmProducao.Designer.cs">
+      <DependentUpon>FrmProducao.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\ProducaoViewes\producao.cs">
+    <Compile Include="VIEW\PROCESSOS\TRANSACOES\FrmRecibos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\ProducaoViewes\producao.Designer.cs">
-      <DependentUpon>producao.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\TRANSACOES\FrmRecibos.Designer.cs">
+      <DependentUpon>FrmRecibos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\Transacoes\Recibos.cs">
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmDetalhesOrcamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\Transacoes\Recibos.Designer.cs">
-      <DependentUpon>Recibos.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmDetalhesOrcamento.Designer.cs">
+      <DependentUpon>FrmDetalhesOrcamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\pedidoVendas.cs">
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmListagemOrcamentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\pedidoVendas.Designer.cs">
-      <DependentUpon>pedidoVendas.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmListagemOrcamentos.Designer.cs">
+      <DependentUpon>FrmListagemOrcamentos.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\realizarPedido.cs">
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmOrcamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\Processos\VendasViews\realizarPedido.Designer.cs">
-      <DependentUpon>realizarPedido.cs</DependentUpon>
+    <Compile Include="VIEW\PROCESSOS\VENDAS\FrmOrcamento.Designer.cs">
+      <DependentUpon>FrmOrcamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\telaPrincipal\TelaPrincipal.cs">
+    <Compile Include="VIEW\TELA_PRINCIPAL\TelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIEW\telaPrincipal\TelaPrincipal.Designer.cs">
+    <Compile Include="VIEW\TELA_PRINCIPAL\TelaPrincipal.Designer.cs">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="VIEW\Cadastro\cadastroMateriaPrimaViews\InformacoesMateriaP.resx">
-      <DependentUpon>InformacoesMateriaP.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmDetalhes.resx">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\clientesDesativados.resx">
-      <DependentUpon>clientesDesativados.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\CLIENTE\FrmEditar.resx">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\editarCliente.resx">
-      <DependentUpon>editarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\CLIENTE\FrmDetalhes.resx">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\informacoesClientes.resx">
-      <DependentUpon>informacoesClientes.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\PRODUTOS\FrmEditar.resx">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\editarProduto.resx">
-      <DependentUpon>editarProduto.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\PRODUTOS\FrmDetalhes.resx">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\informacoesProdutosView.resx">
-      <DependentUpon>informacoesProdutosView.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastrarUsuario.resx">
-      <DependentUpon>cadastrarUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmListagemUsuarios.resx">
+      <DependentUpon>FrmListagemUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosUsuariosViews\cadastroUsuario.resx">
-      <DependentUpon>cadastroUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmDetalhes.resx">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosUsuariosViews\informacoesUsuario.resx">
-      <DependentUpon>informacoesUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmMudarSenha.resx">
+      <DependentUpon>FrmMudarSenha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosUsuariosViews\mudarSenhaView.resx">
-      <DependentUpon>mudarSenhaView.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\ESTOQUE\FrmEstoqueMaterias.resx">
+      <DependentUpon>FrmEstoqueMaterias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\estoquesViews\estoqueMaterias.resx">
-      <DependentUpon>estoqueMaterias.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\ESTOQUE\FrmEstoquesProduto.resx">
+      <DependentUpon>FrmEstoquesProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\estoquesViews\estoquesProduto.resx">
-      <DependentUpon>estoquesProduto.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\LOGIN\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Login\LoginView.resx">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmRealizaPedido.resx">
+      <DependentUpon>FrmRealizaPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\suprimentosViews\cadastrarPedido.resx">
-      <DependentUpon>cadastrarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmMateria.resx">
+      <DependentUpon>FrmMateria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastrarMateriaP.resx">
-      <DependentUpon>cadastrarMateriaP.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmListagemMateria.resx">
+      <DependentUpon>FrmListagemMateria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastroMateriaPrimaViews\cadastroMateriaP.resx">
-      <DependentUpon>cadastroMateriaP.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\PRODUTOS\FrmProduto.resx">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\cadastrarProduto.resx">
-      <DependentUpon>cadastrarProduto.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\PRODUTOS\FrmListagemProduto.resx">
+      <DependentUpon>FrmListagemProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosProdutoViews\cadastroProduto.resx">
-      <DependentUpon>cadastroProduto.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\CLIENTE\FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\cadastrarCliente.resx">
-      <DependentUpon>cadastrarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\CADASTROS\CLIENTE\FrmListagemCliente.resx">
+      <DependentUpon>FrmListagemCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Cadastro\cadastrosClienteViews\cadastroCliente.resx">
-      <DependentUpon>cadastroCliente.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\ENTREGA\FrmDespachadas.resx">
+      <DependentUpon>FrmDespachadas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\EntregaViews\entregasDespachadas.resx">
-      <DependentUpon>entregasDespachadas.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\ENTREGA\FrmEntrega.resx">
+      <DependentUpon>FrmEntrega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\EntregaViews\entrega.resx">
-      <DependentUpon>entrega.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\ENTREGA\FrmEviarEntrega.resx">
+      <DependentUpon>FrmEviarEntrega.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\EntregaViews\eviarEntrega.resx">
-      <DependentUpon>eviarEntrega.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\PRODUCAO\FrmPedido.resx">
+      <DependentUpon>FrmPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\ProducaoViewes\realizarPedidoCompra.resx">
-      <DependentUpon>realizarPedidoCompra.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\SUPRIMENTOS\FrmSuprimentos.resx">
+      <DependentUpon>FrmSuprimentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\suprimentosViews\suprimentos.resx">
-      <DependentUpon>suprimentos.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\TRANSACOES\FrmFaturas.resx">
+      <DependentUpon>FrmFaturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\Transacoes\Faturas.resx">
-      <DependentUpon>Faturas.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\VENDAS\FrmOrdemProducao.resx">
+      <DependentUpon>FrmOrdemProducao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\VendasViews\enviarProducao.resx">
-      <DependentUpon>enviarProducao.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\PRODUCAO\FrmProducao.resx">
+      <DependentUpon>FrmProducao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\ProducaoViewes\producao.resx">
-      <DependentUpon>producao.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\TRANSACOES\FrmRecibos.resx">
+      <DependentUpon>FrmRecibos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\Transacoes\Recibos.resx">
-      <DependentUpon>Recibos.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\VENDAS\FrmDetalhesOrcamento.resx">
+      <DependentUpon>FrmDetalhesOrcamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\VendasViews\pedidoVendas.resx">
-      <DependentUpon>pedidoVendas.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\VENDAS\FrmListagemOrcamentos.resx">
+      <DependentUpon>FrmListagemOrcamentos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\Processos\VendasViews\realizarPedido.resx">
-      <DependentUpon>realizarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="VIEW\PROCESSOS\VENDAS\FrmOrcamento.resx">
+      <DependentUpon>FrmOrcamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VIEW\telaPrincipal\TelaPrincipal.resx">
+    <EmbeddedResource Include="VIEW\TELA_PRINCIPAL\TelaPrincipal.resx">
       <DependentUpon>TelaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -15,10 +15,10 @@ namespace SistemaIntegradoV1._0
         [STAThread]
         static void Main()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cWWJCf1JpRGVGfV5yd0VHYlZQRHxaRk0DNHVRdkdgWH9fd3VXR2FeUUFwWkc=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1FpRGRGfV5yd0VAal1WTnNXUiweQnxTdEZiWH5ZcHJUQWVUWEJ1Vw==");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginView());
+            Application.Run(new FrmLogin());
         }
     }
 }

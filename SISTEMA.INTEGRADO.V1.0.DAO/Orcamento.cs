@@ -30,6 +30,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public string statusCliente { get; set; }
         public string statusEntrega { get; set; }
         public string formaPagamento { get; set; }
+        public Nullable<bool> PodeSerEntregue { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

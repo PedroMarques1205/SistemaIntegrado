@@ -25,6 +25,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Cadastro> Cadastro { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Endereco> Endereco { get; set; }
         public virtual DbSet<Entrega> Entrega { get; set; }
@@ -34,6 +35,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public virtual DbSet<MateriasUsadasNoProduto> MateriasUsadasNoProduto { get; set; }
         public virtual DbSet<Orcamento> Orcamento { get; set; }
         public virtual DbSet<OrdemProducao> OrdemProducao { get; set; }
+        public virtual DbSet<Pedido> Pedido { get; set; }
         public virtual DbSet<PedidoCompraSuprimento> PedidoCompraSuprimento { get; set; }
         public virtual DbSet<Produto> Produto { get; set; }
         public virtual DbSet<TipoAcesso> TipoAcesso { get; set; }
