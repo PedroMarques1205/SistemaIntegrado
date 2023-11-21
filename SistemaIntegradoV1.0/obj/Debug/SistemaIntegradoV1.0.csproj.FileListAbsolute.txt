@@ -174,7 +174,6 @@ C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaI
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1.0.csproj.SuggestedBindingRedirects.cache
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.FrmListagemUsuarios.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews.FrmMudarSenha.resources
-C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.TelaPrincipal.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.Properties.Resources.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1.0.csproj.GenerateResource.cache
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1.0.csproj.CoreCompileInputs.cache
@@ -184,7 +183,6 @@ C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaI
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastroMateriaPrimaViews.FrmDetalhes.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosClienteViews.FrmEditar.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosClienteViews.FrmDetalhes.resources
-C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.cadastrosProdutoViews.FrmEditar.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosProdutoViews.FrmDetalhes.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews.FrmUsuario.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews.FrmDetalhes.resources
@@ -210,3 +208,5 @@ C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaI
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.Processos.VendasViews.FrmDetalhesOrcamento.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.FrmListagemOrcamentos.resources
 C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.FrmOrcamento.resources
+C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.FrmTelaPrincipal.resources
+C:\Projetos\Estudos\SistemaIntegradoV1.0\SistemaIntegradoV1.0\obj\Debug\SistemaIntegradoV1._0.VIEW.CADASTROS.MATERIA_PRIMA.FrmEditarMp.resources

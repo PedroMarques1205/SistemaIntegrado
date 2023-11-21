@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaIntegradoV1._0.VIEW.CADASTROS.MATERIA_PRIMA;
 
 namespace SistemaIntegradoV1._0
 {
@@ -263,6 +264,35 @@ namespace SistemaIntegradoV1._0
                     MessageBoxButtons button = MessageBoxButtons.OK;
                     DialogResult resul = MessageBox.Show("Erro ao gerar o arquivo", "Erro", button, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (MpDataGridView.SelectedItems.Count > 0)
+            {
+                var linhaSelecionada = MpDataGridView.SelectedItem;
+
+                var mp = new MateriaPrima();
+
+                string codigo = Convert.ToString(linhaSelecionada.GetType().GetProperty("codigo").GetValue(linhaSelecionada, null));
+
+                using (ConnectionString context = new ConnectionString())
+                {
+                    MateriaPrima MateriaParaEditar = context.MateriaPrima.FirstOrDefault(v => v.CodigoMp.Equals(codigo));
+                    if (MateriaParaEditar != null)
+                    {
+                        mp = MateriaParaEditar;
+                    }
+                }
+                FrmEditarMp tela = new FrmEditarMp(mp);
+                tela.ShowDialog();
+                carregaGrid();
+            }
+            else
+            {
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                DialogResult resul = MessageBox.Show("Nenhuma linha selecionada", "Erro", button, MessageBoxIcon.Error);
             }
         }
     }

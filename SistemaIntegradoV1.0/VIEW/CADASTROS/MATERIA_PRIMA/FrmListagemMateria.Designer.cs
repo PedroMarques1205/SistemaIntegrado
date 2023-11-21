@@ -35,8 +35,9 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnCadastrarMateria = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
-            this.tsbDesativarMp = new System.Windows.Forms.ToolStripButton();
             this.tbsExportExcel = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsbDesativarMp = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.MpDataGridView)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -87,8 +88,9 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnCadastrarMateria,
             this.tdbRefresh,
-            this.tsbDesativarMp,
-            this.tbsExportExcel});
+            this.tbsExportExcel,
+            this.toolStripButton1,
+            this.tsbDesativarMp});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -123,19 +125,6 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
-            // tsbDesativarMp
-            // 
-            this.tsbDesativarMp.ForeColor = System.Drawing.Color.White;
-            this.tsbDesativarMp.Image = ((System.Drawing.Image)(resources.GetObject("tsbDesativarMp.Image")));
-            this.tsbDesativarMp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbDesativarMp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDesativarMp.Name = "tsbDesativarMp";
-            this.tsbDesativarMp.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.tsbDesativarMp.Size = new System.Drawing.Size(156, 66);
-            this.tsbDesativarMp.Text = "Desativar Matéria Prima";
-            this.tsbDesativarMp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbDesativarMp.Click += new System.EventHandler(this.tsbDesativarMp_Click);
-            // 
             // tbsExportExcel
             // 
             this.tbsExportExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -150,6 +139,32 @@
             this.tbsExportExcel.Text = "Exportar P/ Excel";
             this.tbsExportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsExportExcel.Click += new System.EventHandler(this.tbsExportExcel_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.toolStripButton1.Size = new System.Drawing.Size(138, 66);
+            this.toolStripButton1.Text = "Editar Matéria Prima";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // tsbDesativarMp
+            // 
+            this.tsbDesativarMp.ForeColor = System.Drawing.Color.White;
+            this.tsbDesativarMp.Image = ((System.Drawing.Image)(resources.GetObject("tsbDesativarMp.Image")));
+            this.tsbDesativarMp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbDesativarMp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDesativarMp.Name = "tsbDesativarMp";
+            this.tsbDesativarMp.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tsbDesativarMp.Size = new System.Drawing.Size(156, 66);
+            this.tsbDesativarMp.Text = "Desativar Matéria Prima";
+            this.tsbDesativarMp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbDesativarMp.Click += new System.EventHandler(this.tsbDesativarMp_Click);
             // 
             // FrmListagemMateria
             // 
@@ -183,5 +198,6 @@
         private System.Windows.Forms.ToolStripButton tdbRefresh;
         private System.Windows.Forms.ToolStripButton tsbDesativarMp;
         private System.Windows.Forms.ToolStripButton tbsExportExcel;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

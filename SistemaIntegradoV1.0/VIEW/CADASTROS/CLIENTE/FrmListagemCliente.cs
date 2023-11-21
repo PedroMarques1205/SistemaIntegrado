@@ -91,11 +91,6 @@ namespace SistemaIntegradoV1._0
             Cursor.Current = Cursors.Default;
         }
 
-        private void ClientesDataGridView_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             FrmCliente tela = new FrmCliente();

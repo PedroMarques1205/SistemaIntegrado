@@ -63,7 +63,7 @@ namespace SistemaIntegradoV1._0
         {
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idProduto", HeaderText = "ID Produto", Visible = true, Width = 0 });
             ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "Nome", HeaderText = "Produto", Visible = true });
-            ProdutosDataGridView.Columns.Add(new GridNumericColumn() { MappingName = "preco", HeaderText = "Preço", Visible = true, Width = 200 });
+            ProdutosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "preco", HeaderText = "Preço", Visible = true, Width = 200 });
             ProdutosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "isAtivo", HeaderText = "Ativo", Visible = true, Width = 200 });
 
             ProdutosDataGridView.Columns["preco"].Format = "{0:C}";

@@ -29,6 +29,7 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
         {
             UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "login", HeaderText = "Login", Visible = true });
             UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "area", HeaderText = "Área", Visible = true });
+            UsuariosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "ativo", HeaderText = "Está Ativo?", Visible = true, Width = 150 });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -36,7 +37,8 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                              select new
                              {
                                  login = usuario.Login,
-                                 area = usuario.TipoAcesso.TipoAcesso1
+                                 area = usuario.TipoAcesso.TipoAcesso1,
+                                 ativo = usuario.EstaAtivo
                              }).ToList();
                 UsuariosDataGridView.DataSource = query;
             }
@@ -49,7 +51,8 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                              select new
                              {
                                  login = usuario.Login,
-                                 area = usuario.TipoAcesso.TipoAcesso1
+                                 area = usuario.TipoAcesso.TipoAcesso1,
+                                 ativo = usuario.EstaAtivo
                              }).ToList();
                 UsuariosDataGridView.DataSource = query;
                 registrosLabel.Text = "Registros Encontrados: " + Convert.ToString(query.Count());
@@ -77,7 +80,44 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
 
         private void tbsInativarUsuario_Click(object sender, EventArgs e)
         {
+            if (UsuariosDataGridView.SelectedItems.Count > 0)
+            {
+                var linhaSelecionada = UsuariosDataGridView.SelectedItem;
 
+                string login = Convert.ToString(linhaSelecionada.GetType().GetProperty("login").GetValue(linhaSelecionada, null));
+
+                using (ConnectionString context = new ConnectionString()) 
+                {
+                    Usuario user = context.Usuario.FirstOrDefault(x => x.Login.Equals(login));
+                    user.EstaAtivo = false;
+                    context.Entry<Usuario>(user).State = EntityState.Modified;
+                    context.SaveChanges();
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show("Usuário Inativado", "Sucesso", buttons, MessageBoxIcon.Information);
+                    carregaGrid();
+                }
+            }
+        }
+
+        private void tbsReativarUsuario_Click(object sender, EventArgs e)
+        {
+            if (UsuariosDataGridView.SelectedItems.Count > 0)
+            {
+                var linhaSelecionada = UsuariosDataGridView.SelectedItem;
+
+                string login = Convert.ToString(linhaSelecionada.GetType().GetProperty("login").GetValue(linhaSelecionada, null));
+
+                using (ConnectionString context = new ConnectionString())
+                {
+                    Usuario user = context.Usuario.FirstOrDefault(x => x.Login.Equals(login));
+                    user.EstaAtivo = true;
+                    context.Entry<Usuario>(user).State = EntityState.Modified;
+                    context.SaveChanges();
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show("Usuário Reativado", "Sucesso", buttons, MessageBoxIcon.Information);
+                    carregaGrid();
+                }
+            }
         }
     }
 }

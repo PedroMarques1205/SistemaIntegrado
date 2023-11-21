@@ -19,10 +19,5 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastroMateriaPrimaViews
             txtNomeMP.Text = mp.Nome;
             txtCodMp.Text = mp.CodigoMp;
         }
-
-        private void InformacoesMateriaP_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

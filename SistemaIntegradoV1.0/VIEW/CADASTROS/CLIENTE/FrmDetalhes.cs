@@ -25,10 +25,5 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosClienteViews
             txtRua.Text = cliente.Rua;
             txtNum.Text = Convert.ToString(cliente.Num);
         }
-
-        private void informacoesClientes_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -33,6 +33,7 @@
             this.tbsCadastroUsuario = new System.Windows.Forms.ToolStripButton();
             this.tdbRefresh = new System.Windows.Forms.ToolStripButton();
             this.tbsInativarUsuario = new System.Windows.Forms.ToolStripButton();
+            this.tbsReativarUsuario = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.registrosLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.UsuariosDataGridView = new Syncfusion.WinForms.DataGrid.SfDataGrid();
@@ -48,7 +49,8 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbsCadastroUsuario,
             this.tdbRefresh,
-            this.tbsInativarUsuario});
+            this.tbsInativarUsuario,
+            this.tbsReativarUsuario});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -96,6 +98,19 @@
             this.tbsInativarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tbsInativarUsuario.Click += new System.EventHandler(this.tbsInativarUsuario_Click);
             // 
+            // tbsReativarUsuario
+            // 
+            this.tbsReativarUsuario.ForeColor = System.Drawing.Color.White;
+            this.tbsReativarUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tbsReativarUsuario.Image")));
+            this.tbsReativarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tbsReativarUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsReativarUsuario.Name = "tbsReativarUsuario";
+            this.tbsReativarUsuario.Padding = new System.Windows.Forms.Padding(10, 10, 10, 5);
+            this.tbsReativarUsuario.Size = new System.Drawing.Size(116, 66);
+            this.tbsReativarUsuario.Text = "Reativar Usuário";
+            this.tbsReativarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tbsReativarUsuario.Click += new System.EventHandler(this.tbsReativarUsuario_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(69)))));
@@ -132,7 +147,7 @@
             this.UsuariosDataGridView.TabIndex = 26;
             this.UsuariosDataGridView.Text = "sfDataGrid1";
             // 
-            // cadastroUsuario
+            // FrmListagemUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +156,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.UsuariosDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "cadastroUsuario";
+            this.Name = "FrmListagemUsuarios";
             this.Text = "Usuários";
             this.Load += new System.EventHandler(this.cadastroUsuario_Load);
             this.toolStrip2.ResumeLayout(false);
@@ -163,5 +178,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel registrosLabel;
         private Syncfusion.WinForms.DataGrid.SfDataGrid UsuariosDataGridView;
+        private System.Windows.Forms.ToolStripButton tbsReativarUsuario;
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6ec5256a81684211b4ff8b5b8430200f" Name="Diagram1" ZoomLevel="24">
+      <Diagram DiagramId="6ec5256a81684211b4ff8b5b8430200f" Name="Diagram1" ZoomLevel="54">
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Cadastro" Width="1.5" PointX="8.75" PointY="2.375" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" Width="1.5" PointX="0.75" PointY="12.625" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" Width="1.5" PointX="5.25" PointY="10.25" />
@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Pedido" Width="1.5" PointX="11" PointY="2.625" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" Width="1.5" PointX="6" PointY="3.5" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Produto" Width="1.5" PointX="0.75" PointY="8.875" />
-        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" Width="1.5" PointX="7.75" PointY="8.375" />
+        <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" Width="1.5" PointX="7.75" PointY="8.5" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.TipoMateria" Width="1.5" PointX="1.5" PointY="4.25" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" Width="1.5" PointX="8.25" PointY="11.875" />
         <EntityTypeShape EntityType="DB_SISTEMA_INTEGRADOModel.Usuario" Width="1.5" PointX="10" PointY="8.25" />

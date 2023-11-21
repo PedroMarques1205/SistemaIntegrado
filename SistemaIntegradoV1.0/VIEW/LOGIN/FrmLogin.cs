@@ -50,22 +50,31 @@ namespace SistemaIntegradoV1._0.VIEW.Login
                         string senha = Criptografia.Encrypt(txtSenha.Text);
                         if (usuario.Senha.Equals(senha))
                         {
-                            this.Hide();
-                            Cursor.Current = Cursors.Default;
-                            FrmTelaPrincipal main = new FrmTelaPrincipal(usuario);
-                            main.ShowDialog();
-
-                            if (main.Loggof)
+                            if (usuario.EstaAtivo == false)
                             {
-                                txtLogin.Text = "";
-                                txtSenha.Text = "";
-                                this.Show();
-                                txtSenha.BackColor = Color.White;
-                                txtLogin.BackColor = Color.White;
+                                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                                MessageBox.Show("Usuário inativo", "Error", buttons, MessageBoxIcon.Error);
+                                txtLogin.BackColor = Color.LightCoral;
+                                txtSenha.BackColor = Color.LightCoral;
                             }
                             else
                             {
-                                Application.Exit();
+                                this.Hide();
+                                Cursor.Current = Cursors.Default;
+                                FrmTelaPrincipal main = new FrmTelaPrincipal(usuario);
+                                main.ShowDialog();
+                                if (main.Loggof)
+                                {
+                                    txtLogin.Text = "";
+                                    txtSenha.Text = "";
+                                    this.Show();
+                                    txtSenha.BackColor = Color.White;
+                                    txtLogin.BackColor = Color.White;
+                                }
+                                else
+                                {
+                                    Application.Exit();
+                                }
                             }
                         }
                         else

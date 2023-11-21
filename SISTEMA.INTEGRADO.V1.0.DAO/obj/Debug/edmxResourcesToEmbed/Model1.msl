@@ -201,6 +201,7 @@
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="DB_SISTEMA_INTEGRADOModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="EstaAtivo" ColumnName="EstaAtivo" />
           <ScalarProperty Name="CodTipoAcesso" ColumnName="CodTipoAcesso" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="Login" ColumnName="Login" />

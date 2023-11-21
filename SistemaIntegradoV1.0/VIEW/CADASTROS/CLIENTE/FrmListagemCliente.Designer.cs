@@ -59,7 +59,6 @@
             this.ClientesDataGridView.TabIndex = 11;
             this.ClientesDataGridView.Text = "sfDataGrid1";
             this.ClientesDataGridView.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.ClientesDataGridView_CellDoubleClick);
-            this.ClientesDataGridView.Click += new System.EventHandler(this.ClientesDataGridView_Click);
             // 
             // statusStrip1
             // 
@@ -163,7 +162,7 @@
             this.tdbRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tdbRefresh.Click += new System.EventHandler(this.tdbRefresh_Click);
             // 
-            // cadastroCliente
+            // FrmListagemCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +172,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ClientesDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "cadastroCliente";
+            this.Name = "FrmListagemCliente";
             this.Text = "Cadastro de Cliente";
             this.Load += new System.EventHandler(this.cadastroCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ClientesDataGridView)).EndInit();

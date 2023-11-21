@@ -17,6 +17,7 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public string Login { get; set; }
         public string Senha { get; set; }
         public string CodTipoAcesso { get; set; }
+        public bool EstaAtivo { get; set; }
     
         public virtual TipoAcesso TipoAcesso { get; set; }
     }

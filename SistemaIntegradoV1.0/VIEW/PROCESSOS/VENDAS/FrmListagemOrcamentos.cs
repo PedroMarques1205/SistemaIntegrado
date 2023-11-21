@@ -74,6 +74,7 @@ namespace SistemaIntegradoV1._0
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "ValorTotal", HeaderText = "Valor total", Visible = true });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "FormaDePagamento", HeaderText = "Forma de pagamento", Visible = true });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "EstaAceito", HeaderText = "Está aceito?", Visible = true });
+            PedidosDataGridView.Columns["ValorTotal"].Format = "{0:C}";
             using (ConnectionString context = new ConnectionString())
             {
                 var query = (from orcamento in context.Orcamento

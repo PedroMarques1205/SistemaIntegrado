@@ -33,10 +33,6 @@ namespace SistemaIntegradoV1._0.VIEW.cadastrosClienteViews
             this.Close();
         }
 
-        private void editarCliente_Load(object sender, EventArgs e)
-        {
-        }
-
         public bool verificaCampos()
         {
             foreach (Control c in this.Controls)
@@ -91,8 +87,7 @@ namespace SistemaIntegradoV1._0.VIEW.cadastrosClienteViews
                             context.SaveChanges();
                             MessageBoxButtons buttons = MessageBoxButtons.OK;
                             DialogResult result = MessageBox.Show("Editado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
-                            this.Close();
-                        
+                            this.Close(); 
                     }
                 }
             }

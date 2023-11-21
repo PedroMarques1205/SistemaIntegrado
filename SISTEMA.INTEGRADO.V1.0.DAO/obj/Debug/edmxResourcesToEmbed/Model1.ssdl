@@ -189,6 +189,7 @@
     <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Senha" Type="varchar" MaxLength="30" />
     <Property Name="CodTipoAcesso" Type="varchar" MaxLength="5" />
+    <Property Name="EstaAtivo" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK__Endereco__idOrca__4E88ABD4">
     <End Role="Orcamento" Type="Self.Orcamento" Multiplicity="1" />
