@@ -149,6 +149,7 @@ namespace SistemaIntegradoV1._0
                                     producao.IdProduto = produto1.IdProduto;
                                     producao.QtdAproduzir =  quantidade;
                                     producao.FaseAtual = "Em aprovação";
+                                    producao.DataPedido = DateTime.Now;
                                     int contador = 0;
 
                                     context.OrdemProducao.Add(producao);
@@ -180,13 +181,14 @@ namespace SistemaIntegradoV1._0
                                         pedido.IdMateriaPrima = newMpUsadas[i].idMateriaPrima;
                                         pedido.Quantidade = (producao.QtdAproduzir*(newMpUsadas[i].Quantidade) - estoqueMateriaPrima.Quantidade);
                                         pedido.IsPedidoAceito= false;
+                                        pedido.DataPedido = DateTime.Now;
                                         context.PedidoCompraSuprimento.Add(pedido);
                                         context.SaveChanges();
                                     }
                                     orcamento.statusCliente = "Aceito";
-
+                                    orcamento.DataAceito = DateTime.Now;
                                     estoque.Quantidade -= Convert.ToInt32(orcamento.QuantProduto);
-
+                                    
                                     context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
                                     context.Entry<EstoqueProdutoAcabado>(estoque).State = EntityState.Modified;
                                     context.SaveChanges();
@@ -207,7 +209,7 @@ namespace SistemaIntegradoV1._0
                             else
                             {
                                 orcamento.statusCliente = "Aceito";
-
+                                orcamento.DataAceito = DateTime.Now;
                                 estoque.Quantidade -= Convert.ToInt32(orcamento.QuantProduto);
 
                                 context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
@@ -283,7 +285,7 @@ namespace SistemaIntegradoV1._0
                         else
                         {
                             orcamento.statusCliente = "Reprovado";
-
+                            orcamento.DataRejeitado = DateTime.Now;
                             context.Entry<Orcamento>(orcamento).State = EntityState.Modified;
                             context.SaveChanges();
 

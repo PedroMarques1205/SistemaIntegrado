@@ -83,6 +83,7 @@ namespace SistemaIntegradoV1._0
                                     orcamento.statusCliente = "Em aprovação";
                                     orcamento.formaPagamento = dpdPagamento.Text;
                                     orcamento.PodeSerEntregue = true;
+                                    orcamento.DataOrcamento = DateTime.Now;
                                     context.Orcamento.Add(orcamento);
                                     context.SaveChanges();
                                     endereco.Rua = cliente.Rua;
@@ -96,6 +97,7 @@ namespace SistemaIntegradoV1._0
                                     context.SaveChanges();
                                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                                     DialogResult result = MessageBox.Show("Cadastrado com sucesso!", "Sucesso", buttons, MessageBoxIcon.Information);
+                                    this.Close();
                                 }
                                 else
                                 {

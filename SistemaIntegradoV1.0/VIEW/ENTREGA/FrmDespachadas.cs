@@ -104,7 +104,7 @@ namespace SistemaIntegradoV1._0
                                 v.IdEntrega.Equals(idEntrega)
                         );
                         entrega.IsEntregue = true;
-
+                        entrega.DataEntregue = DateTime.Now;
                         context.Entry<Entrega>(entrega).State = EntityState.Modified;
                         context.SaveChanges();
 

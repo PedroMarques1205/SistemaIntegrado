@@ -16,6 +16,8 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
     {
         public int IdOrcamento { get; set; }
         public Nullable<System.DateTime> DataEntrega { get; set; }
+        public Nullable<System.DateTime> DataEnviado { get; set; }
+        public Nullable<System.DateTime> DataEntregue { get; set; }
         public Nullable<bool> IsEntregue { get; set; }
         public int IdEntrega { get; set; }
         public string tipoEntrega { get; set; }

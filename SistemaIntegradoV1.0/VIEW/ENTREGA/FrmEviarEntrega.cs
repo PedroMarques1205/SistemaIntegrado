@@ -44,7 +44,7 @@ namespace SistemaIntegradoV1._0
                     entrega.tipoEntrega = dpTipoEntrega.Text;
                     entrega.IsEntregue = false;
                     entrega.IdOrcamento = Convert.ToInt32(txtIdorcamento.Text);
-
+                    entrega.DataEnviado = DateTime.Now;
                     Orcamento orcamento = new Orcamento();
 
                     orcamento = context.Orcamento.FirstOrDefault(o => o.idOrcamento == entrega.IdOrcamento);

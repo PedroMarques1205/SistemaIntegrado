@@ -17,6 +17,9 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public int IdOrdem { get; set; }
         public int IdProduto { get; set; }
         public Nullable<int> QtdAproduzir { get; set; }
+        public Nullable<System.DateTime> DataPedido { get; set; }
+        public Nullable<System.DateTime> DataEnviado { get; set; }
+        public Nullable<System.DateTime> DataFinalizado { get; set; }
         public string FaseAtual { get; set; }
         public Nullable<int> IdOrcamento { get; set; }
     

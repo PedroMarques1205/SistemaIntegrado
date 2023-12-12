@@ -57,7 +57,7 @@ namespace SistemaIntegradoV1._0
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "idPedido", HeaderText = "idOrdem", Visible = true, Width = 0 });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "materia", HeaderText = "Matéria pedida", Visible = true });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "quantidade", HeaderText = "Quantidade", Visible = true });
-            PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "fornecedor", HeaderText = "Fornecedor", Visible = true });
+            PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "fornecedor", HeaderText = "Fornecedor", Visible = true});
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "precoUnit", HeaderText = "Preço Unitário", Visible = true });
             PedidosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "precoTotal", HeaderText = "Preço Total", Visible = true });
             PedidosDataGridView.Columns.Add(new GridDateTimeColumn() { MappingName = "prazo", HeaderText = "Prazo", Visible = true });

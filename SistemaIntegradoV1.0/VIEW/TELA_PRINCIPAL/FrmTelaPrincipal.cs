@@ -2,6 +2,7 @@
 using SistemaIntegradoV1._0.VIEW.Cadastro;
 using SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews;
 using SistemaIntegradoV1._0.VIEW.estoquesViews;
+using SistemaIntegradoV1._0.VIEW.RELATORIO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace SistemaIntegradoV1._0
         private bool estoqueExpand { get; set; }
         private bool tituloTransiction { get; set; }
         private bool sidebarExpand { get; set; }
-
+        public List<string> acessos { get; set; }
         public FrmTelaPrincipal(Usuario usuarioLogado)
         {
             InitializeComponent();
@@ -41,43 +42,11 @@ namespace SistemaIntegradoV1._0
             sidebarExpand = true;
             msgBemvindo.Text = "          " + usuarioLogado.Login;
 
-            if (currentUser.CodTipoAcesso.Equals("FAB"))
-            {
-                menuCadastro.Visible = false;
-                menuContainerVendas.Visible = false;
-                panel7.Visible = false;
-                menuContainerFinanceiro.Visible = false;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("VEN"))
-            {
-                panel16.Visible = false;
-                panel12.Visible = false;
-                panel13.Visible = false;
-                panel6.Visible = false;
-                panel7.Visible = false;
-                menuContainerFinanceiro.Visible = false;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("FIN"))
-            {
-                menuCadastro.Visible = false;
-                menuContainerVendas.Visible = false;
-                panel7.Visible = false;
-                panel16.Visible = false;
-                panel6.Visible = false;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("SUP"))
-            {
-                menuContainerVendas.Visible = false;
-                panel16.Visible = false;
-                panel11.Visible = false;
-                panel6.Visible = false;
-                menuContainerFinanceiro.Visible = false;
-            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             tituloTransition.Start();
-            sideBar.Width = 206;
+            sideBar.Width = 250;
             menuContainerVendas.Height = 39;
             menuContainerFinanceiro.Height = 39;
             menuCadastro.Height = 39;
@@ -87,6 +56,67 @@ namespace SistemaIntegradoV1._0
                 if (ctrl is MdiClient)
                 {
                     ctrl.BackColor = Color.White;
+                }
+            }
+            List<string> acessosUsuario = new List<string>();
+            using (ConnectionString context = new ConnectionString())
+            {
+                foreach (Acessos item in context.Acessos)
+                {
+                    if (item.Login.Equals(currentUser.Login))
+                    {
+                        acessosUsuario.Add(item.CodAcesso);
+                    }
+                }
+            }
+            acessos = acessosUsuario;
+            foreach (string item in acessosUsuario)
+            {
+                if (item.Equals("FAB"))
+                {
+                    panelProducao.Visible = true;
+                }
+                if (item.Equals("VEN"))
+                {
+                    menuCadastro.Visible = true;
+                    panelCliente.Visible = true;
+                    menuContainerVendas.Visible = true;
+                    panelOrcamentos.Visible = true;
+                    panelEntregas.Visible = true;
+                }
+                if (item.Equals("FIN"))
+                {
+                    menuContainerFinanceiro.Visible = true;
+                    panelRecibos.Visible = true;
+                    panelFaturas.Visible = true;
+                    menuCadastro.Visible = false;
+                    menuContainerVendas.Visible = false;
+                    panelSuprimentos.Visible = false;
+                    panelUsuario.Visible = false;
+                    panelProducao.Visible = false;
+                }
+                if (item.Equals("SUP"))
+                {
+                    menuCadastro.Visible = true;
+                    panelProduto.Visible = true;
+                    panelMateria.Visible = true;
+                    panelSuprimentos.Visible = true;
+                }
+                if (item.Equals("ADM")) 
+                {
+                    menuCadastro.Visible = true;
+                    panelUsuario.Visible = true;
+                    panelCliente.Visible = true;
+                    panelProduto.Visible = true;
+                    panelMateria.Visible = true;
+                    menuContainerVendas.Visible = true;
+                    panelOrcamentos.Visible = true;
+                    panelEntregas.Visible = true;
+                    panelSuprimentos.Visible = true;
+                    panelProducao.Visible = true;
+                    menuContainerFinanceiro.Visible = true;
+                    panelRecibos.Visible = true;
+                    panelFaturas.Visible = true;
                 }
             }
         }
@@ -116,7 +146,7 @@ namespace SistemaIntegradoV1._0
             if (sidebarExpand == false)
             {
                 sideBar.Width += 10;
-                if (sideBar.Width >= 206)
+                if (sideBar.Width >= 250)
                 {
                     sidebarTransition.Stop();
                     sidebarExpand = true;
@@ -157,31 +187,43 @@ namespace SistemaIntegradoV1._0
         {
             if (cadastroTransicted == false)
             {
-                if (currentUser.CodTipoAcesso == "VEN")
+                foreach (string item in acessos)
                 {
-                    menuCadastro.Height += 10;
-                    if (menuCadastro.Height >= 70)
+                    if (acessos.Contains("VEN") && !acessos.Contains("SUP"))
                     {
-                        menuCadastroTransition.Stop();
-                        cadastroTransicted=true;
+                        menuCadastro.Height += 10;
+                        if (menuCadastro.Height >= 70)
+                        {
+                            menuCadastroTransition.Stop();
+                            cadastroTransicted=true;
+                        }
                     }
-                }
-                else if (currentUser.CodTipoAcesso == "SUP")
-                {
-                    menuCadastro.Height += 10;
-                    if (menuCadastro.Height >= 110)
+                    else if (!acessos.Contains("VEN") && acessos.Contains("SUP"))
                     {
-                        menuCadastroTransition.Stop();
-                        cadastroTransicted=true;
+                        menuCadastro.Height += 10;
+                        if (menuCadastro.Height >= 161)
+                        {
+                            menuCadastroTransition.Stop();
+                            cadastroTransicted=true;
+                        }
                     }
-                }
-                else
-                {
-                    menuCadastro.Height += 10;
-                    if (menuCadastro.Height >= 202)
+                    else if (acessos.Contains("VEN") && acessos.Contains("SUP")) 
                     {
-                        menuCadastroTransition.Stop();
-                        cadastroTransicted=true;
+                        menuCadastro.Height += 10;
+                        if (menuCadastro.Height >= 170)
+                        {
+                            menuCadastroTransition.Stop();
+                            cadastroTransicted=true;
+                        }
+                    }
+                    else
+                    {
+                        menuCadastro.Height += 10;
+                        if (menuCadastro.Height >= 202)
+                        {
+                            menuCadastroTransition.Stop();
+                            cadastroTransicted=true;
+                        }
                     }
                 }
             }
@@ -209,7 +251,7 @@ namespace SistemaIntegradoV1._0
             else
             {
                 titulo.Left += 10;
-                if (titulo.Location.X >= 222)
+                if (titulo.Location.X >= 260)
                 {
                     tituloSideBarTransition.Stop();
                     tituloTransicted = false;
@@ -242,7 +284,7 @@ namespace SistemaIntegradoV1._0
             if (!tituloTransiction)
             {
                 titulo.Left -= 10;
-                if (titulo.Location.X<=220)
+                if (titulo.Location.X<=260)
                 {
                     tituloTransition.Stop();
                     tituloTransiction= true;
@@ -374,7 +416,7 @@ namespace SistemaIntegradoV1._0
         {
             engrenagens.Visible = false;
             titulo.Visible = false;
-            FrmListagemUsuarios tela = new FrmListagemUsuarios();
+            FrmListagemUsuarios tela = new FrmListagemUsuarios(acessos);
 
             tela.MdiParent = this;
             tela.Show();
@@ -382,7 +424,7 @@ namespace SistemaIntegradoV1._0
 
         private void msgBemvindo_Click(object sender, EventArgs e)
         {
-            FrmDetalhes tela = new FrmDetalhes(currentUser);
+            FrmDetalhes tela = new FrmDetalhes(currentUser, acessos,false);
             tela.ShowDialog();
         }
 
@@ -407,6 +449,16 @@ namespace SistemaIntegradoV1._0
             engrenagens.Visible = false;
             titulo.Visible = false;
             FrmEstoqueMaterias tela = new FrmEstoqueMaterias();
+
+            tela.MdiParent = this;
+            tela.Show();
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            engrenagens.Visible = false;
+            titulo.Visible = false;
+            FrmRelatorioPedidos tela = new FrmRelatorioPedidos(currentUser);
 
             tela.MdiParent = this;
             tela.Show();

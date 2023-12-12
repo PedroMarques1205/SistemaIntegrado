@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_SISTEMA_INTEGRADOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="ConnectionString" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cadastro" EntityType="DB_SISTEMA_INTEGRADOModel.Cadastro" />
+    <EntitySet Name="Acessos" EntityType="DB_SISTEMA_INTEGRADOModel.Acessos" />
     <EntitySet Name="Cliente" EntityType="DB_SISTEMA_INTEGRADOModel.Cliente" />
     <EntitySet Name="Endereco" EntityType="DB_SISTEMA_INTEGRADOModel.Endereco" />
     <EntitySet Name="Entrega" EntityType="DB_SISTEMA_INTEGRADOModel.Entrega" />
@@ -11,22 +11,20 @@
     <EntitySet Name="MateriasUsadasNoProduto" EntityType="DB_SISTEMA_INTEGRADOModel.MateriasUsadasNoProduto" />
     <EntitySet Name="Orcamento" EntityType="DB_SISTEMA_INTEGRADOModel.Orcamento" />
     <EntitySet Name="OrdemProducao" EntityType="DB_SISTEMA_INTEGRADOModel.OrdemProducao" />
-    <EntitySet Name="Pedido" EntityType="DB_SISTEMA_INTEGRADOModel.Pedido" />
     <EntitySet Name="PedidoCompraSuprimento" EntityType="DB_SISTEMA_INTEGRADOModel.PedidoCompraSuprimento" />
     <EntitySet Name="Produto" EntityType="DB_SISTEMA_INTEGRADOModel.Produto" />
-    <EntitySet Name="TipoAcesso" EntityType="DB_SISTEMA_INTEGRADOModel.TipoAcesso" />
     <EntitySet Name="TipoMateria" EntityType="DB_SISTEMA_INTEGRADOModel.TipoMateria" />
     <EntitySet Name="Transacao" EntityType="DB_SISTEMA_INTEGRADOModel.Transacao" />
     <EntitySet Name="Usuario" EntityType="DB_SISTEMA_INTEGRADOModel.Usuario" />
-    <AssociationSet Name="FK__Pedido__IDCadast__71D1E811" Association="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811">
-      <End Role="Cadastro" EntitySet="Cadastro" />
-      <End Role="Pedido" EntitySet="Pedido" />
+    <AssociationSet Name="FK__Acessos__Login__5EBF139D" Association="DB_SISTEMA_INTEGRADOModel.FK__Acessos__Login__5EBF139D">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Acessos" EntitySet="Acessos" />
     </AssociationSet>
     <AssociationSet Name="FK_Orcamento_CpfCliente" Association="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Orcamento" EntitySet="Orcamento" />
     </AssociationSet>
-    <AssociationSet Name="FK__Endereco__idOrca__4E88ABD4" Association="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4E88ABD4">
+    <AssociationSet Name="FK__Endereco__idOrca__4CA06362" Association="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4CA06362">
       <End Role="Orcamento" EntitySet="Orcamento" />
       <End Role="Endereco" EntitySet="Endereco" />
     </AssociationSet>
@@ -42,7 +40,7 @@
       <End Role="Produto" EntitySet="Produto" />
       <End Role="EstoqueProdutoAcabado" EntitySet="EstoqueProdutoAcabado" />
     </AssociationSet>
-    <AssociationSet Name="FK__MateriaPr__Codig__403A8C7D" Association="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__403A8C7D">
+    <AssociationSet Name="FK__MateriaPr__Codig__3E52440B" Association="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__3E52440B">
       <End Role="TipoMateria" EntitySet="TipoMateria" />
       <End Role="MateriaPrima" EntitySet="MateriaPrima" />
     </AssociationSet>
@@ -70,30 +68,16 @@
       <End Role="PedidoCompraSuprimento" EntitySet="PedidoCompraSuprimento" />
       <End Role="Transacao" EntitySet="Transacao" />
     </AssociationSet>
-    <AssociationSet Name="FK__Usuario__CodTipo__398D8EEE" Association="DB_SISTEMA_INTEGRADOModel.FK__Usuario__CodTipo__398D8EEE">
-      <End Role="TipoAcesso" EntitySet="TipoAcesso" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
+    <EntitySet Name="RelatorioOrcamentos" EntityType="DB_SISTEMA_INTEGRADOModel.RelatorioOrcamentos" />
   </EntityContainer>
-  <EntityType Name="Cadastro">
+  <EntityType Name="Acessos">
     <Key>
-      <PropertyRef Name="IDCadastro" />
+      <PropertyRef Name="IdAcesso" />
     </Key>
-    <Property Name="IDCadastro" Type="Int32" Nullable="false" />
-    <Property Name="TipoCadastro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Razao" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Fantasia" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Rua" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Numero" Type="Int32" />
-    <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Bairro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="Cidade" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-    <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Telefone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Pedido" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811" FromRole="Cadastro" ToRole="Pedido" />
+    <Property Name="IdAcesso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CodAcesso" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Acessos__Login__5EBF139D" FromRole="Acessos" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Cliente">
     <Key>
@@ -122,7 +106,7 @@
     <Property Name="Complemento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Estado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
     <Property Name="Municipio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4E88ABD4" FromRole="Endereco" ToRole="Orcamento" />
+    <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4CA06362" FromRole="Endereco" ToRole="Orcamento" />
   </EntityType>
   <EntityType Name="Entrega">
     <Key>
@@ -130,6 +114,8 @@
     </Key>
     <Property Name="IdOrcamento" Type="Int32" Nullable="false" />
     <Property Name="DataEntrega" Type="DateTime" Precision="0" />
+    <Property Name="DataEnviado" Type="DateTime" Precision="0" />
+    <Property Name="DataEntregue" Type="DateTime" Precision="0" />
     <Property Name="IsEntregue" Type="Boolean" />
     <Property Name="IdEntrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipoEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -163,7 +149,7 @@
     <Property Name="isAtivo" Type="Boolean" />
     <Property Name="CodigoTipo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="EstoqueMateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK_EstoqueMateriaPrima_IdMateriaPrima" FromRole="MateriaPrima" ToRole="EstoqueMateriaPrima" />
-    <NavigationProperty Name="TipoMateria" Relationship="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__403A8C7D" FromRole="MateriaPrima" ToRole="TipoMateria" />
+    <NavigationProperty Name="TipoMateria" Relationship="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__3E52440B" FromRole="MateriaPrima" ToRole="TipoMateria" />
     <NavigationProperty Name="MateriasUsadasNoProduto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_MateriaPrimaUsadas_idMateriaPrima" FromRole="MateriaPrima" ToRole="MateriasUsadasNoProduto" />
     <NavigationProperty Name="PedidoCompraSuprimento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_PedidoCompraSuprimento_IdMateriaPrima" FromRole="MateriaPrima" ToRole="PedidoCompraSuprimento" />
   </EntityType>
@@ -187,13 +173,16 @@
     <Property Name="idProduto" Type="Int32" Nullable="false" />
     <Property Name="QuantProduto" Type="Int32" />
     <Property Name="ValorTotal" Type="Double" />
+    <Property Name="DataOrcamento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DataAceito" Type="DateTime" Precision="0" />
+    <Property Name="DataRejeitado" Type="DateTime" Precision="0" />
     <Property Name="idOrcamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="statusCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="statusEntrega" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="formaPagamento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="PodeSerEntregue" Type="Boolean" />
     <NavigationProperty Name="Cliente" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_CpfCliente" FromRole="Orcamento" ToRole="Cliente" />
-    <NavigationProperty Name="Endereco" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4E88ABD4" FromRole="Orcamento" ToRole="Endereco" />
+    <NavigationProperty Name="Endereco" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Endereco__idOrca__4CA06362" FromRole="Orcamento" ToRole="Endereco" />
     <NavigationProperty Name="Entrega" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Entrega_IdOrcamento" FromRole="Orcamento" ToRole="Entrega" />
     <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Orcamento" ToRole="Produto" />
     <NavigationProperty Name="Transacao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Transacao_IdPedidoReceber" FromRole="Orcamento" ToRole="Transacao" />
@@ -205,26 +194,12 @@
     <Property Name="IdOrdem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdProduto" Type="Int32" Nullable="false" />
     <Property Name="QtdAproduzir" Type="Int32" />
+    <Property Name="DataPedido" Type="DateTime" Precision="0" />
+    <Property Name="DataEnviado" Type="DateTime" Precision="0" />
+    <Property Name="DataFinalizado" Type="DateTime" Precision="0" />
     <Property Name="FaseAtual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IdOrcamento" Type="Int32" />
     <NavigationProperty Name="Produto" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="OrdemProducao" ToRole="Produto" />
-  </EntityType>
-  <EntityType Name="Pedido">
-    <Key>
-      <PropertyRef Name="IDPedido" />
-    </Key>
-    <Property Name="IDPedido" Type="Int32" Nullable="false" />
-    <Property Name="IDCadastro" Type="Int32" Nullable="false" />
-    <Property Name="IDProduto" Type="Int32" Nullable="false" />
-    <Property Name="IDProducao" Type="Int32" />
-    <Property Name="IDCompra" Type="Int32" />
-    <Property Name="IDFinanceiro" Type="Int32" Nullable="false" />
-    <Property Name="IDEntrega" Type="Int32" Nullable="false" />
-    <Property Name="Quantidade" Type="Int32" Nullable="false" />
-    <Property Name="PrecoUnitario" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Status" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="DataPedido" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Cadastro" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Pedido__IDCadast__71D1E811" FromRole="Pedido" ToRole="Cadastro" />
   </EntityType>
   <EntityType Name="PedidoCompraSuprimento">
     <Key>
@@ -233,6 +208,8 @@
     <Property Name="IdPedidoCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdMateriaPrima" Type="Int32" Nullable="false" />
     <Property Name="Fornecedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DataPedido" Type="DateTime" Precision="0" />
+    <Property Name="DataCompra" Type="DateTime" Precision="0" />
     <Property Name="Quantidade" Type="Int32" />
     <Property Name="PrecoUnit" Type="Double" />
     <Property Name="PrecoTotal" Type="Double" />
@@ -255,21 +232,13 @@
     <NavigationProperty Name="Orcamento" Relationship="DB_SISTEMA_INTEGRADOModel.FK_Orcamento_idProduto" FromRole="Produto" ToRole="Orcamento" />
     <NavigationProperty Name="OrdemProducao" Relationship="DB_SISTEMA_INTEGRADOModel.FK_OrdemProducao_IdProduto" FromRole="Produto" ToRole="OrdemProducao" />
   </EntityType>
-  <EntityType Name="TipoAcesso">
-    <Key>
-      <PropertyRef Name="CodTipoAcesso" />
-    </Key>
-    <Property Name="CodTipoAcesso" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="TipoAcesso1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Usuario" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Usuario__CodTipo__398D8EEE" FromRole="TipoAcesso" ToRole="Usuario" />
-  </EntityType>
   <EntityType Name="TipoMateria">
     <Key>
       <PropertyRef Name="Codigo" />
     </Key>
     <Property Name="NomeTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__403A8C7D" FromRole="TipoMateria" ToRole="MateriaPrima" />
+    <NavigationProperty Name="MateriaPrima" Relationship="DB_SISTEMA_INTEGRADOModel.FK__MateriaPr__Codig__3E52440B" FromRole="TipoMateria" ToRole="MateriaPrima" />
   </EntityType>
   <EntityType Name="Transacao">
     <Key>
@@ -290,19 +259,18 @@
     </Key>
     <Property Name="Login" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Senha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="CodTipoAcesso" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="EstaAtivo" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="TipoAcesso" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Usuario__CodTipo__398D8EEE" FromRole="Usuario" ToRole="TipoAcesso" />
+    <NavigationProperty Name="Acessos" Relationship="DB_SISTEMA_INTEGRADOModel.FK__Acessos__Login__5EBF139D" FromRole="Usuario" ToRole="Acessos" />
   </EntityType>
-  <Association Name="FK__Pedido__IDCadast__71D1E811">
-    <End Type="DB_SISTEMA_INTEGRADOModel.Cadastro" Role="Cadastro" Multiplicity="1" />
-    <End Type="DB_SISTEMA_INTEGRADOModel.Pedido" Role="Pedido" Multiplicity="*" />
+  <Association Name="FK__Acessos__Login__5EBF139D">
+    <End Type="DB_SISTEMA_INTEGRADOModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="DB_SISTEMA_INTEGRADOModel.Acessos" Role="Acessos" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cadastro">
-        <PropertyRef Name="IDCadastro" />
+      <Principal Role="Usuario">
+        <PropertyRef Name="Login" />
       </Principal>
-      <Dependent Role="Pedido">
-        <PropertyRef Name="IDCadastro" />
+      <Dependent Role="Acessos">
+        <PropertyRef Name="Login" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -318,7 +286,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Endereco__idOrca__4E88ABD4">
+  <Association Name="FK__Endereco__idOrca__4CA06362">
     <End Type="DB_SISTEMA_INTEGRADOModel.Orcamento" Role="Orcamento" Multiplicity="1" />
     <End Type="DB_SISTEMA_INTEGRADOModel.Endereco" Role="Endereco" Multiplicity="*" />
     <ReferentialConstraint>
@@ -366,7 +334,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MateriaPr__Codig__403A8C7D">
+  <Association Name="FK__MateriaPr__Codig__3E52440B">
     <End Type="DB_SISTEMA_INTEGRADOModel.TipoMateria" Role="TipoMateria" Multiplicity="0..1" />
     <End Type="DB_SISTEMA_INTEGRADOModel.MateriaPrima" Role="MateriaPrima" Multiplicity="*" />
     <ReferentialConstraint>
@@ -450,16 +418,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Usuario__CodTipo__398D8EEE">
-    <End Type="DB_SISTEMA_INTEGRADOModel.TipoAcesso" Role="TipoAcesso" Multiplicity="0..1" />
-    <End Type="DB_SISTEMA_INTEGRADOModel.Usuario" Role="Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TipoAcesso">
-        <PropertyRef Name="CodTipoAcesso" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="CodTipoAcesso" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="RelatorioOrcamentos">
+    <Key>
+      <PropertyRef Name="NumOrcamento" />
+      <PropertyRef Name="CpfCliente" />
+      <PropertyRef Name="DataOrcamento" />
+      <PropertyRef Name="CodProduto" />
+    </Key>
+    <Property Name="NumOrcamento" Type="Int32" Nullable="false" />
+    <Property Name="CpfCliente" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DataOrcamento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="statusCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NomeCliente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CodProduto" Type="Int32" Nullable="false" />
+    <Property Name="DescricaoProduto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PrecoUnitario" Type="Double" />
+    <Property Name="DataEnviado" Type="DateTime" Precision="0" />
+    <Property Name="IsEntregue" Type="Boolean" />
+    <Property Name="DataEntregue" Type="DateTime" Precision="0" />
+    <Property Name="ValorTotal" Type="Double" />
+    <Property Name="FaseAtual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFinalizado" Type="DateTime" Precision="0" />
+    <Property Name="IdOrdem" Type="Int32" />
+  </EntityType>
 </Schema>

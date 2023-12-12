@@ -118,6 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRelatorio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAD7SURBVEhL7dO/SsNQFMfxDNG9+Aa+RREn38BFxQ7dCh3c
+        XOwLZIyDQ8DRqeDUpeCLuPQVKlIX7Z/4Pd57CBhDc3MCLvnBh1xuLucXEhJp8jxPYM2jH1cONzN3xpRn
+        HCL2Y4uw2VbBAKkfW4TNNgsyP7aIbMoJY7qCvTEXPOD4lzk05oI3LPCKPg4gQzWNCz79VfKFc1zjCuaC
+        CU6xwgaXuMAaMsxUcIsTjHEGfXIpkowwc8ufBBXcQd7zO3a4gT55VWoXTKHDNVKydcvK1C6QQR9uGZTg
+        bxCarmBv/rcglRPGPGGIPwti9IyO8IJygYab91g2pH954qZF0TeIOBnZ5zF7bAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="msgBemvindo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -298,7 +308,7 @@
   <data name="btnEstoque.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAXpJREFUSEvtlj1Lw1AUhh3qIBEpgoOLSCn+Awvi5ORWBHEVl6469ge4iIvVxd1R
+        DAAACwwBP0AiyAAAAXpJREFUSEvtlj1Lw1AUhh3qIBEpgoOLSCn+Awvi5ORWBHEVl6469ge4iIvVxd1R
         8AM6OAgOOqggOKqLm4NTB1HEwfi88qaktLZJLdLBFx5y855zz7nk4yYDSRWGYQA7JrDdG1GwAA9waTQu
         ONy9KJKBMrzBBgy28pyeTkychHN4hFnbdeFNwz1cw5TtZGLCMrzAHgzbbhKxIdiGV1iz/bNIGoMjeIai
         7Y4idx6e4ATGbTcqUVIbMUeLO4bGxXGix28XdElKthuEn4VFWDJFaHlz8UugWqoZyKjCFeSd0yRic3AT
@@ -310,7 +320,7 @@
   <data name="btnEstoqueProdutos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAPFJREFUSEvtlD0KwkAQhQMBS8EmiIfQE+QC6b2B2OkFtE9pndpOTxBvoOYMFrZ6
+        DAAACwwBP0AiyAAAAPFJREFUSEvtlD0KwkAQhQMBS8EmiIfQE+QC6b2B2OkFtE9pndpOTxBvoOYMFrZ6
         BHV94z6SQH5IdoNVPvhgeTPMQwWdnsYopTx4hImlcsPj2QyEIeyKkGczEEZ61gkRz2Yg9OGyI32e/TNo
         lh/JloTnishQ71Ryp3VYFazgWj8rMS54wwkcw5cEFbQqeMAFnMOAa7IXMJPZE+ZpVfCBOzjgSopknMlO
         HqOv6Axdrsmey6wMo4ILV1KQXfWogFHBBg6h/J0c4AhuYRlGBXt4088f8pasDKOCNtQWnPSOFTHPFcFw
@@ -320,7 +330,7 @@
   <data name="btnEstoqueMp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAATBJREFUSEvtlL9Kw1AUh1MXwclJkSIUH0Lc+gQu+gLuFQoiuLg410H0HTo4uDp0
+        DAAACwwBP0AiyAAAATBJREFUSEvtlL9Kw1AUh1MXwclJkSIUH0Lc+gQu+gLuFQoiuLg410H0HTo4uDp0
         6CQiWC2tzp11KIhS8E+J3+/mJFjuRVrbzXzwkeR3cu6BBE6UMxFxHK9gDdv4huIVW7iP8/bq5NBctsNS
         7vAUT/BKAdzggrWMD01z2NMJxq6VMsi2cIgdbIzhsrW65iKmPGPBSiOQ32IfQwemPqIoWZtrLCWZo2ex
         B7WmtMcg1Hd0COQDwlD/LwO4LuEaLrqXgPuZDPjEl+Q24wm1Qu5x6gHiCy9wD6tYx3cUMxmwaaUMsg38

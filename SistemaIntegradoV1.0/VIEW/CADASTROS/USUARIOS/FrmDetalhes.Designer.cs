@@ -57,7 +57,6 @@
             // FabricaCheckBox
             // 
             this.FabricaCheckBox.AutoSize = true;
-            this.FabricaCheckBox.Enabled = false;
             this.FabricaCheckBox.Location = new System.Drawing.Point(6, 105);
             this.FabricaCheckBox.Name = "FabricaCheckBox";
             this.FabricaCheckBox.Size = new System.Drawing.Size(91, 21);
@@ -68,7 +67,6 @@
             // SuprimentosCheckBox
             // 
             this.SuprimentosCheckBox.AutoSize = true;
-            this.SuprimentosCheckBox.Enabled = false;
             this.SuprimentosCheckBox.Location = new System.Drawing.Point(6, 78);
             this.SuprimentosCheckBox.Name = "SuprimentosCheckBox";
             this.SuprimentosCheckBox.Size = new System.Drawing.Size(104, 21);
@@ -79,7 +77,6 @@
             // FinanceiroCheckBox
             // 
             this.FinanceiroCheckBox.AutoSize = true;
-            this.FinanceiroCheckBox.Enabled = false;
             this.FinanceiroCheckBox.Location = new System.Drawing.Point(6, 51);
             this.FinanceiroCheckBox.Name = "FinanceiroCheckBox";
             this.FinanceiroCheckBox.Size = new System.Drawing.Size(89, 21);
@@ -90,7 +87,6 @@
             // vendasCheckBox
             // 
             this.vendasCheckBox.AutoSize = true;
-            this.vendasCheckBox.Enabled = false;
             this.vendasCheckBox.Location = new System.Drawing.Point(6, 24);
             this.vendasCheckBox.Name = "vendasCheckBox";
             this.vendasCheckBox.Size = new System.Drawing.Size(70, 21);
@@ -102,12 +98,10 @@
             // 
             this.txtUsuario.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txtUsuario.BackColor = System.Drawing.Color.White;
-            this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(13, 29);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(251, 25);
             this.txtUsuario.TabIndex = 46;
             // 
@@ -135,7 +129,7 @@
             this.labelMudarSenha.Click += new System.EventHandler(this.labelMudarSenha_Click);
             this.labelMudarSenha.MouseHover += new System.EventHandler(this.labelMudarSenha_MouseHover);
             // 
-            // informacoesUsuario
+            // FrmDetalhes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,10 +142,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "informacoesUsuario";
+            this.Name = "FrmDetalhes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informações do Usuário";
-            this.Load += new System.EventHandler(this.informacoesUsuario_Load);
+            this.Load += new System.EventHandler(this.FrmDetalhes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

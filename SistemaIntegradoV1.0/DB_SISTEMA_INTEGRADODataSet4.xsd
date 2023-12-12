@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DB_SISTEMA_INTEGRADODataSet4" targetNamespace="http://tempuri.org/DB_SISTEMA_INTEGRADODataSet4.xsd" xmlns:mstns="http://tempuri.org/DB_SISTEMA_INTEGRADODataSet4.xsd" xmlns="http://tempuri.org/DB_SISTEMA_INTEGRADODataSet4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DB_SISTEMA_INTEGRADOConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB_SISTEMA_INTEGRADOConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaIntegradoV1._0.Properties.Settings.GlobalReference.Default.DB_SISTEMA_INTEGRADOConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RelatorioOrcamentosTableAdapter" GeneratorDataComponentClassName="RelatorioOrcamentosTableAdapter" Name="RelatorioOrcamentos" UserDataComponentName="RelatorioOrcamentosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB_SISTEMA_INTEGRADOConnectionString (Settings)" DbObjectName="DB_SISTEMA_INTEGRADO.dbo.RelatorioOrcamentos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NumOrcamento, CpfCliente, DataOrcamento, statusCliente, NomeCliente, CodProduto, DescricaoProduto, PrecoUnitario, DataEnviado, IsEntregue, DataEntregue, ValorTotal, FaseAtual, DataFinalizado, IdOrdem FROM dbo.RelatorioOrcamentos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NumOrcamento" DataSetColumn="NumOrcamento" />
+              <Mapping SourceColumn="CpfCliente" DataSetColumn="CpfCliente" />
+              <Mapping SourceColumn="DataOrcamento" DataSetColumn="DataOrcamento" />
+              <Mapping SourceColumn="statusCliente" DataSetColumn="statusCliente" />
+              <Mapping SourceColumn="NomeCliente" DataSetColumn="NomeCliente" />
+              <Mapping SourceColumn="CodProduto" DataSetColumn="CodProduto" />
+              <Mapping SourceColumn="DescricaoProduto" DataSetColumn="DescricaoProduto" />
+              <Mapping SourceColumn="PrecoUnitario" DataSetColumn="PrecoUnitario" />
+              <Mapping SourceColumn="DataEnviado" DataSetColumn="DataEnviado" />
+              <Mapping SourceColumn="IsEntregue" DataSetColumn="IsEntregue" />
+              <Mapping SourceColumn="DataEntregue" DataSetColumn="DataEntregue" />
+              <Mapping SourceColumn="ValorTotal" DataSetColumn="ValorTotal" />
+              <Mapping SourceColumn="FaseAtual" DataSetColumn="FaseAtual" />
+              <Mapping SourceColumn="DataFinalizado" DataSetColumn="DataFinalizado" />
+              <Mapping SourceColumn="IdOrdem" DataSetColumn="IdOrdem" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DB_SISTEMA_INTEGRADODataSet4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DB_SISTEMA_INTEGRADODataSet4" msprop:Generator_DataSetName="DB_SISTEMA_INTEGRADODataSet4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RelatorioOrcamentos" msprop:Generator_RowEvHandlerName="RelatorioOrcamentosRowChangeEventHandler" msprop:Generator_RowDeletedName="RelatorioOrcamentosRowDeleted" msprop:Generator_RowDeletingName="RelatorioOrcamentosRowDeleting" msprop:Generator_RowEvArgName="RelatorioOrcamentosRowChangeEvent" msprop:Generator_TablePropName="RelatorioOrcamentos" msprop:Generator_RowChangedName="RelatorioOrcamentosRowChanged" msprop:Generator_RowChangingName="RelatorioOrcamentosRowChanging" msprop:Generator_TableClassName="RelatorioOrcamentosDataTable" msprop:Generator_RowClassName="RelatorioOrcamentosRow" msprop:Generator_TableVarName="tableRelatorioOrcamentos" msprop:Generator_UserTableName="RelatorioOrcamentos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumOrcamento" msprop:Generator_ColumnPropNameInRow="NumOrcamento" msprop:Generator_ColumnPropNameInTable="NumOrcamentoColumn" msprop:Generator_ColumnVarNameInTable="columnNumOrcamento" msprop:Generator_UserColumnName="NumOrcamento" type="xs:int" />
+              <xs:element name="CpfCliente" msprop:Generator_ColumnPropNameInRow="CpfCliente" msprop:Generator_ColumnPropNameInTable="CpfClienteColumn" msprop:Generator_ColumnVarNameInTable="columnCpfCliente" msprop:Generator_UserColumnName="CpfCliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataOrcamento" msprop:Generator_ColumnPropNameInRow="DataOrcamento" msprop:Generator_ColumnPropNameInTable="DataOrcamentoColumn" msprop:Generator_ColumnVarNameInTable="columnDataOrcamento" msprop:Generator_UserColumnName="DataOrcamento" type="xs:dateTime" />
+              <xs:element name="statusCliente" msprop:Generator_ColumnPropNameInRow="statusCliente" msprop:Generator_ColumnPropNameInTable="statusClienteColumn" msprop:Generator_ColumnVarNameInTable="columnstatusCliente" msprop:Generator_UserColumnName="statusCliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NomeCliente" msprop:Generator_ColumnPropNameInRow="NomeCliente" msprop:Generator_ColumnPropNameInTable="NomeClienteColumn" msprop:Generator_ColumnVarNameInTable="columnNomeCliente" msprop:Generator_UserColumnName="NomeCliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CodProduto" msprop:Generator_ColumnPropNameInRow="CodProduto" msprop:Generator_ColumnPropNameInTable="CodProdutoColumn" msprop:Generator_ColumnVarNameInTable="columnCodProduto" msprop:Generator_UserColumnName="CodProduto" type="xs:int" />
+              <xs:element name="DescricaoProduto" msprop:Generator_ColumnPropNameInRow="DescricaoProduto" msprop:Generator_ColumnPropNameInTable="DescricaoProdutoColumn" msprop:Generator_ColumnVarNameInTable="columnDescricaoProduto" msprop:Generator_UserColumnName="DescricaoProduto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrecoUnitario" msprop:Generator_ColumnPropNameInRow="PrecoUnitario" msprop:Generator_ColumnPropNameInTable="PrecoUnitarioColumn" msprop:Generator_ColumnVarNameInTable="columnPrecoUnitario" msprop:Generator_UserColumnName="PrecoUnitario" type="xs:double" minOccurs="0" />
+              <xs:element name="DataEnviado" msprop:Generator_ColumnPropNameInRow="DataEnviado" msprop:Generator_ColumnPropNameInTable="DataEnviadoColumn" msprop:Generator_ColumnVarNameInTable="columnDataEnviado" msprop:Generator_UserColumnName="DataEnviado" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsEntregue" msprop:Generator_ColumnPropNameInRow="IsEntregue" msprop:Generator_ColumnPropNameInTable="IsEntregueColumn" msprop:Generator_ColumnVarNameInTable="columnIsEntregue" msprop:Generator_UserColumnName="IsEntregue" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DataEntregue" msprop:Generator_ColumnPropNameInRow="DataEntregue" msprop:Generator_ColumnPropNameInTable="DataEntregueColumn" msprop:Generator_ColumnVarNameInTable="columnDataEntregue" msprop:Generator_UserColumnName="DataEntregue" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ValorTotal" msprop:Generator_ColumnPropNameInRow="ValorTotal" msprop:Generator_ColumnPropNameInTable="ValorTotalColumn" msprop:Generator_ColumnVarNameInTable="columnValorTotal" msprop:Generator_UserColumnName="ValorTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="FaseAtual" msprop:Generator_ColumnPropNameInRow="FaseAtual" msprop:Generator_ColumnPropNameInTable="FaseAtualColumn" msprop:Generator_ColumnVarNameInTable="columnFaseAtual" msprop:Generator_UserColumnName="FaseAtual" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DataFinalizado" msprop:Generator_ColumnPropNameInRow="DataFinalizado" msprop:Generator_ColumnPropNameInTable="DataFinalizadoColumn" msprop:Generator_ColumnVarNameInTable="columnDataFinalizado" msprop:Generator_UserColumnName="DataFinalizado" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IdOrdem" msprop:Generator_ColumnPropNameInRow="IdOrdem" msprop:Generator_ColumnPropNameInTable="IdOrdemColumn" msprop:Generator_ColumnVarNameInTable="columnIdOrdem" msprop:Generator_UserColumnName="IdOrdem" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

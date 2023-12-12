@@ -47,18 +47,27 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews
             }
             else
             {
-                string codigoAceso = tipoAcesso();
                 using (ConnectionString context = new ConnectionString())
                 {
-                    TipoAcesso acesso = context.TipoAcesso.FirstOrDefault(x => x.CodTipoAcesso.Equals(codigoAceso));
+                    List<string> acessosUsuario = new List<string>();
+                    tipoAcesso(acessosUsuario);
+                    //TipoAcesso acesso = context.TipoAcesso.FirstOrDefault(x => x.CodTipoAcesso.Equals(codigoAceso));
                     Usuario usuario = new Usuario();
                     usuario.Login = txtUsuario.Text;
                     usuario.Senha = Criptografia.Encrypt(txtSenha.Text);
-                    usuario.CodTipoAcesso = acesso.CodTipoAcesso;
-
+                    //usuario.CodTipoAcesso = acesso.CodTipoAcesso;
+                    usuario.EstaAtivo = true;
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
 
+                    foreach (string item in acessosUsuario) 
+                    {
+                        Acessos acessos = new Acessos();
+                        acessos.Login = usuario.Login;
+                        acessos.CodAcesso = item;
+                        context.Acessos.Add(acessos);
+                        context.SaveChanges();
+                    }
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
                     DialogResult result = MessageBox.Show("Novo usuário cadastrado", "Sucesso", buttons, MessageBoxIcon.Information);
 
@@ -112,27 +121,23 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews
             }
         }
 
-        public string tipoAcesso() 
+        public void tipoAcesso(List<string> acessosUsuario) 
         {
             if (vendasCheckBox.Checked)
             {
-                return "VEN";
+                acessosUsuario.Add("VEN");
             }
-            else if (SuprimentosCheckBox.Checked)
+            if (SuprimentosCheckBox.Checked)
             {
-                return "SUP";
+                acessosUsuario.Add("SUP");
             }
-            else if (FinanceiroCheckBox.Checked)
+            if (FinanceiroCheckBox.Checked)
             {
-                return "FIN";
+                acessosUsuario.Add("FIN");
             }
-            else if (FabricaCheckBox.Checked)
+            if (FabricaCheckBox.Checked)
             {
-                return "FAB";
-            }
-            else 
-            {
-                return "";
+                acessosUsuario.Add("FAB");
             }
         }
 

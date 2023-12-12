@@ -18,39 +18,46 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews
     public partial class FrmDetalhes : Form
     {
         public Usuario usuario { get; set; }
-        public FrmDetalhes(Usuario currentUser)
+        public FrmDetalhes(Usuario currentUser, List<string> acessos, bool eEdicao)
         {
             InitializeComponent();
             usuario = currentUser;
-            txtUsuario.ReadOnly = true;
+            if (eEdicao == false)
+            {
+                txtUsuario.Enabled = false;
+                txtUsuario.ReadOnly = true;
+                FinanceiroCheckBox.Enabled = false;
+                FabricaCheckBox.Enabled = false;
+                SuprimentosCheckBox.Enabled = false;
+                vendasCheckBox.Enabled = false;
+            }
             txtUsuario.Text = currentUser.Login;
-            if (currentUser.CodTipoAcesso.Equals("FAB"))
+            foreach (string item in acessos)
             {
-                FabricaCheckBox.Checked = true;
+                if (item.Equals("FAB"))
+                {
+                    FabricaCheckBox.Checked = true;
+                }
+                if (item.Equals("VEN"))
+                {
+                    vendasCheckBox.Checked = true;
+                }
+                if (item.Equals("FIN"))
+                {
+                    FinanceiroCheckBox.Checked = true;
+                }
+                if (item.Equals("SUP"))
+                {
+                    SuprimentosCheckBox.Checked = true;
+                }
+                if (item.Equals("ADM"))
+                {
+                    FinanceiroCheckBox.Checked = true;
+                    SuprimentosCheckBox.Checked = true;
+                    vendasCheckBox.Checked = true;
+                    FabricaCheckBox.Checked = true;
+                }
             }
-            else if (currentUser.CodTipoAcesso.Equals("VEN"))
-            {
-                vendasCheckBox.Checked = true;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("FIN"))
-            {
-                FinanceiroCheckBox.Checked = true;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("SUP"))
-            {
-                SuprimentosCheckBox.Checked = true;
-            }
-            else if (currentUser.CodTipoAcesso.Equals("ADM"))
-            {
-                FinanceiroCheckBox.Checked = true;
-                SuprimentosCheckBox.Checked = true;
-                vendasCheckBox.Checked = true;
-                FabricaCheckBox.Checked = true;
-            }
-        }
-
-        private void informacoesUsuario_Load(object sender, EventArgs e)
-        {
         }
 
         private void labelMudarSenha_Click(object sender, EventArgs e)
@@ -63,6 +70,11 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro.cadastrosUsuariosViews
         private void labelMudarSenha_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
+        }
+
+        private void FrmDetalhes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

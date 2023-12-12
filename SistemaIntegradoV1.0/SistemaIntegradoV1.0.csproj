@@ -62,6 +62,21 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Server.1.0.0\lib\net46\Microsoft.SqlServer.Server.dll</HintPath>
     </Reference>
@@ -190,7 +205,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DB_SISTEMA_INTEGRADODataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MODEL\Criptografia.cs" />
+    <Compile Include="MODEL\DadosUsuarioRelatorio.cs" />
     <Compile Include="MODEL\materiasQuantidade.cs" />
     <Compile Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmDetalhes.cs">
       <SubType>Form</SubType>
@@ -221,6 +272,12 @@
     </Compile>
     <Compile Include="VIEW\CADASTROS\PRODUTOS\FrmDetalhes.Designer.cs">
       <DependentUpon>FrmDetalhes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\CADASTROS\USUARIOS\FrmEditarUsuario.Designer.cs">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\CADASTROS\USUARIOS\FrmUsuario.cs">
       <SubType>Form</SubType>
@@ -378,6 +435,12 @@
     <Compile Include="VIEW\PROCESSOS\VENDAS\FrmOrcamento.Designer.cs">
       <DependentUpon>FrmOrcamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\RELATORIO\FrmRelatorioPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\RELATORIO\FrmRelatorioPedidos.Designer.cs">
+      <DependentUpon>FrmRelatorioPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\TELA_PRINCIPAL\FrmTelaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +449,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="REPORT\RelatorioPedidos.rdlc" />
     <EmbeddedResource Include="VIEW\CADASTROS\MATERIA_PRIMA\FrmDetalhes.resx">
       <DependentUpon>FrmDetalhes.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\CADASTROS\PRODUTOS\FrmDetalhes.resx">
       <DependentUpon>FrmDetalhes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmEditarUsuario.resx">
+      <DependentUpon>FrmEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\CADASTROS\USUARIOS\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
@@ -479,6 +546,9 @@
     <EmbeddedResource Include="VIEW\PROCESSOS\VENDAS\FrmOrcamento.resx">
       <DependentUpon>FrmOrcamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\RELATORIO\FrmRelatorioPedidos.resx">
+      <DependentUpon>FrmRelatorioPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\TELA_PRINCIPAL\FrmTelaPrincipal.resx">
       <DependentUpon>FrmTelaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -492,7 +562,85 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DB_SISTEMA_INTEGRADODataSet.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet1.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet1.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet2.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet2.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet3.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet3.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet4.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet4.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet5.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet5.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet6.xsc">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_SISTEMA_INTEGRADODataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_SISTEMA_INTEGRADODataSet6.xss">
+      <DependentUpon>DB_SISTEMA_INTEGRADODataSet6.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SistemaIntegradoV1._0.MODEL.DadosUsuarioRelatorio.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -512,15 +660,7 @@
       <Name>SISTEMA.INTEGRADO.V1.0.DAO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clienteDesativados.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-disabled-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-ok-32.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

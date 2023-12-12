@@ -146,6 +146,7 @@
             this.UsuariosDataGridView.Style.HeaderStyle.Font.Size = 11F;
             this.UsuariosDataGridView.TabIndex = 26;
             this.UsuariosDataGridView.Text = "sfDataGrid1";
+            this.UsuariosDataGridView.CellDoubleClick += new Syncfusion.WinForms.DataGrid.Events.CellClickEventHandler(this.UsuariosDataGridView_CellDoubleClick);
             // 
             // FrmListagemUsuarios
             // 

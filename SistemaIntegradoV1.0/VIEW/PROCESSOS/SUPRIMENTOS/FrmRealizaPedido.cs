@@ -50,6 +50,7 @@ namespace SistemaIntegradoV1._0
                 pedidoAserfeito.CondicaoPagamento = dpdPagamento.Text;
                 pedidoAserfeito.IsPedidoAceito = true;
                 pedidoAserfeito.IsEntregue = false;
+                pedidoAserfeito.DataCompra = DateTime.Now;
 
                 recibo.idPedidoPagar = pedidoAserfeito.IdPedidoCompra;
                 recibo.ValorPago = pedidoAserfeito.PrecoTotal;

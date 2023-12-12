@@ -36,38 +36,38 @@
             this.menuCadastro = new System.Windows.Forms.FlowLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnCadastro = new System.Windows.Forms.Button();
-            this.panel16 = new System.Windows.Forms.Panel();
+            this.panelUsuario = new System.Windows.Forms.Panel();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.panelCliente = new System.Windows.Forms.Panel();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.panelMateria = new System.Windows.Forms.Panel();
             this.btnMateria = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.panelProduto = new System.Windows.Forms.Panel();
             this.btnProduto = new System.Windows.Forms.Button();
             this.menuContainerVendas = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnVendas = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelOrcamentos = new System.Windows.Forms.Panel();
             this.btnPedidos = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelEntregas = new System.Windows.Forms.Panel();
             this.btnEntrega = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelSuprimentos = new System.Windows.Forms.Panel();
             this.btnSuplimentos = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelProducao = new System.Windows.Forms.Panel();
             this.btnProducao = new System.Windows.Forms.Button();
             this.menuContainerFinanceiro = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnFinanceiro = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.panelRecibos = new System.Windows.Forms.Panel();
             this.btnRecibos = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.panelFaturas = new System.Windows.Forms.Panel();
             this.btnFaturas = new System.Windows.Forms.Button();
             this.menuEstoques = new System.Windows.Forms.FlowLayoutPanel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnEstoque = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.panelEstoqueProdutos = new System.Windows.Forms.Panel();
             this.btnEstoqueProdutos = new System.Windows.Forms.Button();
-            this.panel19 = new System.Windows.Forms.Panel();
+            this.panelEstoqueMateria = new System.Windows.Forms.Panel();
             this.btnEstoqueMp = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,33 +84,36 @@
             this.menuEstoquesTransition = new System.Windows.Forms.Timer(this.components);
             this.titulo = new System.Windows.Forms.PictureBox();
             this.engrenagens = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.sideBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuCadastro.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.panelUsuario.SuspendLayout();
+            this.panelCliente.SuspendLayout();
+            this.panelMateria.SuspendLayout();
+            this.panelProduto.SuspendLayout();
             this.menuContainerVendas.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panelOrcamentos.SuspendLayout();
+            this.panelEntregas.SuspendLayout();
+            this.panelSuprimentos.SuspendLayout();
+            this.panelProducao.SuspendLayout();
             this.menuContainerFinanceiro.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.panelRecibos.SuspendLayout();
+            this.panelFaturas.SuspendLayout();
             this.menuEstoques.SuspendLayout();
             this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
+            this.panelEstoqueProdutos.SuspendLayout();
+            this.panelEstoqueMateria.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.titulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.engrenagens)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBar
@@ -120,14 +123,15 @@
             this.sideBar.Controls.Add(this.flowLayoutPanel1);
             this.sideBar.Controls.Add(this.menuCadastro);
             this.sideBar.Controls.Add(this.menuContainerVendas);
-            this.sideBar.Controls.Add(this.panel7);
-            this.sideBar.Controls.Add(this.panel6);
+            this.sideBar.Controls.Add(this.panelSuprimentos);
+            this.sideBar.Controls.Add(this.panelProducao);
             this.sideBar.Controls.Add(this.menuContainerFinanceiro);
             this.sideBar.Controls.Add(this.menuEstoques);
+            this.sideBar.Controls.Add(this.panel3);
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideBar.Location = new System.Drawing.Point(0, 35);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(206, 832);
+            this.sideBar.Size = new System.Drawing.Size(250, 974);
             this.sideBar.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -137,7 +141,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 20);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 20, 0, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(198, 41);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 50);
             this.flowLayoutPanel1.TabIndex = 10;
             // 
             // msgBemvindo
@@ -160,16 +164,17 @@
             // menuCadastro
             // 
             this.menuCadastro.Controls.Add(this.panel10);
-            this.menuCadastro.Controls.Add(this.panel16);
-            this.menuCadastro.Controls.Add(this.panel11);
-            this.menuCadastro.Controls.Add(this.panel12);
-            this.menuCadastro.Controls.Add(this.panel13);
+            this.menuCadastro.Controls.Add(this.panelUsuario);
+            this.menuCadastro.Controls.Add(this.panelCliente);
+            this.menuCadastro.Controls.Add(this.panelMateria);
+            this.menuCadastro.Controls.Add(this.panelProduto);
             this.menuCadastro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.menuCadastro.Location = new System.Drawing.Point(0, 121);
+            this.menuCadastro.Location = new System.Drawing.Point(0, 130);
             this.menuCadastro.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.menuCadastro.Name = "menuCadastro";
             this.menuCadastro.Size = new System.Drawing.Size(203, 198);
             this.menuCadastro.TabIndex = 9;
+            this.menuCadastro.Visible = false;
             // 
             // panel10
             // 
@@ -195,14 +200,15 @@
             this.btnCadastro.UseVisualStyleBackColor = false;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
-            // panel16
+            // panelUsuario
             // 
-            this.panel16.Controls.Add(this.btnUsuario);
-            this.panel16.Location = new System.Drawing.Point(0, 39);
-            this.panel16.Margin = new System.Windows.Forms.Padding(0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(153, 39);
-            this.panel16.TabIndex = 10;
+            this.panelUsuario.Controls.Add(this.btnUsuario);
+            this.panelUsuario.Location = new System.Drawing.Point(0, 39);
+            this.panelUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.panelUsuario.Name = "panelUsuario";
+            this.panelUsuario.Size = new System.Drawing.Size(153, 39);
+            this.panelUsuario.TabIndex = 10;
+            this.panelUsuario.Visible = false;
             // 
             // btnUsuario
             // 
@@ -220,14 +226,15 @@
             this.btnUsuario.UseVisualStyleBackColor = false;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
-            // panel11
+            // panelCliente
             // 
-            this.panel11.Controls.Add(this.btnClientes);
-            this.panel11.Location = new System.Drawing.Point(0, 78);
-            this.panel11.Margin = new System.Windows.Forms.Padding(0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(153, 39);
-            this.panel11.TabIndex = 6;
+            this.panelCliente.Controls.Add(this.btnClientes);
+            this.panelCliente.Location = new System.Drawing.Point(0, 78);
+            this.panelCliente.Margin = new System.Windows.Forms.Padding(0);
+            this.panelCliente.Name = "panelCliente";
+            this.panelCliente.Size = new System.Drawing.Size(153, 39);
+            this.panelCliente.TabIndex = 6;
+            this.panelCliente.Visible = false;
             // 
             // btnClientes
             // 
@@ -245,14 +252,15 @@
             this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // panel12
+            // panelMateria
             // 
-            this.panel12.Controls.Add(this.btnMateria);
-            this.panel12.Location = new System.Drawing.Point(0, 117);
-            this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(153, 39);
-            this.panel12.TabIndex = 7;
+            this.panelMateria.Controls.Add(this.btnMateria);
+            this.panelMateria.Location = new System.Drawing.Point(0, 117);
+            this.panelMateria.Margin = new System.Windows.Forms.Padding(0);
+            this.panelMateria.Name = "panelMateria";
+            this.panelMateria.Size = new System.Drawing.Size(153, 39);
+            this.panelMateria.TabIndex = 7;
+            this.panelMateria.Visible = false;
             // 
             // btnMateria
             // 
@@ -270,14 +278,15 @@
             this.btnMateria.UseVisualStyleBackColor = false;
             this.btnMateria.Click += new System.EventHandler(this.btnMateria_Click);
             // 
-            // panel13
+            // panelProduto
             // 
-            this.panel13.Controls.Add(this.btnProduto);
-            this.panel13.Location = new System.Drawing.Point(0, 156);
-            this.panel13.Margin = new System.Windows.Forms.Padding(0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(153, 39);
-            this.panel13.TabIndex = 8;
+            this.panelProduto.Controls.Add(this.btnProduto);
+            this.panelProduto.Location = new System.Drawing.Point(0, 156);
+            this.panelProduto.Margin = new System.Windows.Forms.Padding(0);
+            this.panelProduto.Name = "panelProduto";
+            this.panelProduto.Size = new System.Drawing.Size(153, 39);
+            this.panelProduto.TabIndex = 8;
+            this.panelProduto.Visible = false;
             // 
             // btnProduto
             // 
@@ -298,14 +307,15 @@
             // menuContainerVendas
             // 
             this.menuContainerVendas.Controls.Add(this.panel4);
-            this.menuContainerVendas.Controls.Add(this.panel3);
-            this.menuContainerVendas.Controls.Add(this.panel5);
+            this.menuContainerVendas.Controls.Add(this.panelOrcamentos);
+            this.menuContainerVendas.Controls.Add(this.panelEntregas);
             this.menuContainerVendas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.menuContainerVendas.Location = new System.Drawing.Point(0, 329);
+            this.menuContainerVendas.Location = new System.Drawing.Point(0, 338);
             this.menuContainerVendas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.menuContainerVendas.Name = "menuContainerVendas";
             this.menuContainerVendas.Size = new System.Drawing.Size(203, 113);
             this.menuContainerVendas.TabIndex = 8;
+            this.menuContainerVendas.Visible = false;
             // 
             // panel4
             // 
@@ -331,14 +341,15 @@
             this.btnVendas.UseVisualStyleBackColor = false;
             this.btnVendas.Click += new System.EventHandler(this.btnVendas_Click);
             // 
-            // panel3
+            // panelOrcamentos
             // 
-            this.panel3.Controls.Add(this.btnPedidos);
-            this.panel3.Location = new System.Drawing.Point(0, 39);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(153, 39);
-            this.panel3.TabIndex = 6;
+            this.panelOrcamentos.Controls.Add(this.btnPedidos);
+            this.panelOrcamentos.Location = new System.Drawing.Point(0, 39);
+            this.panelOrcamentos.Margin = new System.Windows.Forms.Padding(0);
+            this.panelOrcamentos.Name = "panelOrcamentos";
+            this.panelOrcamentos.Size = new System.Drawing.Size(153, 39);
+            this.panelOrcamentos.TabIndex = 6;
+            this.panelOrcamentos.Visible = false;
             // 
             // btnPedidos
             // 
@@ -356,14 +367,15 @@
             this.btnPedidos.UseVisualStyleBackColor = false;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
-            // panel5
+            // panelEntregas
             // 
-            this.panel5.Controls.Add(this.btnEntrega);
-            this.panel5.Location = new System.Drawing.Point(0, 78);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(153, 39);
-            this.panel5.TabIndex = 7;
+            this.panelEntregas.Controls.Add(this.btnEntrega);
+            this.panelEntregas.Location = new System.Drawing.Point(0, 78);
+            this.panelEntregas.Margin = new System.Windows.Forms.Padding(0);
+            this.panelEntregas.Name = "panelEntregas";
+            this.panelEntregas.Size = new System.Drawing.Size(153, 39);
+            this.panelEntregas.TabIndex = 7;
+            this.panelEntregas.Visible = false;
             // 
             // btnEntrega
             // 
@@ -381,15 +393,16 @@
             this.btnEntrega.UseVisualStyleBackColor = false;
             this.btnEntrega.Click += new System.EventHandler(this.btnEntrega_Click);
             // 
-            // panel7
+            // panelSuprimentos
             // 
-            this.panel7.Controls.Add(this.btnSuplimentos);
-            this.panel7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.panel7.Location = new System.Drawing.Point(3, 452);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(188, 39);
-            this.panel7.TabIndex = 10;
+            this.panelSuprimentos.Controls.Add(this.btnSuplimentos);
+            this.panelSuprimentos.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.panelSuprimentos.Location = new System.Drawing.Point(3, 461);
+            this.panelSuprimentos.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.panelSuprimentos.Name = "panelSuprimentos";
+            this.panelSuprimentos.Size = new System.Drawing.Size(188, 39);
+            this.panelSuprimentos.TabIndex = 10;
+            this.panelSuprimentos.Visible = false;
             // 
             // btnSuplimentos
             // 
@@ -406,15 +419,16 @@
             this.btnSuplimentos.UseVisualStyleBackColor = false;
             this.btnSuplimentos.Click += new System.EventHandler(this.btnSuplimentos_Click);
             // 
-            // panel6
+            // panelProducao
             // 
-            this.panel6.Controls.Add(this.btnProducao);
-            this.panel6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.panel6.Location = new System.Drawing.Point(3, 501);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(188, 39);
-            this.panel6.TabIndex = 9;
+            this.panelProducao.Controls.Add(this.btnProducao);
+            this.panelProducao.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.panelProducao.Location = new System.Drawing.Point(3, 510);
+            this.panelProducao.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.panelProducao.Name = "panelProducao";
+            this.panelProducao.Size = new System.Drawing.Size(188, 39);
+            this.panelProducao.TabIndex = 9;
+            this.panelProducao.Visible = false;
             // 
             // btnProducao
             // 
@@ -434,14 +448,15 @@
             // menuContainerFinanceiro
             // 
             this.menuContainerFinanceiro.Controls.Add(this.panel2);
-            this.menuContainerFinanceiro.Controls.Add(this.panel8);
-            this.menuContainerFinanceiro.Controls.Add(this.panel9);
+            this.menuContainerFinanceiro.Controls.Add(this.panelRecibos);
+            this.menuContainerFinanceiro.Controls.Add(this.panelFaturas);
             this.menuContainerFinanceiro.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.menuContainerFinanceiro.Location = new System.Drawing.Point(0, 550);
+            this.menuContainerFinanceiro.Location = new System.Drawing.Point(0, 559);
             this.menuContainerFinanceiro.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.menuContainerFinanceiro.Name = "menuContainerFinanceiro";
             this.menuContainerFinanceiro.Size = new System.Drawing.Size(203, 114);
             this.menuContainerFinanceiro.TabIndex = 9;
+            this.menuContainerFinanceiro.Visible = false;
             // 
             // panel2
             // 
@@ -467,14 +482,15 @@
             this.btnFinanceiro.UseVisualStyleBackColor = false;
             this.btnFinanceiro.Click += new System.EventHandler(this.btnFinanceiro_Click);
             // 
-            // panel8
+            // panelRecibos
             // 
-            this.panel8.Controls.Add(this.btnRecibos);
-            this.panel8.Location = new System.Drawing.Point(0, 39);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(153, 39);
-            this.panel8.TabIndex = 6;
+            this.panelRecibos.Controls.Add(this.btnRecibos);
+            this.panelRecibos.Location = new System.Drawing.Point(0, 39);
+            this.panelRecibos.Margin = new System.Windows.Forms.Padding(0);
+            this.panelRecibos.Name = "panelRecibos";
+            this.panelRecibos.Size = new System.Drawing.Size(153, 39);
+            this.panelRecibos.TabIndex = 6;
+            this.panelRecibos.Visible = false;
             // 
             // btnRecibos
             // 
@@ -492,14 +508,15 @@
             this.btnRecibos.UseVisualStyleBackColor = false;
             this.btnRecibos.Click += new System.EventHandler(this.btnRecibos_Click);
             // 
-            // panel9
+            // panelFaturas
             // 
-            this.panel9.Controls.Add(this.btnFaturas);
-            this.panel9.Location = new System.Drawing.Point(0, 78);
-            this.panel9.Margin = new System.Windows.Forms.Padding(0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(153, 39);
-            this.panel9.TabIndex = 7;
+            this.panelFaturas.Controls.Add(this.btnFaturas);
+            this.panelFaturas.Location = new System.Drawing.Point(0, 78);
+            this.panelFaturas.Margin = new System.Windows.Forms.Padding(0);
+            this.panelFaturas.Name = "panelFaturas";
+            this.panelFaturas.Size = new System.Drawing.Size(153, 39);
+            this.panelFaturas.TabIndex = 7;
+            this.panelFaturas.Visible = false;
             // 
             // btnFaturas
             // 
@@ -520,10 +537,10 @@
             // menuEstoques
             // 
             this.menuEstoques.Controls.Add(this.panel17);
-            this.menuEstoques.Controls.Add(this.panel18);
-            this.menuEstoques.Controls.Add(this.panel19);
+            this.menuEstoques.Controls.Add(this.panelEstoqueProdutos);
+            this.menuEstoques.Controls.Add(this.panelEstoqueMateria);
             this.menuEstoques.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.menuEstoques.Location = new System.Drawing.Point(0, 674);
+            this.menuEstoques.Location = new System.Drawing.Point(0, 683);
             this.menuEstoques.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.menuEstoques.Name = "menuEstoques";
             this.menuEstoques.Size = new System.Drawing.Size(203, 123);
@@ -553,14 +570,14 @@
             this.btnEstoque.UseVisualStyleBackColor = false;
             this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
-            // panel18
+            // panelEstoqueProdutos
             // 
-            this.panel18.Controls.Add(this.btnEstoqueProdutos);
-            this.panel18.Location = new System.Drawing.Point(0, 39);
-            this.panel18.Margin = new System.Windows.Forms.Padding(0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(153, 39);
-            this.panel18.TabIndex = 6;
+            this.panelEstoqueProdutos.Controls.Add(this.btnEstoqueProdutos);
+            this.panelEstoqueProdutos.Location = new System.Drawing.Point(0, 39);
+            this.panelEstoqueProdutos.Margin = new System.Windows.Forms.Padding(0);
+            this.panelEstoqueProdutos.Name = "panelEstoqueProdutos";
+            this.panelEstoqueProdutos.Size = new System.Drawing.Size(153, 39);
+            this.panelEstoqueProdutos.TabIndex = 6;
             // 
             // btnEstoqueProdutos
             // 
@@ -578,14 +595,14 @@
             this.btnEstoqueProdutos.UseVisualStyleBackColor = false;
             this.btnEstoqueProdutos.Click += new System.EventHandler(this.btnEstoqueProdutos_Click);
             // 
-            // panel19
+            // panelEstoqueMateria
             // 
-            this.panel19.Controls.Add(this.btnEstoqueMp);
-            this.panel19.Location = new System.Drawing.Point(0, 78);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(153, 39);
-            this.panel19.TabIndex = 7;
+            this.panelEstoqueMateria.Controls.Add(this.btnEstoqueMp);
+            this.panelEstoqueMateria.Location = new System.Drawing.Point(0, 78);
+            this.panelEstoqueMateria.Margin = new System.Windows.Forms.Padding(0);
+            this.panelEstoqueMateria.Name = "panelEstoqueMateria";
+            this.panelEstoqueMateria.Size = new System.Drawing.Size(153, 39);
+            this.panelEstoqueMateria.TabIndex = 7;
             // 
             // btnEstoqueMp
             // 
@@ -721,18 +738,43 @@
             // 
             this.engrenagens.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.engrenagens.Image = ((System.Drawing.Image)(resources.GetObject("engrenagens.Image")));
-            this.engrenagens.Location = new System.Drawing.Point(501, 270);
+            this.engrenagens.Location = new System.Drawing.Point(501, 412);
             this.engrenagens.Name = "engrenagens";
             this.engrenagens.Size = new System.Drawing.Size(629, 596);
             this.engrenagens.TabIndex = 4;
             this.engrenagens.TabStop = false;
             // 
-            // TelaPrincipal
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnRelatorio);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.panel3.Location = new System.Drawing.Point(3, 816);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(188, 39);
+            this.panel3.TabIndex = 12;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.btnRelatorio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.ForeColor = System.Drawing.Color.White;
+            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRelatorio.Location = new System.Drawing.Point(-5, -12);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(208, 57);
+            this.btnRelatorio.TabIndex = 3;
+            this.btnRelatorio.Text = "Relatório";
+            this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
+            // 
+            // FrmTelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1130, 867);
+            this.ClientSize = new System.Drawing.Size(1130, 1009);
             this.Controls.Add(this.titulo);
             this.Controls.Add(this.engrenagens);
             this.Controls.Add(this.sideBar);
@@ -741,7 +783,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Name = "TelaPrincipal";
+            this.Name = "FrmTelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Integrado";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -751,30 +793,31 @@
             this.flowLayoutPanel1.PerformLayout();
             this.menuCadastro.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
+            this.panelUsuario.ResumeLayout(false);
+            this.panelCliente.ResumeLayout(false);
+            this.panelMateria.ResumeLayout(false);
+            this.panelProduto.ResumeLayout(false);
             this.menuContainerVendas.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.panelOrcamentos.ResumeLayout(false);
+            this.panelEntregas.ResumeLayout(false);
+            this.panelSuprimentos.ResumeLayout(false);
+            this.panelProducao.ResumeLayout(false);
             this.menuContainerFinanceiro.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
+            this.panelRecibos.ResumeLayout(false);
+            this.panelFaturas.ResumeLayout(false);
             this.menuEstoques.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
+            this.panelEstoqueProdutos.ResumeLayout(false);
+            this.panelEstoqueMateria.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.titulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.engrenagens)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -785,20 +828,20 @@
         private System.Windows.Forms.FlowLayoutPanel menuContainerVendas;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnVendas;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelOrcamentos;
         private System.Windows.Forms.Button btnPedidos;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelEntregas;
         private System.Windows.Forms.Button btnEntrega;
         private System.Windows.Forms.FlowLayoutPanel menuContainerFinanceiro;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnFinanceiro;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panelRecibos;
         private System.Windows.Forms.Button btnRecibos;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelFaturas;
         private System.Windows.Forms.Button btnFaturas;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelProducao;
         private System.Windows.Forms.Button btnProducao;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelSuprimentos;
         private System.Windows.Forms.Button btnSuplimentos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
@@ -809,11 +852,11 @@
         private System.Windows.Forms.FlowLayoutPanel menuCadastro;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button btnCadastro;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panelCliente;
         private System.Windows.Forms.Button btnClientes;
-        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panelMateria;
         private System.Windows.Forms.Button btnMateria;
-        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panelProduto;
         private System.Windows.Forms.Button btnProduto;
         private System.Windows.Forms.Timer menuCadastroTransition;
         private Syncfusion.Windows.Forms.Tools.TabbedMDIManager tabbedMDIManager1;
@@ -825,16 +868,18 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panelUsuario;
         private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.FlowLayoutPanel menuEstoques;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btnEstoque;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panelEstoqueProdutos;
         private System.Windows.Forms.Button btnEstoqueProdutos;
-        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panelEstoqueMateria;
         private System.Windows.Forms.Button btnEstoqueMp;
         private System.Windows.Forms.Timer menuEstoquesTransition;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnRelatorio;
     }
 }
 

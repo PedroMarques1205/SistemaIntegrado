@@ -23,6 +23,8 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public int IdPedidoCompra { get; set; }
         public int IdMateriaPrima { get; set; }
         public string Fornecedor { get; set; }
+        public Nullable<System.DateTime> DataPedido { get; set; }
+        public Nullable<System.DateTime> DataCompra { get; set; }
         public Nullable<int> Quantidade { get; set; }
         public Nullable<double> PrecoUnit { get; set; }
         public Nullable<double> PrecoTotal { get; set; }

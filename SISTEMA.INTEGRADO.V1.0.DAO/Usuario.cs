@@ -14,11 +14,17 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
     
     public partial class Usuario
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuario()
+        {
+            this.Acessos = new HashSet<Acessos>();
+        }
+    
         public string Login { get; set; }
         public string Senha { get; set; }
-        public string CodTipoAcesso { get; set; }
         public bool EstaAtivo { get; set; }
     
-        public virtual TipoAcesso TipoAcesso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Acessos> Acessos { get; set; }
     }
 }

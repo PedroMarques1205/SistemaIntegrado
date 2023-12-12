@@ -137,7 +137,6 @@
             this.FabricaCheckBox.TabIndex = 3;
             this.FabricaCheckBox.Text = "Fabricação";
             this.FabricaCheckBox.UseVisualStyleBackColor = true;
-            this.FabricaCheckBox.CheckedChanged += new System.EventHandler(this.FabricaCheckBox_CheckedChanged);
             // 
             // SuprimentosCheckBox
             // 
@@ -148,7 +147,6 @@
             this.SuprimentosCheckBox.TabIndex = 2;
             this.SuprimentosCheckBox.Text = "Suprimentos";
             this.SuprimentosCheckBox.UseVisualStyleBackColor = true;
-            this.SuprimentosCheckBox.CheckedChanged += new System.EventHandler(this.SuprimentosCheckBox_CheckedChanged);
             // 
             // FinanceiroCheckBox
             // 
@@ -159,7 +157,6 @@
             this.FinanceiroCheckBox.TabIndex = 1;
             this.FinanceiroCheckBox.Text = "Financeiro";
             this.FinanceiroCheckBox.UseVisualStyleBackColor = true;
-            this.FinanceiroCheckBox.CheckedChanged += new System.EventHandler(this.FinanceiroCheckBox_CheckedChanged);
             // 
             // vendasCheckBox
             // 
@@ -170,7 +167,6 @@
             this.vendasCheckBox.TabIndex = 0;
             this.vendasCheckBox.Text = "Vendas";
             this.vendasCheckBox.UseVisualStyleBackColor = true;
-            this.vendasCheckBox.CheckedChanged += new System.EventHandler(this.vendasCheckBox_CheckedChanged);
             // 
             // olhoAberto
             // 
@@ -193,7 +189,7 @@
             this.olhoFechado.TabStop = false;
             this.olhoFechado.Click += new System.EventHandler(this.olhoFechado_Click);
             // 
-            // cadastrarUsuario
+            // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -212,7 +208,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "cadastrarUsuario";
+            this.Name = "FrmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuário";
             this.groupBox.ResumeLayout(false);

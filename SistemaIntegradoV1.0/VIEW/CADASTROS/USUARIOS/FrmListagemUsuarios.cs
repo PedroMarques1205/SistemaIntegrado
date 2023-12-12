@@ -15,21 +15,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Remoting.Contexts;
+using SistemaIntegradoV1._0.VIEW.CADASTROS.USUARIOS;
 
 namespace SistemaIntegradoV1._0.VIEW.Cadastro
 {
     public partial class FrmListagemUsuarios : Form
     {
-        public FrmListagemUsuarios()
+        public List<string> acess { get; set; }
+        public FrmListagemUsuarios(List<string> acessos)
         {
             InitializeComponent();
+            acess = acessos;
         }
 
         public void constroiGrid()
         {
             UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "login", HeaderText = "Login", Visible = true });
-            UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "area", HeaderText = "Área", Visible = true });
-            UsuariosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "ativo", HeaderText = "Está Ativo?", Visible = true, Width = 150 });
+            //UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "area", HeaderText = "Área", Visible = true });
+            //UsuariosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "ativo", HeaderText = "Está Ativo?", Visible = true, Width = 150 });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -37,7 +40,6 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                              select new
                              {
                                  login = usuario.Login,
-                                 area = usuario.TipoAcesso.TipoAcesso1,
                                  ativo = usuario.EstaAtivo
                              }).ToList();
                 UsuariosDataGridView.DataSource = query;
@@ -51,7 +53,6 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                              select new
                              {
                                  login = usuario.Login,
-                                 area = usuario.TipoAcesso.TipoAcesso1,
                                  ativo = usuario.EstaAtivo
                              }).ToList();
                 UsuariosDataGridView.DataSource = query;
@@ -69,8 +70,10 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
 
         private void cadastroUsuario_Load(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor; 
             constroiGrid();
             carregaGrid();
+            Cursor.Current = Cursors.Default;
         }
 
         private void tdbRefresh_Click(object sender, EventArgs e)
@@ -117,6 +120,21 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                     MessageBox.Show("Usuário Reativado", "Sucesso", buttons, MessageBoxIcon.Information);
                     carregaGrid();
                 }
+            }
+        }
+
+        private void UsuariosDataGridView_CellDoubleClick(object sender, Syncfusion.WinForms.DataGrid.Events.CellClickEventArgs e)
+        {
+            var linhaSelecionada = UsuariosDataGridView.SelectedItem;
+
+            string login = Convert.ToString(linhaSelecionada.GetType().GetProperty("login").GetValue(linhaSelecionada, null));
+
+            using (ConnectionString context = new ConnectionString()) 
+            {
+                Usuario user = context.Usuario.FirstOrDefault(x => x.Login.Equals(login));
+                List<Acessos> acessos = context.Acessos.Where(x => x.Login.Equals(user.Login)).ToList();
+                FrmEditarUsuario tela = new FrmEditarUsuario(user, acessos);
+                tela.ShowDialog();
             }
         }
     }

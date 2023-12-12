@@ -26,6 +26,9 @@ namespace SISTEMA.INTEGRADO.V1._0.DAO
         public int idProduto { get; set; }
         public Nullable<int> QuantProduto { get; set; }
         public Nullable<double> ValorTotal { get; set; }
+        public System.DateTime DataOrcamento { get; set; }
+        public Nullable<System.DateTime> DataAceito { get; set; }
+        public Nullable<System.DateTime> DataRejeitado { get; set; }
         public int idOrcamento { get; set; }
         public string statusCliente { get; set; }
         public string statusEntrega { get; set; }
