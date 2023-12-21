@@ -31,8 +31,6 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
         public void constroiGrid()
         {
             UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "login", HeaderText = "Login", Visible = true });
-            //UsuariosDataGridView.Columns.Add(new GridTextColumn() { MappingName = "area", HeaderText = "Área", Visible = true });
-            //UsuariosDataGridView.Columns.Add(new GridCheckBoxColumn() { MappingName = "ativo", HeaderText = "Está Ativo?", Visible = true, Width = 150 });
 
             using (ConnectionString context = new ConnectionString())
             {
@@ -45,6 +43,7 @@ namespace SistemaIntegradoV1._0.VIEW.Cadastro
                 UsuariosDataGridView.DataSource = query;
             }
         }
+
         public void carregaGrid()
         {
             using (ConnectionString context = new ConnectionString())

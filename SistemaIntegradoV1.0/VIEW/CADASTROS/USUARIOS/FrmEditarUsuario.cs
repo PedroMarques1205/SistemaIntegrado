@@ -82,9 +82,6 @@ namespace SistemaIntegradoV1._0.VIEW.CADASTROS.USUARIOS
                     List<Acessos> acessos = acessosUser;
                     Usuario usuario = context.Usuario.FirstOrDefault(x => x.Login.Equals(user.Login));
 
-                    //vião banco de dados para o sistema
-                    //nesse caso, caso não haja no sistema
-                    //remove o acesso do banco de dados
                     foreach (Acessos item in acessos) 
                     {
                         bool encontrou = false;
